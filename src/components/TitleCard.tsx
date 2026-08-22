@@ -1,7 +1,7 @@
-import { TMDB } from '../config/tmdb';
 import type { TrackerItem, TrackerMovie, TrackerSeries } from '../types';
 import { useNavigate } from 'react-router-dom';
 import { Heart, Star, Play, CheckCircle2, Clock } from 'lucide-react';
+import TMDBImage from './TMDBImage';
 
 interface Props {
   item: TrackerItem;
@@ -39,18 +39,14 @@ export default function TitleCard({ item, showStatus = true }: Props) {
       className="group relative rounded-xl overflow-hidden bg-vault-card border border-vault-border/40 hover:border-vault-border transition-all duration-300 text-left w-full shadow-vault-sm hover:shadow-vault-lg hover:-translate-y-0.5"
     >
       <div className="aspect-[2/3] relative overflow-hidden bg-vault-surface">
-        {item.poster ? (
-          <img
-            src={TMDB.poster(item.poster, 'w342')}
-            alt={title}
-            className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
-            loading="lazy"
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center text-vault-muted text-xs">
-            No Poster
-          </div>
-        )}
+        <TMDBImage
+          path={item.poster}
+          alt={title}
+          size="w342"
+          className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+          fallbackClassName="w-full h-full"
+          fallbackText="No Poster"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80" />
         <div className="absolute inset-0 bg-vault-gloss opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         {item.favorite && (

@@ -13,11 +13,11 @@ import {
 } from 'lucide-react';
 import { getMovieDetail, getTVDetail, getTVSeasonDetail } from '../services/tmdb';
 import type { TMDBMovieDetail, TMDBTVDetail, TrackerMovie, TrackerSeries, SeasonProgress, EpisodeProgress, TrackerItem } from '../types';
-import { TMDB } from '../config/tmdb';
 import { useTrackerContext } from '../hooks/useTrackerContext';
 import { createTrackerMovie, createTrackerSeries, addHistoryEntry, updateTitle, updateEpisodeProgress, toggleSeasonWatched } from '../services/storage';
 import { formatMinutes } from '../utils/helpers';
 import LoadingSpinner from '../components/LoadingSpinner';
+import TMDBImage from '../components/TMDBImage';
 
 const VALID_MEDIA_TYPES = ['movie', 'tv'] as const;
 
@@ -324,15 +324,15 @@ export default function TitleDetail() {
       </button>
 
       <div className="relative rounded-2xl overflow-hidden mb-6 ring-1 ring-vault-border/30">
-        {backdrop ? (
-          <img
-            src={TMDB.backdrop(backdrop, 'w1280')}
-            alt={title}
-            className="w-full h-48 md:h-72 object-cover"
-          />
-        ) : (
-          <div className="w-full h-48 md:h-72 bg-vault-card" />
-        )}
+        <TMDBImage
+          path={backdrop}
+          alt={title}
+          type="backdrop"
+          backdropSize="w1280"
+          className="w-full h-48 md:h-72 object-cover"
+          fallbackClassName="w-full h-48 md:h-72 bg-vault-card"
+          lazy={false}
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-vault-bg via-vault-bg/55 to-vault-bg/5" />
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-vault-bg via-vault-bg/40 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-vault-bg/40 via-transparent to-transparent" />
@@ -340,20 +340,15 @@ export default function TitleDetail() {
 
       <div className="flex gap-4 md:gap-6 -mt-16 md:-mt-20 relative z-10 mb-6">
         <div className="w-24 md:w-36 flex-shrink-0">
-          {isMovie ? movie!.poster_path : tv!.poster_path ? (
-            <img
-              src={TMDB.poster(
-                isMovie ? movie!.poster_path : tv!.poster_path,
-                'w342'
-              )}
-              alt={title}
-              className="w-full rounded-xl ring-1 ring-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.9)]"
-            />
-          ) : (
-            <div className="vault-card w-full aspect-[2/3] flex items-center justify-center text-vault-muted">
-              N/A
-            </div>
-          )}
+          <TMDBImage
+            path={isMovie ? movie!.poster_path : tv!.poster_path}
+            alt={title}
+            size="w342"
+            className="w-full rounded-xl ring-1 ring-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.9)]"
+            fallbackClassName="vault-card w-full aspect-[2/3]"
+            fallbackText="N/A"
+            lazy={false}
+          />
         </div>
         <div className="flex-1 pt-6 md:pt-12 min-w-0">
           <h1 className="text-lg md:text-2xl font-display font-bold text-white leading-tight tracking-tight truncate">

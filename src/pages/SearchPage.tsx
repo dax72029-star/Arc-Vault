@@ -5,6 +5,7 @@ import { searchMulti, getTrending, getPopularMovies, getTopRatedMovies } from '.
 import type { TMDBSearchResult, TMDBPaginatedResponse } from '../types';
 import { TMDB } from '../config/tmdb';
 import SearchResultCard from '../components/SearchResultCard';
+import TMDBImage from '../components/TMDBImage';
 import { SearchSkeleton } from '../components/LoadingSpinner';
 import { useDebounce } from '../hooks/useSearch';
 
@@ -245,18 +246,14 @@ export default function SearchPage() {
                     className="group relative rounded-xl overflow-hidden bg-vault-card border border-vault-border/40 hover:border-vault-border transition-all duration-300 shadow-vault-sm hover:shadow-vault-lg hover:-translate-y-0.5 text-left w-full"
                   >
                     <div className="aspect-[2/3] relative overflow-hidden bg-vault-surface">
-                      {item.poster_path ? (
-                        <img
-                          src={TMDB.poster(item.poster_path, 'w342')}
-                          alt={title}
-                          className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center text-vault-muted text-caption">
-                          No Poster
-                        </div>
-                      )}
+                      <TMDBImage
+                        path={item.poster_path}
+                        alt={title}
+                        size="w342"
+                        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                        fallbackClassName="w-full h-full"
+                        fallbackText="No Poster"
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80" />
                       <div className="absolute inset-0 bg-vault-gloss opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <div className="absolute bottom-0 left-0 right-0 p-2.5 bg-gradient-to-t from-black/90 via-black/50 to-transparent">

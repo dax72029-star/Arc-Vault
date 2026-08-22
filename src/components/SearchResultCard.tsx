@@ -1,7 +1,7 @@
-import { TMDB } from '../config/tmdb';
 import type { TMDBSearchResult } from '../types';
 import { useNavigate } from 'react-router-dom';
 import { Star } from 'lucide-react';
+import TMDBImage from './TMDBImage';
 
 interface Props {
   item: TMDBSearchResult;
@@ -19,18 +19,13 @@ export default function SearchResultCard({ item }: Props) {
       className="flex gap-4 p-3 rounded-xl bg-vault-surface/40 hover:bg-vault-surface-elevated border border-transparent hover:border-vault-border/50 transition-all duration-200 text-left w-full group"
     >
       <div className="w-14 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-vault-surface">
-        {item.poster_path ? (
-          <img
-            src={TMDB.poster(item.poster_path, 'w185')}
-            alt={title}
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center text-vault-muted text-xs">
-            N/A
-          </div>
-        )}
+        <TMDBImage
+          path={item.poster_path}
+          alt={title}
+          size="w185"
+          className="w-full h-full object-cover"
+          fallbackClassName="w-full h-full"
+        />
       </div>
       <div className="flex-1 min-w-0">
         <h3 className="text-[13px] font-semibold text-vault-text truncate group-hover:text-vault-accent transition-colors">

@@ -134,8 +134,8 @@ export function updateTitle(tmdbId: number, type: 'movie' | 'tv', updates: Parti
   const existing = tracker[index];
   const safeUpdates: Record<string, unknown> = {};
   const allowedKeys = type === 'movie'
-    ? ['personalRating', 'status', 'dateWatched', 'favorite']
-    : ['personalRating', 'status', 'dateStarted', 'dateCompleted', 'favorite'];
+    ? ['personalRating', 'status', 'dateWatched', 'favorite', 'runtime']
+    : ['personalRating', 'status', 'dateStarted', 'dateCompleted', 'favorite', 'seasonProgress', 'numberOfEpisodes'];
   for (const key of allowedKeys) {
     if (key in updates) {
       safeUpdates[key] = (updates as Record<string, unknown>)[key];

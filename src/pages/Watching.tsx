@@ -2,9 +2,9 @@ import { useMemo } from 'react';
 import { Play } from 'lucide-react';
 import { useTrackerContext } from '../hooks/useTrackerContext';
 import type { TrackerSeries } from '../types';
-import { TMDB } from '../config/tmdb';
 import { useNavigate } from 'react-router-dom';
 import EmptyState from '../components/EmptyState';
+import TMDBImage from '../components/TMDBImage';
 
 export default function Watching() {
   const { items } = useTrackerContext();
@@ -65,17 +65,13 @@ export default function Watching() {
               className="vault-card w-full flex gap-4 p-4 text-left transition-all duration-vault-normal hover:border-vault-accent/40 hover:shadow-vault-md hover:-translate-y-0.5 group"
             >
               <div className="w-16 h-24 rounded-lg overflow-hidden flex-shrink-0 bg-vault-border shadow-vault-sm">
-                {series.poster ? (
-                  <img
-                    src={TMDB.poster(series.poster, 'w185')}
-                    alt={series.title}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-vault-muted text-xs">
-                    N/A
-                  </div>
-                )}
+                <TMDBImage
+                  path={series.poster}
+                  alt={series.title}
+                  size="w185"
+                  className="w-full h-full object-cover"
+                  fallbackClassName="w-full h-full"
+                />
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="text-sm font-semibold text-white truncate group-hover:text-vault-accent transition-colors duration-vault-fast">
