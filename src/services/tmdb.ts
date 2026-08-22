@@ -29,12 +29,12 @@ async function fetchTMDB<T>(endpoint: string, params: Record<string, string> = {
   return response.json();
 }
 
-export async function searchMulti(query: string, page = 1): Promise<TMDBPaginatedResponse<TMDBSearchResult>> {
+export async function searchMulti(query: string, page = 1, signal?: AbortSignal): Promise<TMDBPaginatedResponse<TMDBSearchResult>> {
   return fetchTMDB('/search/multi', {
     query,
     page: String(page),
     include_adult: 'false',
-  });
+  }, signal);
 }
 
 export async function searchMovies(query: string, page = 1): Promise<TMDBPaginatedResponse<TMDBSearchResult>> {

@@ -41,7 +41,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         <div className="p-5 border-b border-vault-border/30">
           <div className="flex items-center gap-3">
             <div className="relative">
-              <img src="/Arc-Vault LOGO.png" alt="ArcVault" className="w-9 h-9 rounded-xl object-cover" />
+              <img src="/arc-vault-logo.png" alt="ArcVault" className="w-9 h-9 rounded-xl object-cover" />
               <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-vault-success rounded-full border-2 border-vault-surface" />
             </div>
             <div>
@@ -79,7 +79,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <main className="flex-1 lg:ml-60 pb-20 lg:pb-8">
         <header className="lg:hidden sticky top-0 z-20 bg-vault-bg/80 backdrop-blur-vault-xl border-b border-vault-border/30 px-4 py-3">
           <div className="flex items-center gap-2.5">
-            <img src="/Arc-Vault LOGO.png" alt="ArcVault" className="w-7 h-7 rounded-lg object-cover" />
+            <img src="/arc-vault-logo.png" alt="ArcVault" className="w-7 h-7 rounded-lg object-cover" />
             <h1 className="text-sm font-display font-bold text-vault-text tracking-tight">ArcVault</h1>
           </div>
         </header>

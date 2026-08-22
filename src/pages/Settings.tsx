@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Download, Upload, Trash2, AlertTriangle, Settings as SettingsIcon, ExternalLink } from 'lucide-react';
 import { exportData, importData, clearAllData } from '../services/storage';
 import { useTrackerContext } from '../hooks/useTrackerContext';
@@ -10,9 +10,20 @@ export default function Settings() {
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const clearTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+      if (clearTimerRef.current) clearTimeout(clearTimerRef.current);
+    };
+  }, []);
+
   const showMessage = (type: 'success' | 'error', text: string) => {
     setMessage({ type, text });
-    setTimeout(() => setMessage(null), 3000);
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => setMessage(null), 3000);
   };
 
   const handleExport = () => {
@@ -71,7 +82,8 @@ export default function Settings() {
       setClearing(false);
     } else {
       setClearing(true);
-      setTimeout(() => setClearing(false), 5000);
+      if (clearTimerRef.current) clearTimeout(clearTimerRef.current);
+      clearTimerRef.current = setTimeout(() => setClearing(false), 5000);
     }
   };
 

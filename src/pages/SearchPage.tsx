@@ -40,7 +40,7 @@ export default function SearchPage() {
     setLoading(true);
     setError(null);
     try {
-      const data: TMDBPaginatedResponse<TMDBSearchResult> = await searchMulti(searchQuery);
+      const data: TMDBPaginatedResponse<TMDBSearchResult> = await searchMulti(searchQuery, 1, abortRef.current?.signal);
       const filtered = data.results.filter(
         (r) => r.media_type === 'movie' || r.media_type === 'tv'
       );
