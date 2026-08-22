@@ -23,7 +23,7 @@ export default function Settings() {
   const showMessage = (type: 'success' | 'error', text: string) => {
     setMessage({ type, text });
     if (timerRef.current) clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(() => setMessage(null), 3000);
+    timerRef.current = setTimeout(() => setMessage(null), type === 'success' ? 5000 : 3000);
   };
 
   const handleExport = () => {
@@ -57,12 +57,15 @@ export default function Settings() {
     reader.onload = (event) => {
       try {
         const content = event.target?.result as string;
-        const success = importData(content);
-        if (success) {
+        const result = importData(content);
+        if (result.success) {
           refresh();
-          showMessage('success', 'Data imported successfully');
+          let text = `Imported ${result.trackerImported} titles`;
+          if (result.historyImported > 0) text += ` and ${result.historyImported} history entries`;
+          if (result.duplicatesSkipped > 0) text += ` (${result.duplicatesSkipped} duplicates skipped)`;
+          showMessage('success', text);
         } else {
-          showMessage('error', 'Invalid data format');
+          showMessage('error', result.error || 'Invalid data format');
         }
       } catch {
         showMessage('error', 'Failed to import data');

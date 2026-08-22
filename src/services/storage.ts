@@ -13,10 +13,18 @@ function isValidTrackerItem(item: unknown): item is TrackerItem {
   if (typeof obj.tmdbId !== 'number' || !Number.isFinite(obj.tmdbId) || obj.tmdbId <= 0) return false;
   if (typeof obj.title !== 'string') return false;
   if (typeof obj.id !== 'string') return false;
+  if (!Array.isArray(obj.genres)) return false;
+  if (typeof obj.poster !== 'string' && obj.poster !== null) return false;
+  if (typeof obj.backdrop !== 'string' && obj.backdrop !== null) return false;
+  if (typeof obj.personalRating !== 'number') return false;
+  if (typeof obj.tmdbRating !== 'number') return false;
+  if (typeof obj.favorite !== 'boolean') return false;
+  if (typeof obj.dateAdded !== 'string') return false;
   if (obj.type === 'movie') {
     if (!VALID_MOVIE_STATUSES.includes(obj.status as string)) return false;
   } else if (obj.type === 'tv') {
     if (!VALID_SERIES_STATUSES.includes(obj.status as string)) return false;
+    if (!Array.isArray(obj.seasonProgress)) return false;
   }
   return true;
 }
@@ -41,12 +49,19 @@ function safeGetJSON<T>(key: string, fallback: T): T {
 }
 
 function safeSetJSON(key: string, data: unknown): void {
+  const json = JSON.stringify(data);
+  localStorage.setItem(key, json);
+}
+
+function trySetJSON(key: string, data: unknown): boolean {
   try {
-    localStorage.setItem(key, JSON.stringify(data));
+    safeSetJSON(key, data);
+    return true;
   } catch {
     if (import.meta.env.DEV) {
-      console.error('LocalStorage write error');
+      console.error(`[ArcVault] localStorage write failed for key: ${key}`);
     }
+    return false;
   }
 }
 
@@ -55,7 +70,7 @@ export function getTracker(): TrackerItem[] {
 }
 
 export function saveTracker(items: TrackerItem[]): void {
-  safeSetJSON(STORAGE_KEYS.TRACKER, items);
+  trySetJSON(STORAGE_KEYS.TRACKER, items);
 }
 
 export function getHistory(): HistoryEntry[] {
@@ -63,7 +78,7 @@ export function getHistory(): HistoryEntry[] {
 }
 
 export function saveHistory(history: HistoryEntry[]): void {
-  safeSetJSON(STORAGE_KEYS.HISTORY, history);
+  trySetJSON(STORAGE_KEYS.HISTORY, history);
 }
 
 export function addHistoryEntry(entry: Omit<HistoryEntry, 'id' | 'date'>): HistoryEntry {
@@ -278,27 +293,65 @@ export function exportData(): string {
   return JSON.stringify(data, null, 2);
 }
 
-export function importData(jsonString: string): boolean {
+export interface ImportResult {
+  success: boolean;
+  trackerImported: number;
+  historyImported: number;
+  duplicatesSkipped: number;
+  invalidItems: number;
+  error?: string;
+}
+
+export function importData(jsonString: string): ImportResult {
   try {
     const data = JSON.parse(jsonString);
     if (!data.tracker || !Array.isArray(data.tracker)) {
-      throw new Error('Invalid data format');
+      return { success: false, trackerImported: 0, historyImported: 0, duplicatesSkipped: 0, invalidItems: 0, error: 'Invalid data format: missing tracker array' };
     }
     if (data.tracker.length > 10000) {
-      throw new Error('Import too large');
+      return { success: false, trackerImported: 0, historyImported: 0, duplicatesSkipped: 0, invalidItems: 0, error: 'Import too large (max 10,000 items)' };
     }
-    const validTracker = data.tracker.filter(isValidTrackerItem);
-    if (validTracker.length === 0) {
-      throw new Error('No valid items found');
+
+    const validItems = data.tracker.filter(isValidTrackerItem);
+    const invalidItems = data.tracker.length - validItems.length;
+
+    const seen = new Map<string, TrackerItem>();
+    for (const item of validItems) {
+      const key = `${item.tmdbId}_${item.type}`;
+      if (!seen.has(key)) {
+        seen.set(key, item);
+      }
     }
-    saveTracker(validTracker);
+    const deduped = Array.from(seen.values());
+    const duplicatesSkipped = validItems.length - deduped.length;
+
+    if (deduped.length === 0) {
+      return { success: false, trackerImported: 0, historyImported: 0, duplicatesSkipped, invalidItems, error: 'No valid tracker items found in import data' };
+    }
+
+    safeSetJSON(STORAGE_KEYS.TRACKER, deduped);
+    const readBack = getTracker();
+    if (readBack.length === 0 && deduped.length > 0) {
+      return { success: false, trackerImported: 0, historyImported: 0, duplicatesSkipped, invalidItems, error: 'Storage quota exceeded. Try exporting fewer items or clearing old data first.' };
+    }
+
+    let historyImported = 0;
     if (data.history && Array.isArray(data.history)) {
       const validHistory = data.history.filter(isValidHistoryEntry);
-      saveHistory(validHistory);
+      historyImported = validHistory.length;
+      safeSetJSON(STORAGE_KEYS.HISTORY, validHistory);
     }
-    return true;
-  } catch {
-    return false;
+
+    return {
+      success: true,
+      trackerImported: readBack.length,
+      historyImported,
+      duplicatesSkipped,
+      invalidItems,
+    };
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : 'Unknown error';
+    return { success: false, trackerImported: 0, historyImported: 0, duplicatesSkipped: 0, invalidItems: 0, error: `Import failed: ${msg}` };
   }
 }
 
