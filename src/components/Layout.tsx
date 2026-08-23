@@ -30,6 +30,7 @@ const mobileNavItems = [
   { to: '/watching', icon: Play, label: 'Watch' },
   { to: '/completed', icon: CheckCircle2, label: 'Done' },
   { to: '/statistics', icon: BarChart3, label: 'Stats' },
+  { to: '/settings', icon: Settings, label: 'Settings' },
 ];
 
 export default function Layout({ children }: { children: ReactNode }) {
