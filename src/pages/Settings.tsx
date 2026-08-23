@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Download, Upload, Trash2, AlertTriangle, Settings as SettingsIcon, ExternalLink, Film, Loader2, CheckCircle2, XCircle, AlertCircle, Search } from 'lucide-react';
+import { Download, Upload, Trash2, AlertTriangle, Settings as SettingsIcon, ExternalLink, Film, Loader2, CheckCircle2, XCircle, AlertCircle, Search, DownloadCloud } from 'lucide-react';
 import { exportData, importData, clearAllData, addTitle, getTracker } from '../services/storage';
 import { useTrackerContext } from '../hooks/useTrackerContext';
+import { useInstallPrompt } from '../hooks/useInstallPrompt';
 import { resolveImportItems, enrichTrackerAfterImport, type ImportItem, type ResolutionProgress, type EnrichmentProgress } from '../services/tmdbMatcher';
 import { TMDB } from '../config/tmdb';
 
@@ -27,6 +28,7 @@ function isLightweightImport(data: unknown): data is ImportItem[] {
 
 export default function Settings() {
   const { refresh } = useTrackerContext();
+  const { isInstallable, promptInstall } = useInstallPrompt();
   const [importing, setImporting] = useState(false);
   const [clearing, setClearing] = useState(false);
   const [message, setMessage] = useState<Message | null>(null);
@@ -485,6 +487,29 @@ export default function Settings() {
           </div>
         </div>
       </section>
+
+      {isInstallable && (
+        <section className="vault-section">
+          <h2 className="vault-section-title">
+            <DownloadCloud className="w-5 h-5 text-vault-accent" />
+            Install App
+          </h2>
+          <div className="vault-card p-5 md:p-6">
+            <div className="flex items-start gap-4">
+              <div className="flex-1 min-w-0">
+                <h3 className="text-sm font-semibold text-white">Install ArcVault</h3>
+                <p className="text-xs text-vault-muted mt-1 leading-relaxed">
+                  Add ArcVault to your device for quick access. Works offline and feels like a native app.
+                </p>
+                <button onClick={promptInstall} className="vault-btn-primary mt-4">
+                  <DownloadCloud className="w-4 h-4" />
+                  Install ArcVault
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="vault-section">
         <h2 className="vault-section-title">About</h2>
