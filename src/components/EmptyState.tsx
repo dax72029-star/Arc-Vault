@@ -22,14 +22,14 @@ export default function EmptyState({ icon, title, description, actionLabel, acti
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
+    <div className="flex flex-col items-center justify-center py-12 md:py-20 px-4 text-center">
       {icon && (
-        <div className="text-vault-muted/20 mb-5">
+        <div className="text-vault-muted/20 mb-4 md:mb-5">
           {icon}
         </div>
       )}
-      <h3 className="text-h3 font-display font-semibold text-vault-text mb-2">{title}</h3>
-      <p className="text-body-sm text-vault-muted max-w-sm">{description}</p>
+      <h3 className="text-base md:text-h3 font-display font-semibold text-vault-text mb-2">{title}</h3>
+      <p className="text-xs md:text-body-sm text-vault-muted max-w-sm">{description}</p>
       {actionLabel && (
         <button
           onClick={handleAction}

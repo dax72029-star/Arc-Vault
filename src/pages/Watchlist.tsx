@@ -59,12 +59,12 @@ export default function Watchlist() {
   if (pendingCount + watchingCount === 0) {
     return (
       <div>
-        <div className="mb-8 md:mb-10">
-          <h1 className="text-h1 font-display font-bold text-vault-text tracking-tight">Watchlist</h1>
-          <p className="text-body-sm text-vault-muted mt-1">0 titles to watch</p>
+        <div className="mb-6 md:mb-10">
+          <h1 className="text-xl md:text-h1 font-display font-bold text-vault-text tracking-tight">Watchlist</h1>
+          <p className="text-xs md:text-body-sm text-vault-muted mt-1">0 titles to watch</p>
         </div>
         <EmptyState
-          icon={<ListTodo className="w-16 h-16" />}
+          icon={<ListTodo className="w-12 h-12 md:w-16 md:h-16" />}
           title="Watchlist is empty"
           description="Add movies and series to your watchlist from the search page."
           actionLabel="Search Titles"
@@ -76,9 +76,9 @@ export default function Watchlist() {
 
   return (
     <div>
-      <div className="mb-8 md:mb-10">
-        <h1 className="text-h1 font-display font-bold text-vault-text tracking-tight">Watchlist</h1>
-        <p className="text-body-sm text-vault-muted mt-1">{watchlist.length} titles to watch</p>
+      <div className="mb-6 md:mb-10">
+        <h1 className="text-xl md:text-h1 font-display font-bold text-vault-text tracking-tight">Watchlist</h1>
+        <p className="text-xs md:text-body-sm text-vault-muted mt-1">{watchlist.length} titles to watch</p>
       </div>
       <FilterBar
         filters={['All', 'Movies', 'Series', 'Pending', 'Watching']}
@@ -95,19 +95,19 @@ export default function Watchlist() {
           description="No titles match your current filter."
         />
       ) : (
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2.5 md:gap-3">
           {watchlist.map((item) => (
             <TitleCard key={item.id} item={item} />
           ))}
         </div>
       )}
 
-      <div className="mt-16 pt-8 border-t border-vault-border/30 text-center">
-        <p className="text-sm font-semibold text-white tracking-wide">ArcVault</p>
-        <p className="text-xs text-vault-muted mt-1.5">
+      <div className="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-vault-border/30 text-center">
+        <p className="text-xs md:text-sm font-semibold text-white tracking-wide">ArcVault</p>
+        <p className="text-[10px] md:text-xs text-vault-muted mt-1.5">
           A personal cinema journey, crafted by <span className="text-vault-text-secondary font-medium">DAX SANANDIYA</span>
         </p>
-        <p className="text-[10px] text-vault-muted/60 mt-2">
+        <p className="text-[9px] md:text-[10px] text-vault-muted/60 mt-2">
           © 2026 DAX SANANDIYA · v1.0.0
         </p>
       </div>

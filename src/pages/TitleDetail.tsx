@@ -318,19 +318,19 @@ export default function TitleDetail() {
 
   return (
     <div>
-      <button onClick={() => navigate(-1)} className="vault-btn-ghost mb-6 -ml-3">
+      <button onClick={() => navigate(-1)} className="vault-btn-ghost mb-4 md:mb-6 -ml-3 min-h-[44px]">
         <ArrowLeft className="w-4 h-4" />
         Back
       </button>
 
-      <div className="relative rounded-2xl overflow-hidden mb-6 ring-1 ring-vault-border/30">
+      <div className="relative rounded-2xl overflow-hidden mb-5 md:mb-6 ring-1 ring-vault-border/30">
         <TMDBImage
           path={backdrop}
           alt={title}
           type="backdrop"
           backdropSize="w1280"
-          className="w-full h-48 md:h-72 object-cover"
-          fallbackClassName="w-full h-48 md:h-72 bg-vault-card"
+          className="w-full h-36 sm:h-48 md:h-72 object-cover"
+          fallbackClassName="w-full h-36 sm:h-48 md:h-72 bg-vault-card"
           lazy={false}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-vault-bg via-vault-bg/55 to-vault-bg/5" />
@@ -338,8 +338,8 @@ export default function TitleDetail() {
         <div className="absolute inset-0 bg-gradient-to-r from-vault-bg/40 via-transparent to-transparent" />
       </div>
 
-      <div className="flex gap-4 md:gap-6 -mt-16 md:-mt-20 relative z-10 mb-6">
-        <div className="w-24 md:w-36 flex-shrink-0">
+      <div className="flex gap-3 sm:gap-4 md:gap-6 -mt-10 sm:-mt-16 md:-mt-20 relative z-10 mb-5 md:mb-6">
+        <div className="w-[72px] sm:w-24 md:w-36 flex-shrink-0">
           <TMDBImage
             path={isMovie ? movie!.poster_path : tv!.poster_path}
             alt={title}
@@ -350,11 +350,11 @@ export default function TitleDetail() {
             lazy={false}
           />
         </div>
-        <div className="flex-1 pt-6 md:pt-12 min-w-0">
-          <h1 className="text-lg md:text-2xl font-display font-bold text-white leading-tight tracking-tight truncate">
+        <div className="flex-1 pt-3 sm:pt-6 md:pt-12 min-w-0">
+          <h1 className="text-[15px] sm:text-lg md:text-2xl font-display font-bold text-white leading-tight tracking-tight">
             {title}
           </h1>
-          <div className="flex flex-wrap items-center gap-2 mt-2 text-sm text-vault-muted">
+          <div className="flex flex-wrap items-center gap-1 sm:gap-2 mt-1 sm:mt-2 text-[11px] sm:text-sm text-vault-muted">
             <span>{year}</span>
             <span>·</span>
             <span className={`font-medium ${isMovie ? 'text-vault-accent' : 'text-vault-info'}`}>
@@ -373,38 +373,38 @@ export default function TitleDetail() {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-2 mb-6">
+      <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-5 md:mb-6">
         {(isMovie ? movie!.genres : tv!.genres).map((g) => (
           <span
             key={g.id}
-            className="vault-badge px-3 py-1 bg-vault-surface-elevated text-vault-text/80 border border-vault-border/50"
+            className="vault-badge px-2.5 py-1 bg-vault-surface-elevated text-vault-text/80 border border-vault-border/50 text-[10px] sm:text-xs"
           >
             {g.name}
           </span>
         ))}
       </div>
 
-      <div className="flex flex-wrap gap-3 mb-6">
-        <div className="vault-card px-4 py-3 text-center min-w-[110px]">
-          <p className="text-xs text-vault-muted mb-1">TMDB Rating</p>
-          <p className="text-base md:text-lg font-display font-bold text-vault-gold flex items-center justify-center gap-1.5">
-            <Star className="w-4 h-4 fill-vault-gold" />
+      <div className="flex flex-wrap gap-2 sm:gap-3 mb-5 md:mb-6">
+        <div className="vault-card px-2.5 sm:px-4 py-2 sm:py-3 text-center min-w-[80px] sm:min-w-[110px]">
+          <p className="text-[9px] sm:text-xs text-vault-muted mb-0.5 sm:mb-1">TMDB Rating</p>
+          <p className="text-xs sm:text-base md:text-lg font-display font-bold text-vault-gold flex items-center justify-center gap-1 sm:gap-1.5">
+            <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-vault-gold" />
             {(isMovie ? movie!.vote_average : tv!.vote_average).toFixed(1)}
           </p>
         </div>
-        <div className="vault-card px-4 py-3 text-center">
-          <p className="text-xs text-vault-muted mb-1">My Rating</p>
-          <div className="flex items-center justify-center gap-0.5">
+        <div className="vault-card px-2.5 sm:px-4 py-2 sm:py-3 text-center">
+          <p className="text-[9px] sm:text-xs text-vault-muted mb-0.5 sm:mb-1">My Rating</p>
+          <div className="flex items-center justify-center gap-px sm:gap-0.5">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
               <button
                 key={n}
                 onClick={() => handleRate(rating === n ? 0 : n)}
                 onMouseEnter={() => setRatingHover(n)}
                 onMouseLeave={() => setRatingHover(0)}
-                className="transition-transform duration-vault-fast hover:scale-110"
+                className="transition-transform duration-vault-fast hover:scale-110 p-0.5 min-w-[24px] min-h-[24px] flex items-center justify-center"
               >
                 <Star
-                  className={`w-3.5 h-3.5 ${
+                  className={`w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 ${
                     n <= (ratingHover || rating)
                       ? 'text-vault-gold fill-vault-gold'
                       : 'text-vault-border'
@@ -414,20 +414,20 @@ export default function TitleDetail() {
             ))}
           </div>
           {rating > 0 && (
-            <p className="text-xs text-vault-gold mt-1">{rating}/10</p>
+            <p className="text-[9px] sm:text-xs text-vault-gold mt-0.5 sm:mt-1">{rating}/10</p>
           )}
         </div>
         <button
           onClick={handleToggleFavorite}
           aria-label="Toggle favorite"
-          className={`vault-card px-4 py-3 transition-all duration-vault-normal ${
+          className={`vault-card px-3 sm:px-4 py-2.5 sm:py-3 min-w-[44px] min-h-[44px] flex items-center justify-center transition-all duration-vault-normal ${
             tracked?.favorite
               ? '!border-vault-accent/50 shadow-[0_0_20px_-8px_rgba(220,38,38,0.5)]'
               : 'hover:border-vault-border'
           }`}
         >
           <Heart
-            className={`w-5 h-5 ${
+            className={`w-4 h-4 sm:w-5 sm:h-5 ${
               tracked?.favorite
                 ? 'text-vault-accent fill-vault-accent'
                 : 'text-vault-muted'
@@ -436,47 +436,47 @@ export default function TitleDetail() {
         </button>
       </div>
 
-      <p className="text-sm md:text-base text-vault-text/90 leading-relaxed max-w-3xl mb-6">
+      <p className="text-[11px] sm:text-sm md:text-base text-vault-text/90 leading-relaxed max-w-3xl mb-5 md:mb-6">
         {isMovie ? movie!.overview : tv!.overview}
       </p>
 
-      <div className="mb-8">
+      <div className="mb-6 md:mb-8">
         {!tracked ? (
           <button
             onClick={handleAdd}
             disabled={adding}
-            className="vault-btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+            className="vault-btn-primary disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto min-h-[44px]"
           >
             <Plus className="w-5 h-5" />
             {adding ? 'Adding...' : 'Add to Watchlist'}
           </button>
         ) : (
-          <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2.5 bg-vault-success/10 border border-vault-success/30 rounded-lg text-vault-success text-sm font-medium">
-              <Check className="w-4 h-4" />
+          <div className="space-y-3 md:space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 md:px-4 py-2 md:py-2.5 bg-vault-success/10 border border-vault-success/30 rounded-lg text-vault-success text-xs md:text-sm font-medium">
+              <Check className="w-3.5 h-3.5 md:w-4 md:h-4" />
               In your tracker
             </div>
             {tracked.type === 'movie' && (
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2 md:gap-3">
                 <button
                   onClick={handleMarkCompleted}
                   disabled={tracked.status === 'completed'}
                   className={
                     tracked.status === 'completed'
-                      ? 'inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium bg-vault-success/20 text-vault-success border border-vault-success/30 cursor-default'
-                      : 'vault-btn-secondary !border-vault-success/30 hover:!bg-vault-success/10 hover:text-vault-success'
+                      ? 'inline-flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-lg text-xs md:text-sm font-medium bg-vault-success/20 text-vault-success border border-vault-success/30 cursor-default min-h-[44px]'
+                      : 'vault-btn-secondary !border-vault-success/30 hover:!bg-vault-success/10 hover:text-vault-success min-h-[44px] !text-xs md:!text-sm'
                   }
                 >
                   <Check className="w-4 h-4" />
                   {tracked.status === 'completed' ? 'Completed' : 'Mark Completed'}
                 </button>
-                <button onClick={handleRemove} className="vault-btn-danger">
+                <button onClick={handleRemove} className="vault-btn-danger min-h-[44px] !text-xs md:!text-sm">
                   Remove
                 </button>
               </div>
             )}
             {tracked.type === 'tv' && (
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2 md:gap-3">
                 {['pending', 'watching', 'completed'].map((s) => (
                   <button
                     key={s}
@@ -484,17 +484,17 @@ export default function TitleDetail() {
                     className={
                       tracked.status === s
                         ? s === 'completed'
-                          ? 'inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium bg-vault-success/20 text-vault-success border border-vault-success/30'
+                          ? 'inline-flex items-center justify-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-lg text-xs md:text-sm font-medium bg-vault-success/20 text-vault-success border border-vault-success/30 min-h-[44px]'
                           : s === 'watching'
-                          ? 'inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium bg-vault-info-subtle text-vault-info border border-vault-info/30'
-                          : 'inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium bg-vault-warning/20 text-vault-warning border border-vault-warning/30'
-                        : 'vault-btn-secondary !text-vault-muted hover:!text-white'
+                          ? 'inline-flex items-center justify-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-lg text-xs md:text-sm font-medium bg-vault-info-subtle text-vault-info border border-vault-info/30 min-h-[44px]'
+                          : 'inline-flex items-center justify-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-lg text-xs md:text-sm font-medium bg-vault-warning/20 text-vault-warning border border-vault-warning/30 min-h-[44px]'
+                        : 'vault-btn-secondary !text-vault-muted hover:!text-white min-h-[44px] !text-xs md:!text-sm'
                     }
                   >
                     {s.charAt(0).toUpperCase() + s.slice(1)}
                   </button>
                 ))}
-                <button onClick={handleRemove} className="vault-btn-danger">
+                <button onClick={handleRemove} className="vault-btn-danger min-h-[44px] !text-xs md:!text-sm">
                   Remove
                 </button>
               </div>
@@ -504,9 +504,9 @@ export default function TitleDetail() {
       </div>
 
       {tracked && tracked.type === 'tv' && (tracked as TrackerSeries).seasonProgress.length > 0 && (
-        <section className="mb-8">
-          <h3 className="text-lg font-display font-semibold text-white mb-4">Seasons &amp; Episodes</h3>
-          <div className="space-y-3">
+        <section className="mb-6 md:mb-8">
+          <h3 className="text-base md:text-lg font-display font-semibold text-white mb-3 md:mb-4">Seasons &amp; Episodes</h3>
+          <div className="space-y-2.5 md:space-y-3">
             {(tracked as TrackerSeries).seasonProgress.map((season) => {
               const watched = season.episodes.filter((e) => e.watched).length;
               const total = season.episodes.length;
@@ -519,22 +519,22 @@ export default function TitleDetail() {
                 <div key={season.seasonNumber} className="vault-card overflow-hidden transition-colors duration-vault-normal hover:border-vault-border">
                   <button
                     onClick={() => loadSeason(season.seasonNumber)}
-                    className="w-full flex items-center justify-between p-4 md:p-5 text-left hover:bg-white/[0.02] transition-colors"
+                    className="w-full flex items-center justify-between p-3 md:p-5 text-left hover:bg-white/[0.02] transition-colors min-h-[52px]"
                   >
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="text-sm font-semibold text-white">
+                        <span className="text-xs md:text-sm font-semibold text-white">
                           Season {season.seasonNumber}
                         </span>
                         {allWatched && (
                           <span className="vault-badge-success">Done</span>
                         )}
                       </div>
-                      <div className="flex items-center gap-3 mt-2">
-                        <span className="text-xs text-vault-muted tabular-nums">
-                          {watched}/{total} episodes
+                      <div className="flex items-center gap-2 sm:gap-3 mt-1.5 md:mt-2">
+                        <span className="text-[10px] md:text-xs text-vault-muted tabular-nums">
+                          {watched}/{total}
                         </span>
-                        <div className="vault-progress flex-1 max-w-[140px]">
+                        <div className="vault-progress flex-1 max-w-[100px] md:max-w-[140px]">
                           <div
                             className={allWatched ? 'vault-progress-success' : 'vault-progress-accent'}
                             style={{ width: `${pct}%` }}
@@ -626,9 +626,9 @@ export default function TitleDetail() {
       )}
 
       {tv && tv.seasons && tv.seasons.length > 0 && !tracked && (
-        <section className="mb-8">
-          <h3 className="text-lg font-display font-semibold text-white mb-2">Series Info</h3>
-          <div className="flex gap-4 text-sm text-vault-muted">
+        <section className="mb-6 md:mb-8">
+          <h3 className="text-base md:text-lg font-display font-semibold text-white mb-2">Series Info</h3>
+          <div className="flex gap-3 sm:gap-4 text-xs md:text-sm text-vault-muted">
             <span>{tv.number_of_seasons} seasons</span>
             <span>{tv.number_of_episodes} episodes</span>
           </div>

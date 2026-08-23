@@ -1,0 +1,2437 @@
+{
+  "version": 1,
+  "exportDate": "2026-08-23T10:00:00.000Z",
+  "tracker": [
+    {
+      "tmdbId": 453395,
+      "type": "movie",
+      "title": "Doctor Strange in the Multiverse of Madness",
+      "poster": "/ddJcSKbcp4rKZTmuyWaMhuwcfMz.jpg",
+      "backdrop": "/lv3TXqhpaIxkclIHbhN2MRMOemQ.jpg",
+      "releaseDate": "2022-05-04",
+      "releaseYear": 2022,
+      "genres": [
+        "Fantasy",
+        "Action",
+        "Adventure"
+      ],
+      "description": "Doctor Strange, with the help of mystical allies both old and new, traverses the mind-bending and dangerous alternate realities of the Multiverse to confront a mysterious new adversary.",
+      "runtime": 126,
+      "tmdbRating": 7.225,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2026-07-17T13:53:00.000Z",
+      "favorite": false,
+      "id": "mv_453395_1784276580000",
+      "dateAdded": "2026-07-17T12:27:00.000Z"
+    },
+    {
+      "tmdbId": 67178,
+      "type": "tv",
+      "title": "Marvel's The Punisher",
+      "poster": "/tM6xqRKXoloH9UchaJEyyRE9O1w.jpg",
+      "backdrop": "/jBGjbSDRxOEudW9rmQbWDzJUKq9.jpg",
+      "releaseDate": "2017-11-17",
+      "releaseYear": 2017,
+      "genres": [
+        "Action & Adventure",
+        "Crime",
+        "Drama"
+      ],
+      "description": "A former Marine out to punish the criminals responsible for his family's murder finds himself ensnared in a military conspiracy.",
+      "numberOfSeasons": 2,
+      "numberOfEpisodes": 26,
+      "tmdbRating": 8.158,
+      "personalRating": 0,
+      "status": "completed",
+      "dateStarted": "2026-06-29T20:42:00.000Z",
+      "dateCompleted": "2026-07-08T18:42:00.000Z",
+      "favorite": false,
+      "id": "sv_67178_1782706320000",
+      "dateAdded": "2026-06-29T09:42:00.000Z",
+      "seasonProgress": [
+        {
+          "seasonNumber": 1,
+          "episodeCount": 13,
+          "episodes": [
+            {
+              "episodeNumber": 1,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 2,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 3,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 4,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 5,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 6,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 7,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 8,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 9,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 10,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 11,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 12,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 13,
+              "watched": true,
+              "runtime": null
+            }
+          ]
+        },
+        {
+          "seasonNumber": 2,
+          "episodeCount": 13,
+          "episodes": [
+            {
+              "episodeNumber": 1,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 2,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 3,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 4,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 5,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 6,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 7,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 8,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 9,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 10,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 11,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 12,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 13,
+              "watched": true,
+              "runtime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tmdbId": 283995,
+      "type": "movie",
+      "title": "Guardians of the Galaxy Vol. 2",
+      "poster": "/y4MBh0EjBlMuOzv9axM4qJlmhzz.jpg",
+      "backdrop": "/bW93ycPSSi3Hxx1NvlMX5qm2mQu.jpg",
+      "releaseDate": "2017-04-25",
+      "releaseYear": 2017,
+      "genres": [
+        "Science Fiction",
+        "Adventure",
+        "Action"
+      ],
+      "description": "The Guardians must fight to keep their newfound family together as they unravel the mysteries of Peter Quill's true parentage.",
+      "runtime": 137,
+      "tmdbRating": 7.609,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2026-06-22T19:58:00.000Z",
+      "favorite": false,
+      "id": "mv_283995_1782138480000",
+      "dateAdded": "2026-06-22T19:28:00.000Z"
+    },
+    {
+      "tmdbId": 24428,
+      "type": "movie",
+      "title": "The Avengers",
+      "poster": "/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg",
+      "backdrop": "/9BBTo63ANSmhC4e6r62OJFuK2GL.jpg",
+      "releaseDate": "2012-04-25",
+      "releaseYear": 2012,
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Adventure"
+      ],
+      "description": "When an unexpected enemy emerges and threatens global safety and security, Nick Fury, director of the international peacekeeping agency known as S.H.I.E.L.D., finds himself in need of a team to pull the world back from the brink of disaster. Spanning the globe, a daring recruitment effort begins!",
+      "runtime": 143,
+      "tmdbRating": 8.068,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2026-06-01T19:39:00.000Z",
+      "favorite": false,
+      "id": "mv_24428_1780322940000",
+      "dateAdded": "2026-06-01T19:04:00.000Z"
+    },
+    {
+      "tmdbId": 617126,
+      "type": "movie",
+      "title": "The Fantastic 4: First Steps",
+      "poster": "/nf5qaSEvyYSNeFH0YhSs5EsBLX9.jpg",
+      "backdrop": "/s94NjfKkcSczZ1FembwmQZwsuwY.jpg",
+      "releaseDate": "2025-07-23",
+      "releaseYear": 2025,
+      "genres": [
+        "Science Fiction",
+        "Adventure",
+        "Action"
+      ],
+      "description": "Against the vibrant backdrop of a 1960s-inspired, retro-futuristic world, Marvel's First Family is forced to balance their roles as heroes with the strength of their family bond, while defending Earth from a ravenous space god called Galactus and his enigmatic Herald, Silver Surfer.",
+      "runtime": 115,
+      "tmdbRating": 6.948,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2026-05-12T12:57:00.000Z",
+      "favorite": false,
+      "id": "mv_617126_1778570820000",
+      "dateAdded": "2026-05-12T11:50:00.000Z"
+    },
+    {
+      "tmdbId": 271110,
+      "type": "movie",
+      "title": "Captain America: Civil War",
+      "poster": "/rAGiXaUfPzY7CDEyNKUofk3Kw2e.jpg",
+      "backdrop": "/wdwcOBMkt3zmPQuEMxB3FUtMio2.jpg",
+      "releaseDate": "2016-04-27",
+      "releaseYear": 2016,
+      "genres": [
+        "Adventure",
+        "Action",
+        "Science Fiction"
+      ],
+      "description": "Following the events of Age of Ultron, the collective governments of the world pass an act designed to regulate all superhuman activity. This polarizes opinion amongst the Avengers, causing two factions to side with Iron Man or Captain America, which causes an epic battle between former allies.",
+      "runtime": 147,
+      "tmdbRating": 7.451,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2026-05-10T13:17:00.000Z",
+      "favorite": false,
+      "id": "mv_271110_1778399220000",
+      "dateAdded": "2026-05-10T13:15:00.000Z"
+    },
+    {
+      "tmdbId": 202555,
+      "type": "tv",
+      "title": "Daredevil: Born Again",
+      "poster": "/xDUoAsU8lQHOOoRkFiBuarmACDN.jpg",
+      "backdrop": "/m291MEBjhuRqb0nh9ojnm9gzScq.jpg",
+      "releaseDate": "2025-03-04",
+      "releaseYear": 2025,
+      "genres": [
+        "Drama",
+        "Action & Adventure",
+        "Crime"
+      ],
+      "description": "Matt Murdock, a blind lawyer with heightened abilities, is fighting for justice through his bustling law firm, while former mob boss Wilson Fisk pursues his own political endeavors in New York. When their past identities begin to emerge, both men find themselves on an inevitable collision course.",
+      "numberOfSeasons": 2,
+      "numberOfEpisodes": 17,
+      "tmdbRating": 8.161,
+      "personalRating": 0,
+      "status": "completed",
+      "dateStarted": "2026-04-16T08:25:00.000Z",
+      "dateCompleted": "2026-04-24T08:25:00.000Z",
+      "favorite": false,
+      "id": "sv_202555_1776279300000",
+      "dateAdded": "2026-04-16T00:25:00.000Z",
+      "seasonProgress": [
+        {
+          "seasonNumber": 1,
+          "episodeCount": 9,
+          "episodes": [
+            {
+              "episodeNumber": 1,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 2,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 3,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 4,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 5,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 6,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 7,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 8,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 9,
+              "watched": true,
+              "runtime": null
+            }
+          ]
+        },
+        {
+          "seasonNumber": 2,
+          "episodeCount": 8,
+          "episodes": [
+            {
+              "episodeNumber": 1,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 2,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 3,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 4,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 5,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 6,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 7,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 8,
+              "watched": true,
+              "runtime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tmdbId": 912649,
+      "type": "movie",
+      "title": "Venom: The Last Dance",
+      "poster": "/vGXptEdgZIhPg3cGlc7e8sNPC2e.jpg",
+      "backdrop": "/3V4kLQg0kSqPLctI5ziYWabAZYF.jpg",
+      "releaseDate": "2024-10-22",
+      "releaseYear": 2024,
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Adventure"
+      ],
+      "description": "Eddie and Venom are on the run. Hunted by both of their worlds and with the net closing in, the duo are forced into a devastating decision that will bring the curtains down on Venom and Eddie's last dance.",
+      "runtime": 109,
+      "tmdbRating": 6.674,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2026-04-17T17:56:00.000Z",
+      "favorite": false,
+      "id": "mv_912649_1776428760000",
+      "dateAdded": "2026-04-17T17:31:00.000Z"
+    },
+    {
+      "tmdbId": 1724,
+      "type": "movie",
+      "title": "The Incredible Hulk",
+      "poster": "/gKzYx79y0AQTL4UAk1cBQJ3nvrm.jpg",
+      "backdrop": "/jPu8yiadqgzwFPGKJmGo637ASVP.jpg",
+      "releaseDate": "2008-06-12",
+      "releaseYear": 2008,
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Adventure"
+      ],
+      "description": "Scientist Bruce Banner scours the planet for an antidote to the unbridled force of rage within him: the Hulk. But when the military masterminds who dream of exploiting his powers force him back to civilization, he finds himself coming face to face with a new, deadly foe.",
+      "runtime": 114,
+      "tmdbRating": 6.256,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2026-04-13T03:00:00.000Z",
+      "favorite": false,
+      "id": "mv_1724_1776029400000",
+      "dateAdded": "2026-04-13T02:01:00.000Z"
+    },
+    {
+      "tmdbId": 533535,
+      "type": "movie",
+      "title": "Deadpool & Wolverine",
+      "poster": "/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+      "backdrop": "/by8z9Fe8y7p4jo2YlW2SZDnptyT.jpg",
+      "releaseDate": "2024-07-24",
+      "releaseYear": 2024,
+      "genres": [
+        "Action",
+        "Comedy",
+        "Science Fiction"
+      ],
+      "description": "A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him. But when his homeworld faces an existential threat, Wade must reluctantly suit-up again with an even more reluctant Wolverine.",
+      "runtime": 128,
+      "tmdbRating": 7.585,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2026-03-11T02:18:00.000Z",
+      "favorite": false,
+      "id": "mv_533535_1773175680000",
+      "dateAdded": "2026-03-11T02:06:00.000Z"
+    },
+    {
+      "tmdbId": 1726,
+      "type": "movie",
+      "title": "Iron Man",
+      "poster": "/78lPtwv72eTNqFW9COBYI0dWDJa.jpg",
+      "backdrop": "/cKvDv2LpwVEqbdXWoQl4XgGN6le.jpg",
+      "releaseDate": "2008-04-30",
+      "releaseYear": 2008,
+      "genres": [
+        "Action",
+        "Science Fiction",
+        "Adventure"
+      ],
+      "description": "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
+      "runtime": 126,
+      "tmdbRating": 7.664,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2026-03-10T21:45:00.000Z",
+      "favorite": false,
+      "id": "mv_1726_1773159300000",
+      "dateAdded": "2026-03-10T21:09:00.000Z"
+    },
+    {
+      "tmdbId": 1930,
+      "type": "movie",
+      "title": "The Amazing Spider-Man",
+      "poster": "/jexoNYnPd6vVrmygwF6QZmWPFdu.jpg",
+      "backdrop": "/HVcza6tJtWFrLriuh3Ano4Vt46.jpg",
+      "releaseDate": "2012-06-23",
+      "releaseYear": 2012,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "description": "A teenage Peter Parker grapples with both high school and amazing super-human crises as his alter-ego Spider-Man.",
+      "runtime": 136,
+      "tmdbRating": 6.755,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2026-02-23T19:46:00.000Z",
+      "favorite": false,
+      "id": "mv_1930_1771856160000",
+      "dateAdded": "2026-02-23T19:03:00.000Z"
+    },
+    {
+      "tmdbId": 10195,
+      "type": "movie",
+      "title": "Thor",
+      "poster": "/prSfAi1xGrhLQNxVSUFh61xQ4Qy.jpg",
+      "backdrop": "/cDJ61O1STtbWNBwefuqVrRe3d7l.jpg",
+      "releaseDate": "2011-04-21",
+      "releaseYear": 2011,
+      "genres": [
+        "Adventure",
+        "Fantasy",
+        "Action"
+      ],
+      "description": "Against his father Odin's will, The Mighty Thor - a powerful but arrogant warrior god - recklessly reignites an ancient war. Thor is cast down to Earth and forced to live among humans as punishment. Once here, Thor learns what it takes to be a true hero when the most dangerous villain of his world sends the darkest forces of Asgard to invade Earth.",
+      "runtime": 115,
+      "tmdbRating": 6.771,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2026-02-21T06:34:00.000Z",
+      "favorite": false,
+      "id": "mv_10195_1771635840000",
+      "dateAdded": "2026-02-21T05:39:00.000Z"
+    },
+    {
+      "tmdbId": 293660,
+      "type": "movie",
+      "title": "Deadpool",
+      "poster": "/3E53WEZJqP6aM84D8CckXx4pIHw.jpg",
+      "backdrop": "/en971MEXui9diirXlogOrPKmsEn.jpg",
+      "releaseDate": "2016-02-09",
+      "releaseYear": 2016,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Comedy"
+      ],
+      "description": "The origin story of former Special Forces operative turned mercenary Wade Wilson, who, after being subjected to a rogue experiment that leaves him with accelerated healing powers, adopts the alter ego Deadpool. Armed with his new abilities and a dark, twisted sense of humor, Deadpool hunts down the man who nearly destroyed his life.",
+      "runtime": 108,
+      "tmdbRating": 7.625,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2026-02-13T04:22:00.000Z",
+      "favorite": false,
+      "id": "mv_293660_1770936720000",
+      "dateAdded": "2026-02-13T04:18:00.000Z"
+    },
+    {
+      "tmdbId": 335983,
+      "type": "movie",
+      "title": "Venom",
+      "poster": "/2uNW4WbgBXL25BAbXGLnLqX71Sw.jpg",
+      "backdrop": "/hNsYUryiwxcdeTMkaBcPF3iEg0p.jpg",
+      "releaseDate": "2018-09-28",
+      "releaseYear": 2018,
+      "genres": [
+        "Science Fiction",
+        "Action"
+      ],
+      "description": "Investigative journalist Eddie Brock attempts a comeback following a scandal, but accidentally becomes the host of Venom, a violent, super powerful alien symbiote. Soon, he must rely on his newfound powers to protect the world from a shadowy organization looking for a symbiote of their own.",
+      "runtime": 112,
+      "tmdbRating": 6.824,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2026-02-01T12:50:00.000Z",
+      "favorite": false,
+      "id": "mv_335983_1769930400000",
+      "dateAdded": "2026-02-01T11:51:00.000Z"
+    },
+    {
+      "tmdbId": 284052,
+      "type": "movie",
+      "title": "Doctor Strange",
+      "poster": "/uGBVj3bEbCoZbDjjl9wTxcygko1.jpg",
+      "backdrop": "/kkoiH8ZWxJ9WSAjOadGtuHUQxbm.jpg",
+      "releaseDate": "2016-10-25",
+      "releaseYear": 2016,
+      "genres": [
+        "Fantasy",
+        "Adventure",
+        "Action"
+      ],
+      "description": "After his career is destroyed, a brilliant but arrogant surgeon gets a new lease on life when a sorcerer takes him under her wing and trains him to defend the world against evil.",
+      "runtime": 115,
+      "tmdbRating": 7.424,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2026-01-05T22:40:00.000Z",
+      "favorite": false,
+      "id": "mv_284052_1767633000000",
+      "dateAdded": "2026-01-05T22:03:00.000Z"
+    },
+    {
+      "tmdbId": 84958,
+      "type": "tv",
+      "title": "Loki",
+      "poster": "/kEl2t3OhXc3Zb9FBh1AuYzRTgZp.jpg",
+      "backdrop": "/q3jHCb4dMfYF6ojikKuHd6LscxC.jpg",
+      "releaseDate": "2021-06-09",
+      "releaseYear": 2021,
+      "genres": [
+        "Drama",
+        "Sci-Fi & Fantasy"
+      ],
+      "description": "After stealing the Tesseract during the events of “Avengers: Endgame,” an alternate version of Loki is brought to the mysterious Time Variance Authority, a bureaucratic organization that exists outside of time and space and monitors the timeline. They give Loki a choice: face being erased from existence due to being a “time variant” or help fix the timeline and stop a greater threat.",
+      "numberOfSeasons": 2,
+      "numberOfEpisodes": 12,
+      "tmdbRating": 8.173,
+      "personalRating": 0,
+      "status": "completed",
+      "dateStarted": "2025-12-13T08:39:00.000Z",
+      "dateCompleted": "2025-12-22T23:39:00.000Z",
+      "favorite": false,
+      "id": "sv_84958_1765555740000",
+      "dateAdded": "2025-12-12T21:39:00.000Z",
+      "seasonProgress": [
+        {
+          "seasonNumber": 1,
+          "episodeCount": 6,
+          "episodes": [
+            {
+              "episodeNumber": 1,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 2,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 3,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 4,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 5,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 6,
+              "watched": true,
+              "runtime": null
+            }
+          ]
+        },
+        {
+          "seasonNumber": 2,
+          "episodeCount": 6,
+          "episodes": [
+            {
+              "episodeNumber": 1,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 2,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 3,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 4,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 5,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 6,
+              "watched": true,
+              "runtime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tmdbId": 315635,
+      "type": "movie",
+      "title": "Spider-Man: Homecoming",
+      "poster": "/c24sv2weTHPsmDa7jEMN0m2P3RT.jpg",
+      "backdrop": "/fn4n6uOYcB6Uh89nbNPoU2w80RV.jpg",
+      "releaseDate": "2017-07-05",
+      "releaseYear": 2017,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "description": "Following the events of Captain America: Civil War, Peter Parker, with the help of his mentor Tony Stark, tries to balance his life as an ordinary high school student in Queens, New York City, with fighting crime as his superhero alter ego Spider-Man as a new threat, the Vulture, emerges.",
+      "runtime": 133,
+      "tmdbRating": 7.333,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2025-12-20T23:43:00.000Z",
+      "favorite": false,
+      "id": "mv_315635_1766254380000",
+      "dateAdded": "2025-12-20T23:29:00.000Z"
+    },
+    {
+      "tmdbId": 99861,
+      "type": "movie",
+      "title": "Avengers: Age of Ultron",
+      "poster": "/4ssDuvEDkSArWEdyBl2X5EHvYKU.jpg",
+      "backdrop": "/kIBK5SKwgqIIuRKhhWrJn3XkbPq.jpg",
+      "releaseDate": "2015-04-22",
+      "releaseYear": 2015,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "description": "When Tony Stark tries to jumpstart a dormant peacekeeping program, things go awry and Earth’s Mightiest Heroes are put to the ultimate test as the fate of the planet hangs in the balance. As the villainous Ultron emerges, it is up to The Avengers to stop him from enacting his terrible plans, and soon uneasy alliances and unexpected action pave the way for an epic and unique global adventure.",
+      "runtime": 141,
+      "tmdbRating": 7.276,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2025-12-13T20:42:00.000Z",
+      "favorite": false,
+      "id": "mv_99861_1765638720000",
+      "dateAdded": "2025-12-13T19:40:00.000Z"
+    },
+    {
+      "tmdbId": 61889,
+      "type": "tv",
+      "title": "Marvel's Daredevil",
+      "poster": "/QWbPaDxiB6LW2LjASknzYBvjMj.jpg",
+      "backdrop": "/pPALpad1Fh14g7ejyQjqKzlhrBw.jpg",
+      "releaseDate": "2015-04-10",
+      "releaseYear": 2015,
+      "genres": [
+        "Crime",
+        "Drama",
+        "Action & Adventure"
+      ],
+      "description": "Lawyer-by-day Matt Murdock uses his heightened senses from being blinded as a young boy to fight crime at night on the streets of Hell’s Kitchen as Daredevil.",
+      "numberOfSeasons": 3,
+      "numberOfEpisodes": 39,
+      "tmdbRating": 8.173,
+      "personalRating": 0,
+      "status": "completed",
+      "dateStarted": "2025-11-15T07:17:00.000Z",
+      "dateCompleted": "2025-11-30T22:17:00.000Z",
+      "favorite": false,
+      "id": "sv_61889_1763135220000",
+      "dateAdded": "2025-11-14T21:17:00.000Z",
+      "seasonProgress": [
+        {
+          "seasonNumber": 1,
+          "episodeCount": 13,
+          "episodes": [
+            {
+              "episodeNumber": 1,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 2,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 3,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 4,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 5,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 6,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 7,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 8,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 9,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 10,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 11,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 12,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 13,
+              "watched": true,
+              "runtime": null
+            }
+          ]
+        },
+        {
+          "seasonNumber": 2,
+          "episodeCount": 13,
+          "episodes": [
+            {
+              "episodeNumber": 1,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 2,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 3,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 4,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 5,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 6,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 7,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 8,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 9,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 10,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 11,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 12,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 13,
+              "watched": true,
+              "runtime": null
+            }
+          ]
+        },
+        {
+          "seasonNumber": 3,
+          "episodeCount": 13,
+          "episodes": [
+            {
+              "episodeNumber": 1,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 2,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 3,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 4,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 5,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 6,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 7,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 8,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 9,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 10,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 11,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 12,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 13,
+              "watched": true,
+              "runtime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tmdbId": 497698,
+      "type": "movie",
+      "title": "Black Widow",
+      "poster": "/qAZ0pzat24kLdO3o8ejmbLxyOac.jpg",
+      "backdrop": "/keIxh0wPr2Ymj0Btjh4gW7JJ89e.jpg",
+      "releaseDate": "2021-07-07",
+      "releaseYear": 2021,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "description": "Natasha Romanoff, also known as Black Widow, confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Pursued by a force that will stop at nothing to bring her down, Natasha must deal with her history as a spy and the broken relationships left in her wake long before she became an Avenger.",
+      "runtime": 134,
+      "tmdbRating": 7.2,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2025-11-14T09:31:00.000Z",
+      "favorite": false,
+      "id": "mv_497698_1763092860000",
+      "dateAdded": "2025-11-14T09:12:00.000Z"
+    },
+    {
+      "tmdbId": 100402,
+      "type": "movie",
+      "title": "Captain America: The Winter Soldier",
+      "poster": "/tVFRpFw3xTedgPGqxW0AOI8Qhh0.jpg",
+      "backdrop": "/1RWLMyC9KcFfcaoViMiJGSSZzzr.jpg",
+      "releaseDate": "2014-03-20",
+      "releaseYear": 2014,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "description": "After the cataclysmic events in New York with The Avengers, Steve Rogers, aka Captain America is living quietly in Washington, D.C. and trying to adjust to the modern world. But when a S.H.I.E.L.D. colleague comes under attack, Steve becomes embroiled in a web of intrigue that threatens to put the world at risk. Joining forces with the Black Widow, Captain America struggles to expose the ever-widening conspiracy while fighting off professional assassins sent to silence him at every turn. When the full scope of the villainous plot is revealed, Captain America and the Black Widow enlist the help of a new ally, the Falcon. However, they soon find themselves up against an unexpected and formidable enemy—the Winter Soldier.",
+      "runtime": 136,
+      "tmdbRating": 7.654,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2025-10-31T08:30:00.000Z",
+      "favorite": false,
+      "id": "mv_100402_1761879600000",
+      "dateAdded": "2025-10-31T08:23:00.000Z"
+    },
+    {
+      "tmdbId": 10138,
+      "type": "movie",
+      "title": "Iron Man 2",
+      "poster": "/6WBeq4fCfn7AN0o21W9qNcRF2l9.jpg",
+      "backdrop": "/7lmBufEG7P7Y1HClYK3gCxYrkgS.jpg",
+      "releaseDate": "2010-04-28",
+      "releaseYear": 2010,
+      "genres": [
+        "Adventure",
+        "Action",
+        "Science Fiction"
+      ],
+      "description": "With the world now aware of his dual life as the armored superhero Iron Man, billionaire inventor Tony Stark faces pressure from the government, the press and the public to share his technology with the military. Unwilling to let go of his invention, Stark, with Pepper Potts and James 'Rhodey' Rhodes at his side, must forge new alliances – and confront powerful enemies.",
+      "runtime": 124,
+      "tmdbRating": 6.855,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2025-10-21T14:54:00.000Z",
+      "favorite": false,
+      "id": "mv_10138_1761038640000",
+      "dateAdded": "2025-10-21T14:22:00.000Z"
+    },
+    {
+      "tmdbId": 138505,
+      "type": "tv",
+      "title": "Marvel Zombies",
+      "poster": "/mwKj9ERGFXsWot0nXgQ5yMQf9I7.jpg",
+      "backdrop": "/lxQMxqao3vs2ehxESrkQU6acU86.jpg",
+      "releaseDate": "2025-09-24",
+      "releaseYear": 2025,
+      "genres": [
+        "Sci-Fi & Fantasy",
+        "Animation",
+        "Action & Adventure"
+      ],
+      "description": "After the Avengers are overtaken by a zombie plague, a desperate group of survivors discover the key to bringing an end to the super-powered undead, racing across a dystopian landscape and risking life and limb to save their world.",
+      "numberOfSeasons": 2,
+      "numberOfEpisodes": 4,
+      "tmdbRating": 7.284,
+      "personalRating": 0,
+      "status": "completed",
+      "dateStarted": "2025-10-08T14:20:00.000Z",
+      "dateCompleted": "2025-10-17T22:20:00.000Z",
+      "favorite": false,
+      "id": "sv_138505_1759888200000",
+      "dateAdded": "2025-10-08T07:20:00.000Z",
+      "seasonProgress": [
+        {
+          "seasonNumber": 1,
+          "episodeCount": 4,
+          "episodes": [
+            {
+              "episodeNumber": 1,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 2,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 3,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 4,
+              "watched": true,
+              "runtime": null
+            }
+          ]
+        },
+        {
+          "seasonNumber": 2,
+          "episodeCount": 0,
+          "episodes": []
+        }
+      ]
+    },
+    {
+      "tmdbId": 76338,
+      "type": "movie",
+      "title": "Thor: The Dark World",
+      "poster": "/wp6OxE4poJ4G7c0U2ZIXasTSMR7.jpg",
+      "backdrop": "/5QEOy0QEpad9QsXeMxuGHPXMale.jpg",
+      "releaseDate": "2013-10-30",
+      "releaseYear": 2013,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "description": "Thor fights to restore order across the cosmos… but an ancient race led by the vengeful Malekith returns to plunge the universe back into darkness. Faced with an enemy that even Odin and Asgard cannot withstand, Thor must embark on his most perilous and personal journey yet, one that will reunite him with Jane Foster and force him to sacrifice everything to save us all.",
+      "runtime": 112,
+      "tmdbRating": 6.51,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2025-10-08T23:22:00.000Z",
+      "favorite": false,
+      "id": "mv_76338_1759945920000",
+      "dateAdded": "2025-10-08T22:42:00.000Z"
+    },
+    {
+      "tmdbId": 299536,
+      "type": "movie",
+      "title": "Avengers: Infinity War",
+      "poster": "/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+      "backdrop": "/mDfJG3LC3Dqb67AZ52x3Z0jU0uB.jpg",
+      "releaseDate": "2018-04-25",
+      "releaseYear": 2018,
+      "genres": [
+        "Adventure",
+        "Action",
+        "Science Fiction"
+      ],
+      "description": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
+      "runtime": 149,
+      "tmdbRating": 8.241,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2025-08-11T06:52:00.000Z",
+      "favorite": false,
+      "id": "mv_299536_1754875320000",
+      "dateAdded": "2025-08-11T05:43:00.000Z"
+    },
+    {
+      "tmdbId": 102899,
+      "type": "movie",
+      "title": "Ant-Man",
+      "poster": "/rQRnQfUl3kfp78nCWq8Ks04vnq1.jpg",
+      "backdrop": "/1K3JmSNUN8OpjYsCjc0Hy0SYxAb.jpg",
+      "releaseDate": "2015-07-14",
+      "releaseYear": 2015,
+      "genres": [
+        "Science Fiction",
+        "Adventure",
+        "Action"
+      ],
+      "description": "Armed with the astonishing ability to shrink in scale but increase in strength, master thief Scott Lang must embrace his inner-hero and help his mentor, Doctor Hank Pym, protect the secret behind his spectacular Ant-Man suit from a new generation of towering threats. Against seemingly insurmountable obstacles, Pym and Lang must plan and pull off a heist that will save the world.",
+      "runtime": 117,
+      "tmdbRating": 7.066,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2025-06-29T21:05:00.000Z",
+      "favorite": false,
+      "id": "mv_102899_1751211300000",
+      "dateAdded": "2025-06-29T20:06:00.000Z"
+    },
+    {
+      "tmdbId": 299534,
+      "type": "movie",
+      "title": "Avengers: Endgame",
+      "poster": "/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg",
+      "backdrop": "/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
+      "releaseDate": "2019-04-24",
+      "releaseYear": 2019,
+      "genres": [
+        "Adventure",
+        "Science Fiction",
+        "Action"
+      ],
+      "description": "After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store.",
+      "runtime": 181,
+      "tmdbRating": 8.24,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2025-06-21T19:09:00.000Z",
+      "favorite": false,
+      "id": "mv_299534_1750513140000",
+      "dateAdded": "2025-06-21T17:59:00.000Z"
+    },
+    {
+      "tmdbId": 91363,
+      "type": "tv",
+      "title": "What If...?",
+      "poster": "/zaqfFDUrSfIljdD0OBxSjcutX8n.jpg",
+      "backdrop": "/jnzoh5qoxRLFRIQAxnl6D3RStPC.jpg",
+      "releaseDate": "2021-08-11",
+      "releaseYear": 2021,
+      "genres": [
+        "Animation",
+        "Action & Adventure",
+        "Sci-Fi & Fantasy"
+      ],
+      "description": "Taking inspiration from the comic books of the same name, each episode of this animated anthology series questions, revisits and twists classic Marvel Cinematic moments.",
+      "numberOfSeasons": 3,
+      "numberOfEpisodes": 26,
+      "tmdbRating": 8.037,
+      "personalRating": 0,
+      "status": "completed",
+      "dateStarted": "2025-04-27T20:23:00.000Z",
+      "dateCompleted": "2025-05-09T14:23:00.000Z",
+      "favorite": false,
+      "id": "sv_91363_1745743980000",
+      "dateAdded": "2025-04-27T14:23:00.000Z",
+      "seasonProgress": [
+        {
+          "seasonNumber": 1,
+          "episodeCount": 9,
+          "episodes": [
+            {
+              "episodeNumber": 1,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 2,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 3,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 4,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 5,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 6,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 7,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 8,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 9,
+              "watched": true,
+              "runtime": null
+            }
+          ]
+        },
+        {
+          "seasonNumber": 2,
+          "episodeCount": 9,
+          "episodes": [
+            {
+              "episodeNumber": 1,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 2,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 3,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 4,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 5,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 6,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 7,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 8,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 9,
+              "watched": true,
+              "runtime": null
+            }
+          ]
+        },
+        {
+          "seasonNumber": 3,
+          "episodeCount": 8,
+          "episodes": [
+            {
+              "episodeNumber": 1,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 2,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 3,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 4,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 5,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 6,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 7,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 8,
+              "watched": true,
+              "runtime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tmdbId": 616037,
+      "type": "movie",
+      "title": "Thor: Love and Thunder",
+      "poster": "/pIkRyD18kl4FhoCNQuWxWu5cBLM.jpg",
+      "backdrop": "/jsoz1HlxczSuTx0mDl2h0lxy36l.jpg",
+      "releaseDate": "2022-07-06",
+      "releaseYear": 2022,
+      "genres": [
+        "Fantasy",
+        "Action",
+        "Comedy"
+      ],
+      "description": "After his retirement is interrupted by Gorr the God Butcher, a galactic killer who seeks the extinction of the gods, Thor Odinson enlists the help of King Valkyrie, Korg, and ex-girlfriend Jane Foster, who now wields Mjolnir as the Mighty Thor. Together they embark upon a harrowing cosmic adventure to uncover the mystery of the God Butcher’s vengeance and stop him before it’s too late.",
+      "runtime": 119,
+      "tmdbRating": 6.358,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2025-04-17T15:02:00.000Z",
+      "favorite": false,
+      "id": "mv_616037_1744882320000",
+      "dateAdded": "2025-04-17T13:59:00.000Z"
+    },
+    {
+      "tmdbId": 118340,
+      "type": "movie",
+      "title": "Guardians of the Galaxy",
+      "poster": "/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg",
+      "backdrop": "/uLtVbjvS1O7gXL8lUOwsFOH4man.jpg",
+      "releaseDate": "2014-07-30",
+      "releaseYear": 2014,
+      "genres": [
+        "Action",
+        "Science Fiction",
+        "Adventure"
+      ],
+      "description": "Light years from Earth, 26 years after being abducted, Peter Quill finds himself the prime target of a manhunt after discovering an orb wanted by Ronan the Accuser.",
+      "runtime": 121,
+      "tmdbRating": 7.9,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2025-04-16T07:59:00.000Z",
+      "favorite": false,
+      "id": "mv_118340_1744770540000",
+      "dateAdded": "2025-04-16T06:45:00.000Z"
+    },
+    {
+      "tmdbId": 68721,
+      "type": "movie",
+      "title": "Iron Man 3",
+      "poster": "/qhPtAc1TKbMPqNvcdXSOn9Bn7hZ.jpg",
+      "backdrop": "/iVped1djsF0tvGkvnHbzsE3ZPTF.jpg",
+      "releaseDate": "2013-04-18",
+      "releaseYear": 2013,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "description": "When Tony Stark's world is torn apart by a formidable terrorist called the Mandarin, he starts an odyssey of rebuilding and retribution.",
+      "runtime": 130,
+      "tmdbRating": 6.933,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2025-03-26T21:40:00.000Z",
+      "favorite": false,
+      "id": "mv_68721_1743005400000",
+      "dateAdded": "2025-03-26T20:25:00.000Z"
+    },
+    {
+      "tmdbId": 284053,
+      "type": "movie",
+      "title": "Thor: Ragnarok",
+      "poster": "/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg",
+      "backdrop": "/vLmHH8jAy8Jq8uBsLucd3592WGh.jpg",
+      "releaseDate": "2017-10-02",
+      "releaseYear": 2017,
+      "genres": [
+        "Action",
+        "Science Fiction",
+        "Comedy",
+        "Adventure"
+      ],
+      "description": "Thor is imprisoned on the other side of the universe and finds himself in a race against time to get back to Asgard to stop Ragnarok, the destruction of his home-world and the end of Asgardian civilization, at the hands of a powerful new threat, the ruthless Hela.",
+      "runtime": 131,
+      "tmdbRating": 7.581,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2025-02-17T03:02:00.000Z",
+      "favorite": false,
+      "id": "mv_284053_1739741520000",
+      "dateAdded": "2025-02-17T02:37:00.000Z"
+    },
+    {
+      "tmdbId": 383498,
+      "type": "movie",
+      "title": "Deadpool 2",
+      "poster": "/to0spRl1CMDvyUbOnbb4fTk3VAd.jpg",
+      "backdrop": "/3P52oz9HPQWxcwHOwxtyrVV1LKi.jpg",
+      "releaseDate": "2018-05-15",
+      "releaseYear": 2018,
+      "genres": [
+        "Action",
+        "Comedy",
+        "Adventure"
+      ],
+      "description": "Wisecracking mercenary Deadpool battles the evil and powerful Cable and other bad guys to save a boy's life.",
+      "runtime": 120,
+      "tmdbRating": 7.489,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2025-02-11T20:44:00.000Z",
+      "favorite": false,
+      "id": "mv_383498_1739286840000",
+      "dateAdded": "2025-02-11T19:20:00.000Z"
+    },
+    {
+      "tmdbId": 284054,
+      "type": "movie",
+      "title": "Black Panther",
+      "poster": "/uxzzxijgPIY7slzFvMotPv8wjKA.jpg",
+      "backdrop": "/b6ZJZHUdMEFECvGiDpJjlfUWela.jpg",
+      "releaseDate": "2018-02-13",
+      "releaseYear": 2018,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "description": "King T'Challa returns home to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne by factions within his own country as well as without. Using powers reserved to Wakandan kings, T'Challa assumes the Black Panther mantle to join with ex-girlfriend Nakia, the queen-mother, his princess-kid sister, members of the Dora Milaje (the Wakandan 'special forces') and an American secret agent, to prevent Wakanda from being dragged into a world war.",
+      "runtime": 135,
+      "tmdbRating": 7.363,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2025-02-07T04:31:00.000Z",
+      "favorite": false,
+      "id": "mv_284054_1738882860000",
+      "dateAdded": "2025-02-07T04:23:00.000Z"
+    },
+    {
+      "tmdbId": 363088,
+      "type": "movie",
+      "title": "Ant-Man and the Wasp",
+      "poster": "/cFQEO687n1K6umXbInzocxcnAQz.jpg",
+      "backdrop": "/iYdgEUE2W2aJkgqfSjf1x3gFfuV.jpg",
+      "releaseDate": "2018-07-04",
+      "releaseYear": 2018,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "description": "Just when his time under house arrest is about to end, Scott Lang once again puts his freedom at risk to help Hope van Dyne and Dr. Hank Pym dive into the quantum realm and try to accomplish, against time and any chance of success, a very dangerous rescue mission.",
+      "runtime": 119,
+      "tmdbRating": 6.898,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2024-12-27T08:17:00.000Z",
+      "favorite": false,
+      "id": "mv_363088_1735267620000",
+      "dateAdded": "2024-12-27T07:51:00.000Z"
+    },
+    {
+      "tmdbId": 92749,
+      "type": "tv",
+      "title": "Moon Knight",
+      "poster": "/x6FsYvt33846IQnDSFxla9j0RX8.jpg",
+      "backdrop": "/1uegR4uAxRxiMyX4nQnpzbXhrTw.jpg",
+      "releaseDate": "2022-03-30",
+      "releaseYear": 2022,
+      "genres": [
+        "Sci-Fi & Fantasy",
+        "Mystery",
+        "Action & Adventure"
+      ],
+      "description": "When Steven Grant, a mild-mannered gift-shop employee, becomes plagued with blackouts and memories of another life, he discovers he has dissociative identity disorder and shares a body with mercenary Marc Spector. As Steven/Marc’s enemies converge upon them, they must navigate their complex identities while thrust into a deadly mystery among the powerful gods of Egypt.",
+      "numberOfSeasons": 1,
+      "numberOfEpisodes": 6,
+      "tmdbRating": 7.633,
+      "personalRating": 0,
+      "status": "completed",
+      "dateStarted": "2024-12-19T17:34:00.000Z",
+      "dateCompleted": "2024-12-22T15:34:00.000Z",
+      "favorite": false,
+      "id": "sv_92749_1734573840000",
+      "dateAdded": "2024-12-19T07:34:00.000Z",
+      "seasonProgress": [
+        {
+          "seasonNumber": 1,
+          "episodeCount": 6,
+          "episodes": [
+            {
+              "episodeNumber": 1,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 2,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 3,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 4,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 5,
+              "watched": true,
+              "runtime": null
+            },
+            {
+              "episodeNumber": 6,
+              "watched": true,
+              "runtime": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tmdbId": 102382,
+      "type": "movie",
+      "title": "The Amazing Spider-Man 2",
+      "poster": "/dGjoPttcbKR5VWg1jQuNFB247KL.jpg",
+      "backdrop": "/k0hlAzTryCYX1O1LyC6P8tAa8s0.jpg",
+      "releaseDate": "2014-04-16",
+      "releaseYear": 2014,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "description": "For Peter Parker, life is busy. Between taking out the bad guys as Spider-Man and spending time with the person he loves, Gwen Stacy, high school graduation cannot come quickly enough. Peter has not forgotten about the promise he made to Gwen’s father to protect her by staying away, but that is a promise he cannot keep. Things will change for Peter when a new villain, Electro, emerges, an old friend, Harry Osborn, returns, and Peter uncovers new clues about his past.",
+      "runtime": 141,
+      "tmdbRating": 6.557,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2024-11-21T14:35:00.000Z",
+      "favorite": false,
+      "id": "mv_102382_1732179900000",
+      "dateAdded": "2024-11-21T14:12:00.000Z"
+    },
+    {
+      "tmdbId": 580489,
+      "type": "movie",
+      "title": "Venom: Let There Be Carnage",
+      "poster": "/pzKsRuKLFmYrW5Q0q8E8G78Tcgo.jpg",
+      "backdrop": "/eENEf62tMXbhyVvdcXlnQz2wcuT.jpg",
+      "releaseDate": "2021-09-30",
+      "releaseYear": 2021,
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Adventure"
+      ],
+      "description": "After finding a host body in investigative reporter Eddie Brock, the alien symbiote must face a new enemy, Carnage, the alter ego of serial killer Cletus Kasady.",
+      "runtime": 97,
+      "tmdbRating": 6.732,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2024-11-07T12:46:00.000Z",
+      "favorite": false,
+      "id": "mv_580489_1730963760000",
+      "dateAdded": "2024-11-07T12:15:00.000Z"
+    },
+    {
+      "tmdbId": 1771,
+      "type": "movie",
+      "title": "Captain America: The First Avenger",
+      "poster": "/vSNxAJTlD0r02V9sPYpOjqDZXUK.jpg",
+      "backdrop": "/yFuKvT4Vm3sKHdFY4eG6I4ldAnn.jpg",
+      "releaseDate": "2011-07-22",
+      "releaseYear": 2011,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "description": "During World War II, Steve Rogers is a sickly man from Brooklyn who's transformed into super-soldier Captain America to aid in the war effort. Rogers must stop the Red Skull – Adolf Hitler's ruthless head of weaponry, and the leader of an organization that intends to use a mysterious device of untold powers for world domination.",
+      "runtime": 124,
+      "tmdbRating": 7.009,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2024-09-14T05:15:00.000Z",
+      "favorite": false,
+      "id": "mv_1771_1726271100000",
+      "dateAdded": "2024-09-14T04:41:00.000Z"
+    },
+    {
+      "tmdbId": 634649,
+      "type": "movie",
+      "title": "Spider-Man: No Way Home",
+      "poster": "/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
+      "backdrop": "/uyrOU4BDm2kbVxFsMiDFIHDhc4d.jpg",
+      "releaseDate": "2021-12-15",
+      "releaseYear": 2021,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "description": "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
+      "runtime": 148,
+      "tmdbRating": 7.9,
+      "personalRating": 0,
+      "status": "completed",
+      "dateWatched": "2024-08-31T17:52:00.000Z",
+      "favorite": false,
+      "id": "mv_634649_1725106920000",
+      "dateAdded": "2024-08-31T17:17:00.000Z"
+    }
+  ],
+  "history": [
+    {
+      "title": "Doctor Strange in the Multiverse of Madness",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 453395,
+      "id": "hist_1784276580000_yui69w",
+      "date": "2026-07-17T13:53:00.000Z"
+    },
+    {
+      "title": "Doctor Strange in the Multiverse of Madness",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 453395,
+      "id": "hist_1784271420000_v6k00s",
+      "date": "2026-07-17T12:27:00.000Z"
+    },
+    {
+      "title": "Marvel's The Punisher",
+      "action": "Season 2 completed",
+      "type": "tv",
+      "tmdbId": 67178,
+      "id": "hist_1783516320000_kdgl4r",
+      "date": "2026-07-08T18:42:00.000Z"
+    },
+    {
+      "title": "Marvel's The Punisher",
+      "action": "Season 1 completed",
+      "type": "tv",
+      "tmdbId": 67178,
+      "id": "hist_1783264320000_bbz427",
+      "date": "2026-07-05T20:42:00.000Z"
+    },
+    {
+      "title": "Marvel's The Punisher",
+      "action": "Added to watchlist",
+      "type": "tv",
+      "tmdbId": 67178,
+      "id": "hist_1782706320000_85r948",
+      "date": "2026-06-29T09:42:00.000Z"
+    },
+    {
+      "title": "Guardians of the Galaxy Vol. 2",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 283995,
+      "id": "hist_1782138480000_17wavk",
+      "date": "2026-06-22T19:58:00.000Z"
+    },
+    {
+      "title": "Guardians of the Galaxy Vol. 2",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 283995,
+      "id": "hist_1782136680000_galnau",
+      "date": "2026-06-22T19:28:00.000Z"
+    },
+    {
+      "title": "The Avengers",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 24428,
+      "id": "hist_1780322940000_ndpzhy",
+      "date": "2026-06-01T19:39:00.000Z"
+    },
+    {
+      "title": "The Avengers",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 24428,
+      "id": "hist_1780320840000_otk7xl",
+      "date": "2026-06-01T19:04:00.000Z"
+    },
+    {
+      "title": "The Fantastic 4: First Steps",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 617126,
+      "id": "hist_1778570820000_b6705s",
+      "date": "2026-05-12T12:57:00.000Z"
+    },
+    {
+      "title": "The Fantastic 4: First Steps",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 617126,
+      "id": "hist_1778566800000_xewkx1",
+      "date": "2026-05-12T11:50:00.000Z"
+    },
+    {
+      "title": "Captain America: Civil War",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 271110,
+      "id": "hist_1778399220000_bzfj4n",
+      "date": "2026-05-10T13:17:00.000Z"
+    },
+    {
+      "title": "Captain America: Civil War",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 271110,
+      "id": "hist_1778399100000_klv16j",
+      "date": "2026-05-10T13:15:00.000Z"
+    },
+    {
+      "title": "Daredevil: Born Again",
+      "action": "Season 2 completed",
+      "type": "tv",
+      "tmdbId": 202555,
+      "id": "hist_1776999300000_toh5mu",
+      "date": "2026-04-24T08:25:00.000Z"
+    },
+    {
+      "title": "Daredevil: Born Again",
+      "action": "Season 1 completed",
+      "type": "tv",
+      "tmdbId": 202555,
+      "id": "hist_1776574500000_gt7nqs",
+      "date": "2026-04-19T10:25:00.000Z"
+    },
+    {
+      "title": "Venom: The Last Dance",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 912649,
+      "id": "hist_1776428760000_1v8ijx",
+      "date": "2026-04-17T17:56:00.000Z"
+    },
+    {
+      "title": "Venom: The Last Dance",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 912649,
+      "id": "hist_1776427260000_zya598",
+      "date": "2026-04-17T17:31:00.000Z"
+    },
+    {
+      "title": "Daredevil: Born Again",
+      "action": "Added to watchlist",
+      "type": "tv",
+      "tmdbId": 202555,
+      "id": "hist_1776279300000_mkqpqb",
+      "date": "2026-04-16T00:25:00.000Z"
+    },
+    {
+      "title": "The Incredible Hulk",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 1724,
+      "id": "hist_1776029400000_w5q24e",
+      "date": "2026-04-13T03:00:00.000Z"
+    },
+    {
+      "title": "The Incredible Hulk",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 1724,
+      "id": "hist_1776025860000_50jupa",
+      "date": "2026-04-13T02:01:00.000Z"
+    },
+    {
+      "title": "Deadpool & Wolverine",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 533535,
+      "id": "hist_1773175680000_q9wygn",
+      "date": "2026-03-11T02:18:00.000Z"
+    },
+    {
+      "title": "Deadpool & Wolverine",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 533535,
+      "id": "hist_1773174960000_m55vm5",
+      "date": "2026-03-11T02:06:00.000Z"
+    },
+    {
+      "title": "Iron Man",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 1726,
+      "id": "hist_1773159300000_fjlpde",
+      "date": "2026-03-10T21:45:00.000Z"
+    },
+    {
+      "title": "Iron Man",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 1726,
+      "id": "hist_1773157140000_np1w5h",
+      "date": "2026-03-10T21:09:00.000Z"
+    },
+    {
+      "title": "The Amazing Spider-Man",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 1930,
+      "id": "hist_1771856160000_fz0erv",
+      "date": "2026-02-23T19:46:00.000Z"
+    },
+    {
+      "title": "The Amazing Spider-Man",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 1930,
+      "id": "hist_1771853580000_yaagle",
+      "date": "2026-02-23T19:03:00.000Z"
+    },
+    {
+      "title": "Thor",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 10195,
+      "id": "hist_1771635840000_dzf78a",
+      "date": "2026-02-21T06:34:00.000Z"
+    },
+    {
+      "title": "Thor",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 10195,
+      "id": "hist_1771632540000_3yr022",
+      "date": "2026-02-21T05:39:00.000Z"
+    },
+    {
+      "title": "Deadpool",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 293660,
+      "id": "hist_1770936720000_tobu5v",
+      "date": "2026-02-13T04:22:00.000Z"
+    },
+    {
+      "title": "Deadpool",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 293660,
+      "id": "hist_1770936480000_otc5x8",
+      "date": "2026-02-13T04:18:00.000Z"
+    },
+    {
+      "title": "Venom",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 335983,
+      "id": "hist_1769930400000_ydx3h7",
+      "date": "2026-02-01T12:50:00.000Z"
+    },
+    {
+      "title": "Venom",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 335983,
+      "id": "hist_1769926860000_2j01yw",
+      "date": "2026-02-01T11:51:00.000Z"
+    },
+    {
+      "title": "Doctor Strange",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 284052,
+      "id": "hist_1767633000000_gdv8up",
+      "date": "2026-01-05T22:40:00.000Z"
+    },
+    {
+      "title": "Doctor Strange",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 284052,
+      "id": "hist_1767630780000_4uhy1x",
+      "date": "2026-01-05T22:03:00.000Z"
+    },
+    {
+      "title": "Loki",
+      "action": "Season 2 completed",
+      "type": "tv",
+      "tmdbId": 84958,
+      "id": "hist_1766426940000_yv7ojm",
+      "date": "2025-12-22T23:39:00.000Z"
+    },
+    {
+      "title": "Spider-Man: Homecoming",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 315635,
+      "id": "hist_1766254380000_2ub1qa",
+      "date": "2025-12-20T23:43:00.000Z"
+    },
+    {
+      "title": "Spider-Man: Homecoming",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 315635,
+      "id": "hist_1766253540000_28rlv9",
+      "date": "2025-12-20T23:29:00.000Z"
+    },
+    {
+      "title": "Loki",
+      "action": "Season 1 completed",
+      "type": "tv",
+      "tmdbId": 84958,
+      "id": "hist_1766034540000_vj5lvk",
+      "date": "2025-12-18T10:39:00.000Z"
+    },
+    {
+      "title": "Avengers: Age of Ultron",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 99861,
+      "id": "hist_1765638720000_gq8krt",
+      "date": "2025-12-13T20:42:00.000Z"
+    },
+    {
+      "title": "Avengers: Age of Ultron",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 99861,
+      "id": "hist_1765635000000_hb3wqo",
+      "date": "2025-12-13T19:40:00.000Z"
+    },
+    {
+      "title": "Loki",
+      "action": "Added to watchlist",
+      "type": "tv",
+      "tmdbId": 84958,
+      "id": "hist_1765555740000_ggak7v",
+      "date": "2025-12-12T21:39:00.000Z"
+    },
+    {
+      "title": "Marvel's Daredevil",
+      "action": "Season 3 completed",
+      "type": "tv",
+      "tmdbId": 61889,
+      "id": "hist_1764521220000_q1y4gi",
+      "date": "2025-11-30T22:17:00.000Z"
+    },
+    {
+      "title": "Marvel's Daredevil",
+      "action": "Season 2 completed",
+      "type": "tv",
+      "tmdbId": 61889,
+      "id": "hist_1764092820000_tuaud7",
+      "date": "2025-11-25T23:17:00.000Z"
+    },
+    {
+      "title": "Marvel's Daredevil",
+      "action": "Season 1 completed",
+      "type": "tv",
+      "tmdbId": 61889,
+      "id": "hist_1763581620000_af1g1y",
+      "date": "2025-11-20T01:17:00.000Z"
+    },
+    {
+      "title": "Marvel's Daredevil",
+      "action": "Added to watchlist",
+      "type": "tv",
+      "tmdbId": 61889,
+      "id": "hist_1763135220000_3r1357",
+      "date": "2025-11-14T21:17:00.000Z"
+    },
+    {
+      "title": "Black Widow",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 497698,
+      "id": "hist_1763092860000_wj3ht0",
+      "date": "2025-11-14T09:31:00.000Z"
+    },
+    {
+      "title": "Black Widow",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 497698,
+      "id": "hist_1763091720000_7uajeq",
+      "date": "2025-11-14T09:12:00.000Z"
+    },
+    {
+      "title": "Captain America: The Winter Soldier",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 100402,
+      "id": "hist_1761879600000_f06jbo",
+      "date": "2025-10-31T08:30:00.000Z"
+    },
+    {
+      "title": "Captain America: The Winter Soldier",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 100402,
+      "id": "hist_1761879180000_sf5f7h",
+      "date": "2025-10-31T08:23:00.000Z"
+    },
+    {
+      "title": "Iron Man 2",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 10138,
+      "id": "hist_1761038640000_ri621q",
+      "date": "2025-10-21T14:54:00.000Z"
+    },
+    {
+      "title": "Iron Man 2",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 10138,
+      "id": "hist_1761036720000_mvp2pf",
+      "date": "2025-10-21T14:22:00.000Z"
+    },
+    {
+      "title": "Marvel Zombies",
+      "action": "Season 2 completed",
+      "type": "tv",
+      "tmdbId": 138505,
+      "id": "hist_1760719800000_gw6ugw",
+      "date": "2025-10-17T22:20:00.000Z"
+    },
+    {
+      "title": "Marvel Zombies",
+      "action": "Season 1 completed",
+      "type": "tv",
+      "tmdbId": 138505,
+      "id": "hist_1760453400000_9hnjez",
+      "date": "2025-10-14T20:20:00.000Z"
+    },
+    {
+      "title": "Thor: The Dark World",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 76338,
+      "id": "hist_1759945920000_a8sexh",
+      "date": "2025-10-08T23:22:00.000Z"
+    },
+    {
+      "title": "Thor: The Dark World",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 76338,
+      "id": "hist_1759943520000_5tu6eb",
+      "date": "2025-10-08T22:42:00.000Z"
+    },
+    {
+      "title": "Marvel Zombies",
+      "action": "Added to watchlist",
+      "type": "tv",
+      "tmdbId": 138505,
+      "id": "hist_1759888200000_sy4bsv",
+      "date": "2025-10-08T07:20:00.000Z"
+    },
+    {
+      "title": "Avengers: Infinity War",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 299536,
+      "id": "hist_1754875320000_atcw3a",
+      "date": "2025-08-11T06:52:00.000Z"
+    },
+    {
+      "title": "Avengers: Infinity War",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 299536,
+      "id": "hist_1754871180000_309y37",
+      "date": "2025-08-11T05:43:00.000Z"
+    },
+    {
+      "title": "Ant-Man",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 102899,
+      "id": "hist_1751211300000_qwudva",
+      "date": "2025-06-29T21:05:00.000Z"
+    },
+    {
+      "title": "Ant-Man",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 102899,
+      "id": "hist_1751207760000_9z55gs",
+      "date": "2025-06-29T20:06:00.000Z"
+    },
+    {
+      "title": "Avengers: Endgame",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 299534,
+      "id": "hist_1750513140000_t0muye",
+      "date": "2025-06-21T19:09:00.000Z"
+    },
+    {
+      "title": "Avengers: Endgame",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 299534,
+      "id": "hist_1750508940000_jgunqc",
+      "date": "2025-06-21T17:59:00.000Z"
+    },
+    {
+      "title": "What If...?",
+      "action": "Season 3 completed",
+      "type": "tv",
+      "tmdbId": 91363,
+      "id": "hist_1746780780000_uny8ie",
+      "date": "2025-05-09T14:23:00.000Z"
+    },
+    {
+      "title": "What If...?",
+      "action": "Season 2 completed",
+      "type": "tv",
+      "tmdbId": 91363,
+      "id": "hist_1746449580000_x1fkka",
+      "date": "2025-05-05T18:23:00.000Z"
+    },
+    {
+      "title": "What If...?",
+      "action": "Season 1 completed",
+      "type": "tv",
+      "tmdbId": 91363,
+      "id": "hist_1746273180000_0k8pgc",
+      "date": "2025-05-03T17:23:00.000Z"
+    },
+    {
+      "title": "What If...?",
+      "action": "Added to watchlist",
+      "type": "tv",
+      "tmdbId": 91363,
+      "id": "hist_1745743980000_9w2z1d",
+      "date": "2025-04-27T14:23:00.000Z"
+    },
+    {
+      "title": "Thor: Love and Thunder",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 616037,
+      "id": "hist_1744882320000_x5p2ax",
+      "date": "2025-04-17T15:02:00.000Z"
+    },
+    {
+      "title": "Thor: Love and Thunder",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 616037,
+      "id": "hist_1744878540000_x9ctb0",
+      "date": "2025-04-17T13:59:00.000Z"
+    },
+    {
+      "title": "Guardians of the Galaxy",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 118340,
+      "id": "hist_1744770540000_nrx6no",
+      "date": "2025-04-16T07:59:00.000Z"
+    },
+    {
+      "title": "Guardians of the Galaxy",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 118340,
+      "id": "hist_1744766100000_qqnz9s",
+      "date": "2025-04-16T06:45:00.000Z"
+    },
+    {
+      "title": "Iron Man 3",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 68721,
+      "id": "hist_1743005400000_ee7eeg",
+      "date": "2025-03-26T21:40:00.000Z"
+    },
+    {
+      "title": "Iron Man 3",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 68721,
+      "id": "hist_1743000900000_kker8e",
+      "date": "2025-03-26T20:25:00.000Z"
+    },
+    {
+      "title": "Thor: Ragnarok",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 284053,
+      "id": "hist_1739741520000_qlp9fz",
+      "date": "2025-02-17T03:02:00.000Z"
+    },
+    {
+      "title": "Thor: Ragnarok",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 284053,
+      "id": "hist_1739740020000_1l98wf",
+      "date": "2025-02-17T02:37:00.000Z"
+    },
+    {
+      "title": "Deadpool 2",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 383498,
+      "id": "hist_1739286840000_g4glpl",
+      "date": "2025-02-11T20:44:00.000Z"
+    },
+    {
+      "title": "Deadpool 2",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 383498,
+      "id": "hist_1739281800000_au7j9n",
+      "date": "2025-02-11T19:20:00.000Z"
+    },
+    {
+      "title": "Black Panther",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 284054,
+      "id": "hist_1738882860000_7nsnl1",
+      "date": "2025-02-07T04:31:00.000Z"
+    },
+    {
+      "title": "Black Panther",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 284054,
+      "id": "hist_1738882380000_eg19is",
+      "date": "2025-02-07T04:23:00.000Z"
+    },
+    {
+      "title": "Ant-Man and the Wasp",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 363088,
+      "id": "hist_1735267620000_7r0w16",
+      "date": "2024-12-27T08:17:00.000Z"
+    },
+    {
+      "title": "Ant-Man and the Wasp",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 363088,
+      "id": "hist_1735266060000_4bpald",
+      "date": "2024-12-27T07:51:00.000Z"
+    },
+    {
+      "title": "Moon Knight",
+      "action": "Season 1 completed",
+      "type": "tv",
+      "tmdbId": 92749,
+      "id": "hist_1734861840000_6mpay8",
+      "date": "2024-12-22T15:34:00.000Z"
+    },
+    {
+      "title": "Moon Knight",
+      "action": "Added to watchlist",
+      "type": "tv",
+      "tmdbId": 92749,
+      "id": "hist_1734573840000_4s9yej",
+      "date": "2024-12-19T07:34:00.000Z"
+    },
+    {
+      "title": "The Amazing Spider-Man 2",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 102382,
+      "id": "hist_1732179900000_5if6ed",
+      "date": "2024-11-21T14:35:00.000Z"
+    },
+    {
+      "title": "The Amazing Spider-Man 2",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 102382,
+      "id": "hist_1732178520000_4qqadj",
+      "date": "2024-11-21T14:12:00.000Z"
+    },
+    {
+      "title": "Venom: Let There Be Carnage",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 580489,
+      "id": "hist_1730963760000_wl7na7",
+      "date": "2024-11-07T12:46:00.000Z"
+    },
+    {
+      "title": "Venom: Let There Be Carnage",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 580489,
+      "id": "hist_1730961900000_5vckil",
+      "date": "2024-11-07T12:15:00.000Z"
+    },
+    {
+      "title": "Captain America: The First Avenger",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 1771,
+      "id": "hist_1726271100000_27ee6r",
+      "date": "2024-09-14T05:15:00.000Z"
+    },
+    {
+      "title": "Captain America: The First Avenger",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 1771,
+      "id": "hist_1726269060000_lvxjkv",
+      "date": "2024-09-14T04:41:00.000Z"
+    },
+    {
+      "title": "Spider-Man: No Way Home",
+      "action": "Completed",
+      "type": "movie",
+      "tmdbId": 634649,
+      "id": "hist_1725106920000_n47xgk",
+      "date": "2024-08-31T17:52:00.000Z"
+    },
+    {
+      "title": "Spider-Man: No Way Home",
+      "action": "Added to watchlist",
+      "type": "movie",
+      "tmdbId": 634649,
+      "id": "hist_1725104820000_my7tzl",
+      "date": "2024-08-31T17:17:00.000Z"
+    }
+  ]
+}

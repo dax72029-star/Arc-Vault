@@ -101,23 +101,23 @@ export default function Statistics() {
 
   return (
     <div>
-      <div className="mb-8 md:mb-10">
-        <h1 className="text-h1 font-display font-bold text-vault-text tracking-tight">Statistics</h1>
-        <p className="text-body-sm text-vault-muted mt-1">Your watch analytics</p>
+      <div className="mb-6 md:mb-10">
+        <h1 className="text-xl md:text-h1 font-display font-bold text-vault-text tracking-tight">Statistics</h1>
+        <p className="text-xs md:text-body-sm text-vault-muted mt-1">Your watch analytics</p>
       </div>
 
-      <section className="vault-section">
-        <div className="vault-card p-6 md:p-8 relative overflow-hidden">
+      <section className="mb-5 md:mb-8">
+        <div className="vault-card p-4 md:p-8 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-72 h-72 bg-vault-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-          <div className="relative flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div className="relative flex flex-col md:flex-row md:items-end md:justify-between gap-2 md:gap-4">
             <div>
-              <p className="text-caption text-vault-muted uppercase tracking-widest font-medium mb-2">Total watch time</p>
-              <p className="text-h1 md:text-display font-display font-extrabold text-vault-gold leading-none">
+              <p className="text-[10px] md:text-caption text-vault-muted uppercase tracking-widest font-medium mb-1 md:mb-2">Total watch time</p>
+              <p className="text-xl md:text-display font-display font-extrabold text-vault-gold leading-none">
                 {formatMinutes(stats.totalWatchTimeMinutes)}
               </p>
             </div>
             {stats.totalWatchTimeMinutes >= 1440 && (
-              <p className="text-meta text-vault-muted max-w-sm md:text-right">
+              <p className="text-[10px] md:text-meta text-vault-muted max-w-sm md:text-right">
                 That's approximately {Math.floor(stats.totalWatchTimeMinutes / 1440)} days,{' '}
                 {Math.floor((stats.totalWatchTimeMinutes % 1440) / 60)} hours,{' '}
                 {Math.round(stats.totalWatchTimeMinutes % 60)} minutes of your life.
@@ -127,14 +127,14 @@ export default function Statistics() {
         </div>
       </section>
 
-      <section className="vault-section">
-        <div className="vault-section-header">
-          <h2 className="vault-section-title">
-            <Target className="w-5 h-5 text-vault-accent" />
+      <section className="mb-5 md:mb-8">
+        <div className="flex items-center justify-between mb-3 md:mb-4">
+          <h2 className="text-sm md:text-h3 font-display font-semibold text-vault-text flex items-center gap-2">
+            <Target className="w-4 h-4 md:w-5 md:h-5 text-vault-accent" />
             Overview
           </h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-3">
           <StatCard label="Total Movies" value={stats.totalMovies} icon={<Film className="w-5 h-5" />} sublabel={`${stats.moviesCompleted} completed`} />
           <StatCard label="Total Series" value={stats.totalSeries} icon={<Tv className="w-5 h-5" />} sublabel={`${stats.seriesCompleted} completed`} />
           <StatCard label="Completion" value={`${stats.completionPercentage}%`} icon={<TrendingUp className="w-5 h-5" />} color="text-vault-success" sublabel={`${stats.totalCompleted} / ${items.length}`} />
@@ -142,26 +142,26 @@ export default function Statistics() {
         </div>
       </section>
 
-      <section className="vault-section">
-        <div className="vault-section-header">
-          <h2 className="vault-section-title">
-            <Clock className="w-5 h-5 text-vault-gold" />
+      <section className="mb-5 md:mb-8">
+        <div className="flex items-center justify-between mb-3 md:mb-4">
+          <h2 className="text-sm md:text-h3 font-display font-semibold text-vault-text flex items-center gap-2">
+            <Clock className="w-4 h-4 md:w-5 md:h-5 text-vault-gold" />
             Watch Time
           </h2>
         </div>
-        <div className="vault-card p-6">
+        <div className="vault-card p-4 md:p-6">
           <div className="space-y-0">
-            <div className="flex items-center justify-between py-3 border-b border-vault-border/20">
-              <span className="text-body-sm text-vault-muted">Movie Watch Time</span>
-              <span className="text-body-sm font-semibold text-vault-text">{formatMinutes(stats.movieWatchTimeMinutes)}</span>
+            <div className="flex items-center justify-between py-2.5 md:py-3 border-b border-vault-border/20">
+              <span className="text-[11px] md:text-body-sm text-vault-muted">Movie Watch Time</span>
+              <span className="text-[11px] md:text-body-sm font-semibold text-vault-text tabular-nums">{formatMinutes(stats.movieWatchTimeMinutes)}</span>
             </div>
-            <div className="flex items-center justify-between py-3 border-b border-vault-border/20">
-              <span className="text-body-sm text-vault-muted">Series Watch Time</span>
-              <span className="text-body-sm font-semibold text-vault-text">{formatMinutes(stats.seriesWatchTimeMinutes)}</span>
+            <div className="flex items-center justify-between py-2.5 md:py-3 border-b border-vault-border/20">
+              <span className="text-[11px] md:text-body-sm text-vault-muted">Series Watch Time</span>
+              <span className="text-[11px] md:text-body-sm font-semibold text-vault-text tabular-nums">{formatMinutes(stats.seriesWatchTimeMinutes)}</span>
             </div>
-            <div className="flex items-center justify-between py-3">
-              <span className="text-body-sm font-semibold text-vault-text">Total Watch Time</span>
-              <span className="text-body-sm font-bold text-vault-gold">{formatMinutes(stats.totalWatchTimeMinutes)}</span>
+            <div className="flex items-center justify-between py-2.5 md:py-3">
+              <span className="text-[11px] md:text-body-sm font-semibold text-vault-text">Total Watch Time</span>
+              <span className="text-[11px] md:text-body-sm font-bold text-vault-gold tabular-nums">{formatMinutes(stats.totalWatchTimeMinutes)}</span>
             </div>
           </div>
           {stats.totalWatchTimeMinutes > 0 && (
@@ -189,14 +189,14 @@ export default function Statistics() {
         </div>
       </section>
 
-      <section className="vault-section">
-        <div className="vault-section-header">
-          <h2 className="vault-section-title">
-            <Star className="w-5 h-5 text-vault-gold" />
+      <section className="mb-5 md:mb-8">
+        <div className="flex items-center justify-between mb-3 md:mb-4">
+          <h2 className="text-sm md:text-h3 font-display font-semibold text-vault-text flex items-center gap-2">
+            <Star className="w-4 h-4 md:w-5 md:h-5 text-vault-gold" />
             Ratings
           </h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-3">
           <StatCard label="Avg Movie Rating" value={avgMovieRating > 0 ? `${avgMovieRating}/10` : 'N/A'} icon={<Star className="w-5 h-5" />} color="text-vault-gold" />
           <StatCard label="Avg Series Rating" value={avgSeriesRating > 0 ? `${avgSeriesRating}/10` : 'N/A'} icon={<Star className="w-5 h-5" />} color="text-vault-gold" />
           <StatCard label="Avg Overall Rating" value={avgRating > 0 ? `${avgRating}/10` : 'N/A'} icon={<Star className="w-5 h-5" />} color="text-vault-gold" />
@@ -204,64 +204,64 @@ export default function Statistics() {
         </div>
       </section>
 
-      <section className="vault-section">
-        <div className="vault-section-header">
-          <h2 className="vault-section-title">
-            <Zap className="w-5 h-5 text-vault-accent" />
+      <section className="mb-5 md:mb-8">
+        <div className="flex items-center justify-between mb-3 md:mb-4">
+          <h2 className="text-sm md:text-h3 font-display font-semibold text-vault-text flex items-center gap-2">
+            <Zap className="w-4 h-4 md:w-5 md:h-5 text-vault-accent" />
             Records
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <div className="vault-card p-5">
-            <p className="text-caption text-vault-muted uppercase tracking-wider mb-2">Longest Movie</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 md:gap-3">
+          <div className="vault-card p-3.5 md:p-5">
+            <p className="text-[10px] md:text-caption text-vault-muted uppercase tracking-wider mb-1.5 md:mb-2">Longest Movie</p>
             {longestMovie ? (
               <>
-                <p className="text-body-sm font-semibold text-vault-text truncate">{longestMovie.title}</p>
-                <p className="text-caption text-vault-muted mt-0.5">{formatMinutes(longestMovie.runtime)}</p>
+                <p className="text-xs md:text-body-sm font-semibold text-vault-text truncate">{longestMovie.title}</p>
+                <p className="text-[10px] md:text-caption text-vault-muted mt-0.5">{formatMinutes(longestMovie.runtime)}</p>
               </>
             ) : (
-              <p className="text-caption text-vault-muted">No completed movies</p>
+              <p className="text-[10px] md:text-caption text-vault-muted">No completed movies</p>
             )}
           </div>
-          <div className="vault-card p-5">
-            <p className="text-caption text-vault-muted uppercase tracking-wider mb-2">Longest Series</p>
+          <div className="vault-card p-3.5 md:p-5">
+            <p className="text-[10px] md:text-caption text-vault-muted uppercase tracking-wider mb-1.5 md:mb-2">Longest Series</p>
             {longestSeries ? (
               <>
-                <p className="text-body-sm font-semibold text-vault-text truncate">{longestSeries.title}</p>
-                <p className="text-caption text-vault-muted mt-0.5">{longestSeries.numberOfEpisodes} episodes</p>
+                <p className="text-xs md:text-body-sm font-semibold text-vault-text truncate">{longestSeries.title}</p>
+                <p className="text-[10px] md:text-caption text-vault-muted mt-0.5">{longestSeries.numberOfEpisodes} episodes</p>
               </>
             ) : (
-              <p className="text-caption text-vault-muted">No completed series</p>
+              <p className="text-[10px] md:text-caption text-vault-muted">No completed series</p>
             )}
           </div>
-          <div className="vault-card p-5">
-            <p className="text-caption text-vault-muted uppercase tracking-wider mb-2">Average Movie Runtime</p>
+          <div className="vault-card p-3.5 md:p-5 sm:col-span-2 md:col-span-1">
+            <p className="text-[10px] md:text-caption text-vault-muted uppercase tracking-wider mb-1.5 md:mb-2">Average Movie Runtime</p>
             {avgMovieRuntime > 0 ? (
               <>
-                <p className="text-body-sm font-semibold text-vault-text">{formatMinutes(avgMovieRuntime)}</p>
-                <p className="text-caption text-vault-muted mt-0.5">{completedMovies.length} movies</p>
+                <p className="text-xs md:text-body-sm font-semibold text-vault-text">{formatMinutes(avgMovieRuntime)}</p>
+                <p className="text-[10px] md:text-caption text-vault-muted mt-0.5">{completedMovies.length} movies</p>
               </>
             ) : (
-              <p className="text-caption text-vault-muted">No completed movies</p>
+              <p className="text-[10px] md:text-caption text-vault-muted">No completed movies</p>
             )}
           </div>
         </div>
       </section>
 
       {genreStats.length > 0 && (
-        <section className="vault-section">
-          <div className="vault-section-header">
-            <h2 className="vault-section-title">Genres</h2>
+        <section className="mb-5 md:mb-8">
+          <div className="flex items-center justify-between mb-3 md:mb-4">
+            <h2 className="text-sm md:text-h3 font-display font-semibold text-vault-text">Genres</h2>
           </div>
-          <div className="vault-card p-6">
-            <div className="space-y-3">
+          <div className="vault-card p-4 md:p-6">
+            <div className="space-y-2.5 md:space-y-3">
               {genreStats.slice(0, 8).map((g) => (
-                <div key={g.genre} className="flex items-center gap-3">
-                  <span className="text-body-sm text-vault-text w-24 md:w-28 truncate">{g.genre}</span>
+                <div key={g.genre} className="flex items-center gap-2 md:gap-3">
+                  <span className="text-[11px] sm:text-xs md:text-body-sm text-vault-text w-14 sm:w-20 md:w-28 truncate">{g.genre}</span>
                   <div className="flex-1 vault-progress">
                     <div className="vault-progress-accent" style={{ width: `${g.percentage}%` }} />
                   </div>
-                  <span className="text-caption text-vault-muted w-10 text-right">{g.percentage}%</span>
+                  <span className="text-[10px] md:text-caption text-vault-muted w-8 md:w-10 text-right tabular-nums">{g.percentage}%</span>
                 </div>
               ))}
             </div>
@@ -270,25 +270,25 @@ export default function Statistics() {
       )}
 
       {monthlyStats.length > 0 && (
-        <section className="vault-section">
-          <div className="vault-section-header">
-            <h2 className="vault-section-title">
-              <Calendar className="w-5 h-5 text-vault-info" />
+        <section className="mb-5 md:mb-8">
+          <div className="flex items-center justify-between mb-3 md:mb-4">
+            <h2 className="text-sm md:text-h3 font-display font-semibold text-vault-text flex items-center gap-2">
+              <Calendar className="w-4 h-4 md:w-5 md:h-5 text-vault-info" />
               Monthly Watch Time
             </h2>
           </div>
-          <div className="vault-card p-6">
-            <div className="space-y-3">
+          <div className="vault-card p-4 md:p-6">
+            <div className="space-y-2.5 md:space-y-3">
               {monthlyStats.slice(0, 12).map((m) => {
                 const maxMinutes = Math.max(...monthlyStats.map((x) => x.minutes));
                 const pct = maxMinutes > 0 ? (m.minutes / maxMinutes) * 100 : 0;
                 return (
-                  <div key={m.month} className="flex items-center gap-3">
-                    <span className="text-caption text-vault-muted w-20 truncate">{m.month}</span>
+                  <div key={m.month} className="flex items-center gap-2 md:gap-3">
+                    <span className="text-[10px] md:text-caption text-vault-muted w-14 sm:w-20 truncate tabular-nums">{m.month}</span>
                     <div className="flex-1 vault-progress">
                       <div className="vault-progress-accent" style={{ width: `${pct}%` }} />
                     </div>
-                    <span className="text-caption text-vault-text w-16 text-right">{formatMinutes(m.minutes)}</span>
+                    <span className="text-[10px] md:text-caption text-vault-text w-12 sm:w-16 text-right tabular-nums">{formatMinutes(m.minutes)}</span>
                   </div>
                 );
               })}
@@ -298,30 +298,30 @@ export default function Statistics() {
       )}
 
       {topRated.length > 0 && (
-        <section className="vault-section">
-          <div className="vault-section-header">
-            <h2 className="vault-section-title">
-              <Trophy className="w-5 h-5 text-vault-gold" />
+        <section className="mb-5 md:mb-8">
+          <div className="flex items-center justify-between mb-3 md:mb-4">
+            <h2 className="text-sm md:text-h3 font-display font-semibold text-vault-text flex items-center gap-2">
+              <Trophy className="w-4 h-4 md:w-5 md:h-5 text-vault-gold" />
               Top Rated
             </h2>
           </div>
-          <div className="space-y-2">
+          <div className="space-y-1.5 md:space-y-2">
             {topRated.map((item, i) => (
               <div
                 key={item.id}
-                className="vault-card flex items-center gap-4 p-3 transition-all duration-vault-normal hover:border-vault-border"
+                className="vault-card flex items-center gap-3 md:gap-4 p-2.5 md:p-3 transition-all duration-vault-normal hover:border-vault-border"
               >
-                <span className={`text-lg font-bold font-display w-8 text-center ${i < 3 ? 'text-vault-gold' : 'text-vault-muted'}`}>
+                <span className={`text-sm md:text-lg font-bold font-display w-6 md:w-8 text-center ${i < 3 ? 'text-vault-gold' : 'text-vault-muted'}`}>
                   {i + 1}
                 </span>
                 <div className="flex-1 min-w-0">
-                  <p className="text-body-sm font-semibold text-vault-text truncate">{item.title}</p>
-                  <p className="text-caption text-vault-muted">
+                  <p className="text-[11px] md:text-body-sm font-semibold text-vault-text truncate">{item.title}</p>
+                  <p className="text-[10px] md:text-caption text-vault-muted">
                     {item.type === 'movie' ? 'Movie' : 'Series'} · {item.releaseYear}
                   </p>
                 </div>
-                <span className="vault-badge-gold flex-shrink-0">
-                  <Star className="w-3 h-3 fill-current" />
+                <span className="vault-badge-gold flex-shrink-0 !text-[10px] md:!text-xs">
+                  <Star className="w-2.5 h-2.5 md:w-3 md:h-3 fill-current" />
                   {item.personalRating}/10
                 </span>
               </div>
@@ -331,11 +331,11 @@ export default function Statistics() {
       )}
 
       {history.length > 0 && (
-        <section className="vault-section">
-          <div className="vault-section-header">
-            <h2 className="vault-section-title">Recent History</h2>
+        <section className="mb-5 md:mb-8">
+          <div className="flex items-center justify-between mb-3 md:mb-4">
+            <h2 className="text-sm md:text-h3 font-display font-semibold text-vault-text">Recent History</h2>
           </div>
-          <div className="space-y-2">
+          <div className="space-y-1.5 md:space-y-2">
             {history.slice(0, 20).map((entry) => {
               const isCompleted = entry.action.includes('Completed');
               const isAdded = entry.action.includes('Added');
@@ -347,20 +347,20 @@ export default function Statistics() {
               return (
                 <div
                   key={entry.id}
-                  className="vault-surface flex items-center gap-3 px-4 py-3 transition-colors duration-vault-normal hover:border-vault-border"
+                  className="vault-surface flex items-center gap-2 md:gap-3 px-3 md:px-4 py-2.5 md:py-3 transition-colors duration-vault-normal hover:border-vault-border"
                 >
-                  <span className="text-caption text-vault-muted w-16 md:w-24 flex-shrink-0">
+                  <span className="text-[9px] sm:text-[10px] md:text-caption text-vault-muted w-10 sm:w-16 md:w-24 flex-shrink-0 tabular-nums">
                     {new Date(entry.date).toLocaleDateString('en-US', {
                       day: 'numeric',
                       month: 'short',
                       year: 'numeric',
                     })}
                   </span>
-                  <span className={`${badgeClass} flex-shrink-0`}>
+                  <span className={`${badgeClass} flex-shrink-0 !text-[9px] md:!text-xs`}>
                     <span aria-hidden="true">{isCompleted ? '✓' : isAdded ? '+' : '•'}</span>
                     <span className="hidden sm:inline">{entry.action}</span>
                   </span>
-                  <span className="text-body-sm text-vault-text truncate flex-1 min-w-0">{entry.title}</span>
+                  <span className="text-[11px] md:text-body-sm text-vault-text truncate flex-1 min-w-0">{entry.title}</span>
                 </div>
               );
             })}
@@ -368,12 +368,12 @@ export default function Statistics() {
         </section>
       )}
 
-      <div className="mt-16 pt-8 vault-divider text-center">
-        <p className="text-body-sm font-display font-semibold text-vault-text tracking-wide">ArcVault</p>
-        <p className="text-caption text-vault-muted mt-1.5">
+      <div className="mt-10 md:mt-16 pt-6 md:pt-8 vault-divider text-center">
+        <p className="text-xs md:text-body-sm font-display font-semibold text-vault-text tracking-wide">ArcVault</p>
+        <p className="text-[10px] md:text-caption text-vault-muted mt-1.5">
           A personal cinema journey, crafted by <span className="text-vault-text-secondary font-medium">DAX SANANDIYA</span>
         </p>
-        <p className="text-[10px] text-vault-muted/60 mt-2">
+        <p className="text-[9px] md:text-[10px] text-vault-muted/60 mt-2">
           © 2026 DAX SANANDIYA · v1.0.0
         </p>
       </div>

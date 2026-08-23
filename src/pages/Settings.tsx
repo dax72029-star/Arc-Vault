@@ -111,9 +111,9 @@ export default function Settings() {
 
   return (
     <div>
-      <div className="mb-8 md:mb-10">
-        <h1 className="text-h1 font-display font-bold text-vault-text tracking-tight">Settings</h1>
-        <p className="text-body-sm text-vault-muted mt-1">Manage your data</p>
+      <div className="mb-6 md:mb-10">
+        <h1 className="text-xl md:text-h1 font-display font-bold text-vault-text tracking-tight">Settings</h1>
+        <p className="text-xs md:text-body-sm text-vault-muted mt-1">Manage your data</p>
       </div>
 
       {message && (
@@ -295,12 +295,12 @@ export default function Settings() {
         </div>
       </section>
 
-      <footer className="mt-12 pt-8 border-t border-vault-border/30 text-center">
-        <p className="text-sm font-display font-semibold text-vault-text tracking-wide">ArcVault</p>
-        <p className="text-xs text-vault-muted mt-1.5">
+      <footer className="mt-10 md:mt-12 pt-6 md:pt-8 border-t border-vault-border/30 text-center">
+        <p className="text-xs md:text-sm font-display font-semibold text-vault-text tracking-wide">ArcVault</p>
+        <p className="text-[10px] md:text-xs text-vault-muted mt-1.5">
           A personal cinema journey, crafted by <span className="text-vault-text-secondary font-medium">DAX SANANDIYA</span>
         </p>
-        <p className="text-[10px] text-vault-muted/60 mt-2">
+        <p className="text-[9px] md:text-[10px] text-vault-muted/60 mt-2">
           © 2026 DAX SANANDIYA · v1.0.0
         </p>
       </footer>

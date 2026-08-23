@@ -17,12 +17,12 @@ export default function StatCard({ label, value, icon, color = 'text-vault-accen
     : 'vault-card';
 
   return (
-    <div className={`${baseClasses} p-4 transition-all duration-200 hover:border-vault-border`}>
-      <div className="flex items-start justify-between gap-3">
+    <div className={`${baseClasses} p-3 md:p-4 transition-all duration-200 hover:border-vault-border`}>
+      <div className="flex items-start justify-between gap-2 md:gap-3">
         <div className="flex-1 min-w-0">
-          <p className="text-[11px] text-vault-muted font-medium uppercase tracking-wider">{label}</p>
-          <p className={`text-2xl font-display font-bold mt-1.5 ${color}`}>{value}</p>
-          {sublabel && <p className="text-[11px] text-vault-muted mt-1.5">{sublabel}</p>}
+          <p className="text-[10px] md:text-[11px] text-vault-muted font-medium uppercase tracking-wider">{label}</p>
+          <p className={`text-lg md:text-2xl font-display font-bold mt-1 md:mt-1.5 ${color}`}>{value}</p>
+          {sublabel && <p className="text-[10px] md:text-[11px] text-vault-muted mt-1 md:mt-1.5">{sublabel}</p>}
         </div>
         {icon && (
           <div className={`${color} opacity-40 flex-shrink-0 mt-0.5`}>

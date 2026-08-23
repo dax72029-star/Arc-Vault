@@ -98,15 +98,15 @@ export default function SearchPage() {
   if (!TMDB.hasApiKey()) {
     return (
       <div>
-        <div className="mb-8 md:mb-10">
-          <h1 className="text-h1 font-display font-bold text-vault-text tracking-tight">Search</h1>
-          <p className="text-body-sm text-vault-muted mt-1">Find movies and series to track</p>
+        <div className="mb-6 md:mb-10">
+          <h1 className="text-xl md:text-h1 font-display font-bold text-vault-text tracking-tight">Search</h1>
+          <p className="text-xs md:text-body-sm text-vault-muted mt-1">Find movies and series to track</p>
         </div>
-        <div className="vault-card flex flex-col items-center justify-center py-16 px-6 text-center">
-          <div className="w-16 h-16 rounded-2xl bg-vault-accent-subtle flex items-center justify-center mb-5">
-            <Search className="w-7 h-7 text-vault-accent" />
+        <div className="vault-card flex flex-col items-center justify-center py-12 md:py-16 px-4 md:px-6 text-center">
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-vault-accent-subtle flex items-center justify-center mb-4 md:mb-5">
+            <Search className="w-6 h-6 md:w-7 md:h-7 text-vault-accent" />
           </div>
-          <h3 className="text-h3 font-display text-vault-text mb-2">TMDB API Key Required</h3>
+          <h3 className="text-base md:text-h3 font-display text-vault-text mb-2">TMDB API Key Required</h3>
           <p className="text-body-sm text-vault-muted max-w-md mb-8">
             To search movies and series, you need a TMDB API key.
           </p>
@@ -133,20 +133,20 @@ export default function SearchPage() {
 
   return (
     <div>
-      <div className="mb-8 md:mb-10">
-        <h1 className="text-h1 font-display font-bold text-vault-text tracking-tight">Search</h1>
-        <p className="text-body-sm text-vault-muted mt-1">Find movies and series to track</p>
+      <div className="mb-5 md:mb-10">
+        <h1 className="text-xl md:text-h1 font-display font-bold text-vault-text tracking-tight">Search</h1>
+        <p className="text-xs md:text-body-sm text-vault-muted mt-1">Find movies and series to track</p>
       </div>
 
-      <div className="relative mb-6">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-vault-muted pointer-events-none" />
+      <div className="relative mb-5 md:mb-6">
+        <Search className="absolute left-3.5 md:left-4 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-vault-muted pointer-events-none" />
         <input
           ref={inputRef}
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value.slice(0, 200))}
           placeholder="Search movies & series..."
-          className="vault-input pl-12 pr-16 py-3.5 rounded-xl shadow-vault-inner"
+          className="vault-input pl-10 md:pl-12 pr-14 md:pr-16 py-3 md:py-3.5 rounded-xl shadow-vault-inner min-h-[48px]"
           maxLength={200}
           autoFocus
         />
@@ -157,7 +157,7 @@ export default function SearchPage() {
               setResults([]);
               inputRef.current?.focus();
             }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-caption uppercase tracking-wide text-vault-muted hover:text-white transition-colors duration-vault-normal"
+            className="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 text-[10px] md:text-caption uppercase tracking-wide text-vault-muted hover:text-white transition-colors duration-vault-normal min-w-[44px] min-h-[44px] flex items-center justify-center"
           >
             Clear
           </button>
@@ -178,12 +178,12 @@ export default function SearchPage() {
         loading ? (
           <SearchSkeleton />
         ) : results.length === 0 ? (
-          <div className="vault-card flex flex-col items-center py-16 px-6 text-center">
-            <div className="w-14 h-14 rounded-full bg-vault-surface-hover flex items-center justify-center mb-4">
-              <Search className="w-6 h-6 text-vault-muted" />
+          <div className="vault-card flex flex-col items-center py-12 md:py-16 px-4 md:px-6 text-center">
+            <div className="w-11 h-11 md:w-14 md:h-14 rounded-full bg-vault-surface-hover flex items-center justify-center mb-3 md:mb-4">
+              <Search className="w-5 h-5 md:w-6 md:h-6 text-vault-muted" />
             </div>
-            <h3 className="text-h3 font-display text-vault-text mb-1.5">No results found</h3>
-            <p className="text-body-sm text-vault-muted max-w-sm mb-6">
+            <h3 className="text-base md:text-h3 font-display font-semibold text-vault-text mb-1.5">No results found</h3>
+            <p className="text-[11px] md:text-body-sm text-vault-muted max-w-sm mb-5 md:mb-6">
               Nothing matched "{query}". Try a different title or check your spelling.
             </p>
             <button onClick={handleClearSearch} className="vault-btn-primary">
@@ -205,7 +205,7 @@ export default function SearchPage() {
         )
       ) : (
         <div>
-          <h2 className="text-h3 font-display text-vault-text mb-4">Discover</h2>
+          <h2 className="text-sm md:text-h3 font-display font-semibold text-vault-text mb-3 md:mb-4">Discover</h2>
           <div className="overflow-x-auto scrollbar-hide pb-1 mb-6">
             <div className="inline-flex gap-1 p-1 vault-surface-elevated rounded-lg min-w-max">
               {(
@@ -234,7 +234,7 @@ export default function SearchPage() {
           {discoverLoading ? (
             <SearchSkeleton />
           ) : (
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2.5 sm:gap-3 md:gap-4">
               {discoverItems.map((item) => {
                 const title = item.title || item.name || 'Unknown';
                 const year = (item.release_date || item.first_air_date || '').split('-')[0];
