@@ -97,8 +97,16 @@ function importData(jsonString) {
     return { success: false, trackerImported: 0, historyImported: 0, duplicatesSkipped: 0, invalidItems: 0, error: `Too many tracker items (${parsed.tracker.length}, limit is ${MAX_TRACKER_ITEMS})` };
   }
 
-  const seenKeys = new Set();
-  const validTracker = [];
+  const existingTracker = readStoredJson(TRACKER_KEY);
+  const existingHistory = readStoredJson(HISTORY_KEY);
+
+  const existingMap = new Map();
+  for (const item of existingTracker) {
+    if (isValidTrackerItem(item)) {
+      existingMap.set(`${item.tmdbId}_${item.type}`, item);
+    }
+  }
+
   let duplicatesSkipped = 0;
   let invalidItems = 0;
 
@@ -108,29 +116,43 @@ function importData(jsonString) {
       continue;
     }
     const identityKey = `${candidate.tmdbId}_${candidate.type}`;
-    if (seenKeys.has(identityKey)) {
+    if (existingMap.has(identityKey)) {
       duplicatesSkipped += 1;
-      continue;
+    } else {
+      existingMap.set(identityKey, candidate);
     }
-    seenKeys.add(identityKey);
-    validTracker.push(candidate);
   }
 
-  const validHistory = Array.isArray(parsed.history) ? parsed.history.filter(isValidHistoryEntry) : [];
+  const mergedTracker = Array.from(existingMap.values());
+  localStorageMock.setItem(TRACKER_KEY, JSON.stringify(mergedTracker));
 
-  localStorageMock.setItem(TRACKER_KEY, JSON.stringify(validTracker));
-  localStorageMock.setItem(HISTORY_KEY, JSON.stringify(validHistory));
+  const validHistory = Array.isArray(parsed.history) ? parsed.history.filter(isValidHistoryEntry) : [];
+  const existingHistoryMap = new Map();
+  for (const entry of existingHistory) {
+    if (isValidHistoryEntry(entry)) {
+      existingHistoryMap.set(entry.id, entry);
+    }
+  }
+  let historyAdded = 0;
+  for (const entry of validHistory) {
+    if (!existingHistoryMap.has(entry.id)) {
+      existingHistoryMap.set(entry.id, entry);
+      historyAdded += 1;
+    }
+  }
+  const mergedHistory = Array.from(existingHistoryMap.values());
+  localStorageMock.setItem(HISTORY_KEY, JSON.stringify(mergedHistory));
 
   const storedTracker = readStoredJson(TRACKER_KEY);
   const storedHistory = readStoredJson(HISTORY_KEY);
-  if (storedTracker.length !== validTracker.length || storedHistory.length !== validHistory.length) {
+  if (storedTracker.length !== mergedTracker.length || storedHistory.length !== mergedHistory.length) {
     return { success: false, trackerImported: 0, historyImported: 0, duplicatesSkipped, invalidItems, error: 'Storage verification failed after write' };
   }
 
   return {
     success: true,
-    trackerImported: validTracker.length,
-    historyImported: validHistory.length,
+    trackerImported: storedTracker.length,
+    historyImported: historyAdded,
     duplicatesSkipped,
     invalidItems,
   };

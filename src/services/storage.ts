@@ -312,34 +312,59 @@ export function importData(jsonString: string): ImportResult {
       return { success: false, trackerImported: 0, historyImported: 0, duplicatesSkipped: 0, invalidItems: 0, error: 'Import too large (max 10,000 items)' };
     }
 
+    const existingTracker = getTracker();
+    const existingHistory = getHistory();
+
     const validItems = data.tracker.filter(isValidTrackerItem);
     const invalidItems = data.tracker.length - validItems.length;
 
-    const seen = new Map<string, TrackerItem>();
+    const existingMap = new Map<string, TrackerItem>();
+    for (const item of existingTracker) {
+      existingMap.set(`${item.tmdbId}_${item.type}`, item);
+    }
+
+    let duplicatesSkipped = 0;
+    let addedCount = 0;
+
     for (const item of validItems) {
       const key = `${item.tmdbId}_${item.type}`;
-      if (!seen.has(key)) {
-        seen.set(key, item);
+      if (existingMap.has(key)) {
+        duplicatesSkipped++;
+      } else {
+        existingMap.set(key, item);
+        addedCount++;
       }
     }
-    const deduped = Array.from(seen.values());
-    const duplicatesSkipped = validItems.length - deduped.length;
 
-    if (deduped.length === 0) {
+    const mergedTracker = Array.from(existingMap.values());
+
+    if (mergedTracker.length === 0 && validItems.length === 0) {
       return { success: false, trackerImported: 0, historyImported: 0, duplicatesSkipped, invalidItems, error: 'No valid tracker items found in import data' };
     }
 
-    safeSetJSON(STORAGE_KEYS.TRACKER, deduped);
+    safeSetJSON(STORAGE_KEYS.TRACKER, mergedTracker);
     const readBack = getTracker();
-    if (readBack.length === 0 && deduped.length > 0) {
+    if (readBack.length === 0 && mergedTracker.length > 0) {
       return { success: false, trackerImported: 0, historyImported: 0, duplicatesSkipped, invalidItems, error: 'Storage quota exceeded. Try exporting fewer items or clearing old data first.' };
     }
 
     let historyImported = 0;
     if (data.history && Array.isArray(data.history)) {
       const validHistory = data.history.filter(isValidHistoryEntry);
-      historyImported = validHistory.length;
-      safeSetJSON(STORAGE_KEYS.HISTORY, validHistory);
+      const existingHistoryMap = new Map<string, HistoryEntry>();
+      for (const entry of existingHistory) {
+        existingHistoryMap.set(entry.id, entry);
+      }
+      let historyAdded = 0;
+      for (const entry of validHistory) {
+        if (!existingHistoryMap.has(entry.id)) {
+          existingHistoryMap.set(entry.id, entry);
+          historyAdded++;
+        }
+      }
+      const mergedHistory = Array.from(existingHistoryMap.values());
+      historyImported = historyAdded;
+      safeSetJSON(STORAGE_KEYS.HISTORY, mergedHistory);
     }
 
     return {

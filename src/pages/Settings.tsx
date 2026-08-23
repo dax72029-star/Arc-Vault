@@ -281,7 +281,7 @@ export default function Settings() {
               <div className="flex-1 min-w-0">
                 <h3 className="text-sm font-semibold text-white">Import Data</h3>
                 <p className="text-xs text-vault-muted mt-1 leading-relaxed">
-                  Restore tracker data from a previously exported ArcVault JSON file.
+                  Import a previously exported ArcVault JSON file. Imported titles are added to your existing data — existing records are never deleted or replaced.
                 </p>
                 <input
                   ref={fileInputRef}
