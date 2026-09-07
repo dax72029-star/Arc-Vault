@@ -16,7 +16,7 @@ export default function SearchResultCard({ item }: Props) {
   return (
     <button
       onClick={() => navigate(`/title/${item.media_type}/${item.id}`)}
-      className="flex gap-3 md:gap-4 p-3 rounded-xl bg-vault-surface/40 hover:bg-vault-surface-elevated border border-transparent hover:border-vault-border/50 transition-all duration-200 text-left w-full group min-h-[76px]"
+      className="flex gap-3 md:gap-4 p-3 rounded-xl bg-vault-surface/40 hover:bg-vault-surface-elevated border border-transparent hover:border-vault-border/50 transition-all duration-200 text-left w-full group min-h-[76px] vault-card-cinematic hover:-translate-y-0.5 hover:shadow-vault-md"
     >
       <div className="w-12 h-[68px] md:w-14 md:h-20 rounded-lg overflow-hidden flex-shrink-0 bg-vault-surface">
         <TMDBImage

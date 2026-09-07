@@ -14,11 +14,11 @@ export default function LoadingSpinner({ size = 'md' }: { size?: 'sm' | 'md' | '
 
 export function SkeletonCard({ className = '' }: { className?: string }) {
   return (
-    <div className={`vault-card overflow-hidden animate-pulse ${className}`}>
-      <div className="aspect-[2/3] bg-vault-surface-hover" />
+    <div className={`vault-card overflow-hidden ${className}`}>
+      <div className="aspect-[2/3] skeleton" />
       <div className="p-3 space-y-2">
-        <div className="h-3 bg-vault-surface-hover rounded-md w-3/4" />
-        <div className="h-2.5 bg-vault-surface-hover rounded-md w-1/2" />
+        <div className="h-3 skeleton rounded-md w-3/4" />
+        <div className="h-2.5 skeleton rounded-md w-1/2" />
       </div>
     </div>
   );
@@ -26,12 +26,12 @@ export function SkeletonCard({ className = '' }: { className?: string }) {
 
 export function SkeletonRow({ className = '' }: { className?: string }) {
   return (
-    <div className={`flex gap-4 p-3.5 rounded-xl bg-vault-surface/50 animate-pulse ${className}`}>
-      <div className="w-14 h-20 rounded-lg bg-vault-surface-hover flex-shrink-0" />
+    <div className={`flex gap-4 p-3.5 rounded-xl bg-vault-surface/50 ${className}`}>
+      <div className="w-14 h-20 rounded-lg skeleton flex-shrink-0" />
       <div className="flex-1 space-y-2.5 py-0.5">
-        <div className="h-3.5 bg-vault-surface-hover rounded-md w-3/4" />
-        <div className="h-3 bg-vault-surface-hover rounded-md w-1/2" />
-        <div className="h-2.5 bg-vault-surface-hover rounded-md w-1/3" />
+        <div className="h-3.5 skeleton rounded-md w-3/4" />
+        <div className="h-3 skeleton rounded-md w-1/2" />
+        <div className="h-2.5 skeleton rounded-md w-1/3" />
       </div>
     </div>
   );
@@ -49,17 +49,17 @@ export function SearchSkeleton() {
 
 export function DashboardSkeleton() {
   return (
-    <div className="space-y-8 animate-pulse">
+    <div className="space-y-8">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {Array.from({ length: 4 }).map((_, i) => (
           <div key={i} className="vault-card p-4">
-            <div className="h-2.5 bg-vault-surface-hover rounded-md w-16 mb-2" />
-            <div className="h-7 bg-vault-surface-hover rounded-md w-20" />
+            <div className="h-2.5 skeleton rounded-md w-16 mb-2" />
+            <div className="h-7 skeleton rounded-md w-20" />
           </div>
         ))}
       </div>
       <div className="space-y-3">
-        <div className="h-5 bg-vault-surface-hover rounded-md w-32" />
+        <div className="h-5 skeleton rounded-md w-32" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {Array.from({ length: 4 }).map((_, i) => (
             <SkeletonCard key={i} />
@@ -72,14 +72,14 @@ export function DashboardSkeleton() {
 
 export function TitleDetailSkeleton() {
   return (
-    <div className="animate-pulse">
-      <div className="h-48 md:h-72 bg-vault-surface-hover rounded-2xl mb-6" />
-      <div className="flex gap-6 -mt-16 relative z-10 mb-6">
-        <div className="w-24 md:w-36 bg-vault-surface-hover rounded-xl aspect-[2/3]" />
-        <div className="flex-1 pt-6 space-y-3">
-          <div className="h-7 bg-vault-surface-hover rounded-md w-3/4" />
-          <div className="h-4 bg-vault-surface-hover rounded-md w-1/2" />
-          <div className="h-4 bg-vault-surface-hover rounded-md w-1/3" />
+    <div>
+      <div className="h-48 md:h-[26rem] skeleton rounded-2xl mb-6" />
+      <div className="flex gap-6 -mt-24 relative z-10 mb-6">
+        <div className="w-24 md:w-44 skeleton rounded-xl aspect-[2/3]" />
+        <div className="flex-1 pt-10 space-y-3">
+          <div className="h-8 skeleton rounded-md w-3/4" />
+          <div className="h-4 skeleton rounded-md w-1/2" />
+          <div className="h-4 skeleton rounded-md w-1/3" />
         </div>
       </div>
     </div>

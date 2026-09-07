@@ -24,7 +24,7 @@ export default {
           'gold-subtle': 'rgba(234, 179, 8, 0.12)',
           text: '#e8eaed',
           'text-secondary': '#9ca3af',
-          muted: '#6b7280',
+          muted: '#7f8798',
           success: '#22c55e',
           'success-subtle': 'rgba(34, 197, 94, 0.12)',
           warning: '#f59e0b',
@@ -101,6 +101,8 @@ export default {
         'vault-card': '0 2px 8px -2px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(35, 40, 64, 0.5)',
         'vault-card-hover': '0 8px 25px -5px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(220, 38, 38, 0.15)',
         'vault-modal': '0 25px 50px -12px rgba(0, 0, 0, 0.7)',
+        'vault-poster': '0 30px 50px -12px rgba(0, 0, 0, 0.85)',
+        'vault-glow-accent': '0 0 30px -8px rgba(220, 38, 38, 0.45)',
       },
       backgroundImage: {
         'vault-gradient': 'linear-gradient(180deg, rgba(8, 9, 14, 0) 0%, rgba(8, 9, 14, 0.8) 100%)',
@@ -118,6 +120,12 @@ export default {
         'vault-scale': 'vaultScale 0.2s ease-out',
         'vault-pulse': 'vaultPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'vault-shimmer': 'vaultShimmer 2s infinite',
+        'vault-page-enter': 'vaultPageEnter 0.24s cubic-bezier(0, 0, 0.2, 1) both',
+        'vault-reveal': 'vaultReveal 0.5s cubic-bezier(0, 0, 0.2, 1) both',
+        'vault-pop': 'vaultPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)',
+        'vault-heartbeat': 'vaultHeartbeat 1.8s ease-in-out infinite',
+        'vault-poster-settle': 'vaultPosterSettle 0.5s cubic-bezier(0, 0, 0.2, 1) both',
+        'vault-backdrop-drift': 'vaultBackdropDrift 18s ease-in-out infinite alternate',
       },
       keyframes: {
         vaultFadeIn: {
@@ -142,6 +150,34 @@ export default {
         vaultShimmer: {
           '0%': { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },
+        },
+        vaultPageEnter: {
+          '0%': { opacity: '0', transform: 'translateY(6px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        vaultReveal: {
+          '0%': { opacity: '0', transform: 'translateY(14px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        vaultPop: {
+          '0%': { transform: 'scale(0.7)' },
+          '55%': { transform: 'scale(1.15)' },
+          '100%': { transform: 'scale(1)' },
+        },
+        vaultHeartbeat: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '12%': { transform: 'scale(1.18)' },
+          '24%': { transform: 'scale(1)' },
+          '36%': { transform: 'scale(1.12)' },
+          '48%': { transform: 'scale(1)' },
+        },
+        vaultPosterSettle: {
+          '0%': { opacity: '0', transform: 'translateY(10px) scale(0.98)' },
+          '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+        },
+        vaultBackdropDrift: {
+          '0%': { transform: 'scale(1.04) translateY(0)' },
+          '100%': { transform: 'scale(1.08) translateY(-6px)' },
         },
       },
       transitionDuration: {

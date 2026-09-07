@@ -26,7 +26,11 @@ import {
   getWatchStreak,
 } from '../utils/helpers';
 import StatCard from '../components/StatCard';
+import SectionHeader from '../components/SectionHeader';
+import PageHeader, { ContextPill } from '../components/PageHeader';
 import { getHistory } from '../services/storage';
+import Reveal from '../components/Reveal';
+import PageFooter from '../components/PageFooter';
 
 export default function Statistics() {
   const { items } = useTrackerContext();
@@ -84,10 +88,12 @@ export default function Statistics() {
   if (items.length === 0) {
     return (
       <div>
-        <div className="mb-8 md:mb-10">
-          <h1 className="text-h1 font-display font-bold text-vault-text tracking-tight">Statistics</h1>
-          <p className="text-body-sm text-vault-muted mt-1">Your watch analytics</p>
-        </div>
+        <PageHeader
+          kicker="Analytics"
+          title="Statistics"
+          subtitle="Your watch analytics"
+          right={<ContextPill>No data</ContextPill>}
+        />
         <div className="flex flex-col items-center justify-center py-20 text-center">
           <BarChart3 className="w-16 h-16 text-vault-muted/30 mb-4" />
           <h3 className="text-h3 font-display font-semibold text-vault-text mb-2">No data yet</h3>
@@ -101,10 +107,12 @@ export default function Statistics() {
 
   return (
     <div>
-      <div className="mb-6 md:mb-10">
-        <h1 className="text-xl md:text-h1 font-display font-bold text-vault-text tracking-tight">Statistics</h1>
-        <p className="text-xs md:text-body-sm text-vault-muted mt-1">Your watch analytics</p>
-      </div>
+      <PageHeader
+        kicker="Analytics"
+        title="Statistics"
+        subtitle="Your watch analytics"
+        right={<ContextPill>{items.length} titles</ContextPill>}
+      />
 
       <section className="mb-5 md:mb-8">
         <div className="vault-card p-4 md:p-8 relative overflow-hidden">
@@ -128,27 +136,17 @@ export default function Statistics() {
       </section>
 
       <section className="mb-5 md:mb-8">
-        <div className="flex items-center justify-between mb-3 md:mb-4">
-          <h2 className="text-sm md:text-h3 font-display font-semibold text-vault-text flex items-center gap-2">
-            <Target className="w-4 h-4 md:w-5 md:h-5 text-vault-accent" />
-            Overview
-          </h2>
-        </div>
+        <SectionHeader title="Overview" icon={<Target className="w-4 h-4 md:w-5 md:h-5 text-vault-accent" />} />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-3">
-          <StatCard label="Total Movies" value={stats.totalMovies} icon={<Film className="w-5 h-5" />} sublabel={`${stats.moviesCompleted} completed`} />
-          <StatCard label="Total Series" value={stats.totalSeries} icon={<Tv className="w-5 h-5" />} sublabel={`${stats.seriesCompleted} completed`} />
-          <StatCard label="Completion" value={`${stats.completionPercentage}%`} icon={<TrendingUp className="w-5 h-5" />} color="text-vault-success" sublabel={`${stats.totalCompleted} / ${items.length}`} />
+          <StatCard label="Total Movies" value={stats.totalMovies} countUp icon={<Film className="w-5 h-5" />} sublabel={`${stats.moviesCompleted} completed`} />
+          <StatCard label="Total Series" value={stats.totalSeries} countUp icon={<Tv className="w-5 h-5" />} sublabel={`${stats.seriesCompleted} completed`} />
+          <StatCard label="Completion" value={stats.completionPercentage} suffix="%" countUp icon={<TrendingUp className="w-5 h-5" />} color="text-vault-success" sublabel={`${stats.totalCompleted} / ${items.length}`} />
           <StatCard label="Watch Streak" value={`${streak.current}d`} icon={<Flame className="w-5 h-5" />} color="text-vault-warning" sublabel={`Best: ${streak.longest}d`} />
         </div>
       </section>
 
       <section className="mb-5 md:mb-8">
-        <div className="flex items-center justify-between mb-3 md:mb-4">
-          <h2 className="text-sm md:text-h3 font-display font-semibold text-vault-text flex items-center gap-2">
-            <Clock className="w-4 h-4 md:w-5 md:h-5 text-vault-gold" />
-            Watch Time
-          </h2>
-        </div>
+        <SectionHeader title="Watch Time" icon={<Clock className="w-4 h-4 md:w-5 md:h-5 text-vault-gold" />} />
         <div className="vault-card p-4 md:p-6">
           <div className="space-y-0">
             <div className="flex items-center justify-between py-2.5 md:py-3 border-b border-vault-border/20">
@@ -190,12 +188,7 @@ export default function Statistics() {
       </section>
 
       <section className="mb-5 md:mb-8">
-        <div className="flex items-center justify-between mb-3 md:mb-4">
-          <h2 className="text-sm md:text-h3 font-display font-semibold text-vault-text flex items-center gap-2">
-            <Star className="w-4 h-4 md:w-5 md:h-5 text-vault-gold" />
-            Ratings
-          </h2>
-        </div>
+        <SectionHeader title="Ratings" icon={<Star className="w-4 h-4 md:w-5 md:h-5 text-vault-gold" />} />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-3">
           <StatCard label="Avg Movie Rating" value={avgMovieRating > 0 ? `${avgMovieRating}/10` : 'N/A'} icon={<Star className="w-5 h-5" />} color="text-vault-gold" />
           <StatCard label="Avg Series Rating" value={avgSeriesRating > 0 ? `${avgSeriesRating}/10` : 'N/A'} icon={<Star className="w-5 h-5" />} color="text-vault-gold" />
@@ -205,12 +198,7 @@ export default function Statistics() {
       </section>
 
       <section className="mb-5 md:mb-8">
-        <div className="flex items-center justify-between mb-3 md:mb-4">
-          <h2 className="text-sm md:text-h3 font-display font-semibold text-vault-text flex items-center gap-2">
-            <Zap className="w-4 h-4 md:w-5 md:h-5 text-vault-accent" />
-            Records
-          </h2>
-        </div>
+        <SectionHeader title="Records" icon={<Zap className="w-4 h-4 md:w-5 md:h-5 text-vault-accent" />} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 md:gap-3">
           <div className="vault-card p-3.5 md:p-5">
             <p className="text-[10px] md:text-caption text-vault-muted uppercase tracking-wider mb-1.5 md:mb-2">Longest Movie</p>
@@ -250,9 +238,7 @@ export default function Statistics() {
 
       {genreStats.length > 0 && (
         <section className="mb-5 md:mb-8">
-          <div className="flex items-center justify-between mb-3 md:mb-4">
-            <h2 className="text-sm md:text-h3 font-display font-semibold text-vault-text">Genres</h2>
-          </div>
+          <SectionHeader title="Genres" />
           <div className="vault-card p-4 md:p-6">
             <div className="space-y-2.5 md:space-y-3">
               {genreStats.slice(0, 8).map((g) => (
@@ -271,12 +257,7 @@ export default function Statistics() {
 
       {monthlyStats.length > 0 && (
         <section className="mb-5 md:mb-8">
-          <div className="flex items-center justify-between mb-3 md:mb-4">
-            <h2 className="text-sm md:text-h3 font-display font-semibold text-vault-text flex items-center gap-2">
-              <Calendar className="w-4 h-4 md:w-5 md:h-5 text-vault-info" />
-              Monthly Watch Time
-            </h2>
-          </div>
+          <SectionHeader title="Monthly Watch Time" icon={<Calendar className="w-4 h-4 md:w-5 md:h-5 text-vault-info" />} />
           <div className="vault-card p-4 md:p-6">
             <div className="space-y-2.5 md:space-y-3">
               {monthlyStats.slice(0, 12).map((m) => {
@@ -299,12 +280,7 @@ export default function Statistics() {
 
       {topRated.length > 0 && (
         <section className="mb-5 md:mb-8">
-          <div className="flex items-center justify-between mb-3 md:mb-4">
-            <h2 className="text-sm md:text-h3 font-display font-semibold text-vault-text flex items-center gap-2">
-              <Trophy className="w-4 h-4 md:w-5 md:h-5 text-vault-gold" />
-              Top Rated
-            </h2>
-          </div>
+          <SectionHeader title="Top Rated" icon={<Trophy className="w-4 h-4 md:w-5 md:h-5 text-vault-gold" />} />
           <div className="space-y-1.5 md:space-y-2">
             {topRated.map((item, i) => (
               <div
@@ -332,9 +308,7 @@ export default function Statistics() {
 
       {history.length > 0 && (
         <section className="mb-5 md:mb-8">
-          <div className="flex items-center justify-between mb-3 md:mb-4">
-            <h2 className="text-sm md:text-h3 font-display font-semibold text-vault-text">Recent History</h2>
-          </div>
+          <SectionHeader title="Recent History" />
           <div className="space-y-1.5 md:space-y-2">
             {history.slice(0, 20).map((entry) => {
               const isCompleted = entry.action.includes('Completed');
@@ -368,15 +342,7 @@ export default function Statistics() {
         </section>
       )}
 
-      <div className="mt-10 md:mt-16 pt-6 md:pt-8 vault-divider text-center">
-        <p className="text-xs md:text-body-sm font-display font-semibold text-vault-text tracking-wide">ArcVault</p>
-        <p className="text-[10px] md:text-caption text-vault-muted mt-1.5">
-          A personal cinema journey, crafted by <span className="text-vault-text-secondary font-medium">DAX SANANDIYA</span>
-        </p>
-        <p className="text-[9px] md:text-[10px] text-vault-muted/60 mt-2">
-          © 2026 DAX SANANDIYA · v1.0.0
-        </p>
-      </div>
+      <PageFooter />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { searchMulti, getTrending, getPopularMovies, getTopRatedMovies } from '.
 import type { TMDBSearchResult, TMDBPaginatedResponse } from '../types';
 import { TMDB } from '../config/tmdb';
 import SearchResultCard from '../components/SearchResultCard';
+import PageHeader from '../components/PageHeader';
 import TMDBImage from '../components/TMDBImage';
 import { SearchSkeleton } from '../components/LoadingSpinner';
 import { useDebounce } from '../hooks/useSearch';
@@ -98,10 +99,11 @@ export default function SearchPage() {
   if (!TMDB.hasApiKey()) {
     return (
       <div>
-        <div className="mb-6 md:mb-10">
-          <h1 className="text-xl md:text-h1 font-display font-bold text-vault-text tracking-tight">Search</h1>
-          <p className="text-xs md:text-body-sm text-vault-muted mt-1">Find movies and series to track</p>
-        </div>
+        <PageHeader
+          kicker="Discover"
+          title="Search"
+          subtitle="Find movies and series to track"
+        />
         <div className="vault-card flex flex-col items-center justify-center py-12 md:py-16 px-4 md:px-6 text-center">
           <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-vault-accent-subtle flex items-center justify-center mb-4 md:mb-5">
             <Search className="w-6 h-6 md:w-7 md:h-7 text-vault-accent" />
@@ -133,20 +135,24 @@ export default function SearchPage() {
 
   return (
     <div>
-      <div className="mb-5 md:mb-10">
-        <h1 className="text-xl md:text-h1 font-display font-bold text-vault-text tracking-tight">Search</h1>
-        <p className="text-xs md:text-body-sm text-vault-muted mt-1">Find movies and series to track</p>
-      </div>
+      <PageHeader
+        kicker="Discover"
+        title="Search"
+        subtitle="Find movies and series to track"
+      />
 
       <div className="relative mb-5 md:mb-6">
-        <Search className="absolute left-3.5 md:left-4 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-vault-muted pointer-events-none" />
+        <div className="absolute left-3.5 md:left-4 top-1/2 -translate-y-1/2 text-vault-muted pointer-events-none">
+          <Search className="w-4 h-4 md:w-5 md:h-5" />
+        </div>
         <input
           ref={inputRef}
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value.slice(0, 200))}
           placeholder="Search movies & series..."
-          className="vault-input pl-10 md:pl-12 pr-14 md:pr-16 py-3 md:py-3.5 rounded-xl shadow-vault-inner min-h-[48px]"
+          aria-label="Search movies and series"
+          className="vault-input pl-10 md:pl-12 pr-14 md:pr-16 py-3 md:py-3.5 rounded-xl shadow-vault-inner min-h-[52px] !text-[15px] focus:!border-vault-accent/60 focus:!ring-vault-accent/20 focus:!shadow-vault-glow"
           maxLength={200}
           autoFocus
         />
@@ -197,8 +203,14 @@ export default function SearchPage() {
               <span className="text-body-sm text-vault-muted truncate">for "{query}"</span>
             </div>
             <div className="space-y-2">
-              {results.map((item) => (
-                <SearchResultCard key={`${item.media_type}-${item.id}`} item={item} />
+              {results.map((item, idx) => (
+                <div
+                  key={`${item.media_type}-${item.id}`}
+                  className="animate-vault-slide-up"
+                  style={{ animationDelay: `${Math.min(idx, 10) * 35}ms` }}
+                >
+                  <SearchResultCard item={item} />
+                </div>
               ))}
             </div>
           </div>
@@ -218,6 +230,7 @@ export default function SearchPage() {
                 <button
                   key={tab.key}
                   onClick={() => setActiveDiscoverTab(tab.key)}
+                  aria-pressed={activeDiscoverTab === tab.key}
                   className={`flex items-center gap-1.5 px-4 py-2 rounded-md text-label font-medium whitespace-nowrap transition-all duration-vault-normal ${
                     activeDiscoverTab === tab.key
                       ? 'bg-vault-accent text-white shadow-vault-glow'
@@ -233,9 +246,19 @@ export default function SearchPage() {
 
           {discoverLoading ? (
             <SearchSkeleton />
+          ) : discoverItems.length === 0 ? (
+            <div className="vault-card flex flex-col items-center justify-center py-12 md:py-14 px-4 text-center">
+              <div className="w-11 h-11 md:w-14 md:h-14 rounded-full bg-vault-surface-hover flex items-center justify-center mb-3 md:mb-4">
+                <TrendingUp className="w-5 h-5 md:w-6 md:h-6 text-vault-muted" />
+              </div>
+              <h3 className="text-base md:text-h3 font-display font-semibold text-vault-text mb-1.5">Discover is unavailable</h3>
+              <p className="text-[11px] md:text-body-sm text-vault-muted max-w-sm">
+                We couldn't load trending titles right now. Try searching instead or check back shortly.
+              </p>
+            </div>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2.5 sm:gap-3 md:gap-4">
-              {discoverItems.map((item) => {
+              {discoverItems.map((item, idx) => {
                 const title = item.title || item.name || 'Unknown';
                 const year = (item.release_date || item.first_air_date || '').split('-')[0];
                 const type = item.media_type === 'tv' ? 'TV' : 'Movie';
@@ -243,24 +266,31 @@ export default function SearchPage() {
                   <button
                     key={`${item.media_type}-${item.id}`}
                     onClick={() => navigate(`/title/${item.media_type}/${item.id}`)}
-                    className="group relative rounded-xl overflow-hidden bg-vault-card border border-vault-border/40 hover:border-vault-border transition-all duration-300 shadow-vault-sm hover:shadow-vault-lg hover:-translate-y-0.5 text-left w-full"
+                    className="group relative rounded-xl overflow-hidden bg-vault-card border border-vault-border/40 hover:border-vault-border transition-all duration-300 shadow-vault-sm hover:shadow-vault-card-hover hover:-translate-y-1 text-left w-full vault-card-cinematic"
                   >
                     <div className="aspect-[2/3] relative overflow-hidden bg-vault-surface">
-                      <TMDBImage
-                        path={item.poster_path}
-                        alt={title}
-                        size="w342"
-                        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
-                        fallbackClassName="w-full h-full"
-                        fallbackText="No Poster"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80" />
+                      <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.06]">
+                        <TMDBImage
+                          path={item.poster_path}
+                          alt={title}
+                          size="w342"
+                          className="w-full h-full object-cover"
+                          fallbackClassName="w-full h-full"
+                          fallbackText="No Poster"
+                        />
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/15 opacity-80 group-hover:opacity-95 transition-opacity duration-300" />
                       <div className="absolute inset-0 bg-vault-gloss opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <div className="absolute bottom-0 left-0 right-0 p-2.5 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+                      <div className="absolute bottom-0 left-0 right-0 p-2.5 bg-gradient-to-t from-black/95 via-black/55 to-transparent">
                         <h3 className="text-[13px] font-semibold text-white truncate leading-tight">{title}</h3>
                         <div className="flex items-center gap-1.5 mt-1">
                           <span className="text-caption text-white/60">{year}</span>
-                          <span className="text-caption text-vault-gold">★ {item.vote_average?.toFixed(1)}</span>
+                          {item.vote_average > 0 && (
+                            <span className="flex items-center gap-0.5 text-[10px] text-vault-gold">
+                              <Star className="w-2.5 h-2.5 fill-vault-gold text-vault-gold" />
+                              {item.vote_average?.toFixed(1)}
+                            </span>
+                          )}
                           <span className={`text-[9px] px-1.5 py-0.5 rounded-full font-medium ${
                             type === 'TV' ? 'bg-vault-info/20 text-vault-info' : 'bg-vault-accent/20 text-vault-accent'
                           }`}>
