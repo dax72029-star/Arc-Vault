@@ -18,7 +18,7 @@
     --vault-gold: #eab308;
     --vault-text: #e8eaed;
     --vault-text-secondary: #9ca3af;
-    --vault-muted: #6b7280;
+    --vault-muted: #7f8798;
     --vault-success: #22c55e;
     --vault-warning: #f59e0b;
     --vault-error: #ef4444;
@@ -66,6 +66,12 @@
     scrollbar-color: var(--vault-border) var(--vault-bg);
   }
 
+  button:not(:disabled),
+  [role='button']:not(:disabled),
+  label[for] {
+    cursor: pointer;
+  }
+
   *::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -111,6 +117,9 @@
   .vault-card {
     @apply bg-vault-card border border-vault-border/50 rounded-xl;
     box-shadow: var(--vault-shadow-sm);
+    transition: border-color var(--vault-duration-normal) var(--vault-ease),
+      box-shadow var(--vault-duration-normal) var(--vault-ease),
+      transform var(--vault-duration-normal) var(--vault-ease);
   }
 
   .vault-card-interactive {
@@ -250,7 +259,7 @@
   }
 
   .vault-section-title {
-    @apply text-h3 font-display text-vault-text flex items-center gap-2;
+    @apply text-[15px] md:text-h3 font-display text-vault-text flex items-center gap-2;
   }
 
   .vault-section-link {
@@ -293,6 +302,118 @@
 
   .safe-top {
     padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  /* Scroll reveal system */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.55s cubic-bezier(0, 0, 0.2, 1),
+      transform 0.55s cubic-bezier(0, 0, 0.2, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 40ms; }
+  .reveal-delay-2 { transition-delay: 80ms; }
+  .reveal-delay-3 { transition-delay: 120ms; }
+  .reveal-delay-4 { transition-delay: 160ms; }
+  .reveal-delay-5 { transition-delay: 200ms; }
+  .reveal-delay-6 { transition-delay: 240ms; }
+  .reveal-delay-7 { transition-delay: 280ms; }
+  .reveal-delay-8 { transition-delay: 320ms; }
+  .reveal-delay-9 { transition-delay: 360ms; }
+  .reveal-delay-10 { transition-delay: 400ms; }
+
+  /* Page entrance */
+  .page-enter {
+    animation: pageEnter 0.28s cubic-bezier(0, 0, 0.2, 1) both;
+  }
+
+  @keyframes pageEnter {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Vertical cinematic gradient scrims */
+  .vault-scrim-top {
+    background: linear-gradient(180deg, var(--vault-bg) 0%, transparent 100%);
+  }
+
+  .vault-scrim-bottom {
+    background: linear-gradient(0deg, var(--vault-bg) 0%, transparent 100%);
+  }
+
+  /* Refined interactive card entrance */
+  .vault-card-cinematic {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .vault-card-cinematic:hover {
+      box-shadow: var(--vault-shadow-lg), 0 0 30px -12px rgba(220, 38, 38, 0.35);
+      border-color: rgba(35, 40, 64, 1);
+      transform: translateY(-3px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .page-enter {
+      opacity: 1;
+      transform: none;
+      animation: none;
+      transition: none;
+    }
+
+    .vault-card-cinematic:hover {
+      transform: none;
+    }
+  }
+
+  /* Polished skeleton shimmer */
+  .skeleton {
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(28, 32, 53, 0.6);
+  }
+
+  .skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.04) 50%,
+      transparent 100%
+    );
+    animation: skeletonShimmer 1.6s ease-in-out infinite;
+  }
+
+  @keyframes skeletonShimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skeleton::after {
+      animation: none;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {

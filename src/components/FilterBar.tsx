@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 export type SortOption =
@@ -31,6 +31,24 @@ export default function FilterBar({
   onSortChange,
 }: FilterBarProps) {
   const [showSort, setShowSort] = useState(false);
+  const sortTriggerRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    if (!showSort) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setShowSort(false);
+        sortTriggerRef.current?.focus();
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [showSort]);
+
+  const closeSort = () => {
+    setShowSort(false);
+    sortTriggerRef.current?.focus();
+  };
 
   return (
     <div className="flex items-center gap-3 mb-6">
@@ -39,7 +57,8 @@ export default function FilterBar({
           <button
             key={filter}
             onClick={() => onFilterChange(filter)}
-            className={`px-3.5 py-1.5 rounded-lg text-[12px] font-medium transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
+            aria-pressed={activeFilter === filter}
+            className={`px-3.5 py-1.5 rounded-lg text-[12px] font-medium transition-all duration-200 whitespace-nowrap flex-shrink-0 vault-card-cinematic ${
               activeFilter === filter
                 ? 'bg-vault-accent text-white shadow-sm shadow-vault-accent/20'
                 : 'bg-vault-surface-elevated text-vault-muted hover:text-vault-text hover:bg-vault-surface-hover border border-vault-border/30'
@@ -51,22 +70,27 @@ export default function FilterBar({
       </div>
       <div className="relative flex-shrink-0">
         <button
+          ref={sortTriggerRef}
           onClick={() => setShowSort(!showSort)}
-          className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-[12px] font-medium bg-vault-surface-elevated text-vault-muted hover:text-vault-text hover:bg-vault-surface-hover transition-all duration-200 border border-vault-border/30"
+          aria-haspopup="menu"
+          aria-expanded={showSort}
+          className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-[12px] font-medium bg-vault-surface-elevated text-vault-muted hover:text-vault-text hover:bg-vault-surface-hover transition-all duration-200 border border-vault-border/30 vault-card-cinematic"
         >
           {sortOptions.find((s) => s.value === activeSort)?.label || 'Sort'}
-          <ChevronDown className="w-3 h-3" />
+          <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${showSort ? 'rotate-180' : ''}`} />
         </button>
         {showSort && (
-          <>
-            <div className="fixed inset-0 z-10" onClick={() => setShowSort(false)} />
-            <div className="absolute right-0 top-full mt-1.5 z-20 vault-surface-elevated shadow-vault-xl py-1 min-w-[180px]">
+            <>
+              <div className="fixed inset-0 z-10" onClick={closeSort} />
+              <div role="menu" className="absolute right-0 top-full mt-1.5 z-20 vault-surface-elevated shadow-vault-xl py-1 min-w-[180px] animate-vault-fade-in">
               {sortOptions.map((option) => (
                 <button
                   key={option.value}
+                  role="menuitemradio"
+                  aria-checked={activeSort === option.value}
                   onClick={() => {
                     onSortChange(option.value);
-                    setShowSort(false);
+                    closeSort();
                   }}
                   className={`w-full text-left px-4 py-2 text-[12px] transition-colors ${
                     activeSort === option.value
@@ -79,7 +103,7 @@ export default function FilterBar({
               ))}
             </div>
           </>
-        )}
+          )}
       </div>
     </div>
   );

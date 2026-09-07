@@ -16,8 +16,11 @@ import type { TMDBMovieDetail, TMDBTVDetail, TrackerMovie, TrackerSeries, Season
 import { useTrackerContext } from '../hooks/useTrackerContext';
 import { createTrackerMovie, createTrackerSeries, addHistoryEntry, updateTitle, updateEpisodeProgress, toggleSeasonWatched } from '../services/storage';
 import { formatMinutes } from '../utils/helpers';
-import LoadingSpinner from '../components/LoadingSpinner';
+import { TitleDetailSkeleton } from '../components/LoadingSpinner';
+import EmptyState from '../components/EmptyState';
 import TMDBImage from '../components/TMDBImage';
+import AnimatedProgress from '../components/ProgressBar';
+import { AlertCircle } from 'lucide-react';
 
 const VALID_MEDIA_TYPES = ['movie', 'tv'] as const;
 
@@ -293,19 +296,24 @@ export default function TitleDetail() {
     });
   };
 
-  if (loading) return <LoadingSpinner />;
+  if (loading) return <TitleDetailSkeleton />;
   if (error || !mediaType) return (
-    <div className="text-center py-20">
-      <p className="text-body-sm text-vault-error">{error || 'Invalid content type'}</p>
-      <button onClick={() => navigate('/')} className="vault-btn-secondary mt-4">
-        Go Home
-      </button>
-    </div>
+    <EmptyState
+      icon={<AlertCircle className="w-12 h-12 md:w-16 md:h-16" />}
+      title="Title unavailable"
+      description={error || 'This content type isn’t supported.'}
+      actionLabel="Back to library"
+      actionTo="/"
+    />
   );
   if (!detail) return (
-    <div className="text-center py-20">
-      <p className="text-body-sm text-vault-muted">Not found</p>
-    </div>
+    <EmptyState
+      icon={<AlertCircle className="w-12 h-12 md:w-16 md:h-16" />}
+      title="Not found"
+      description="This title couldn’t be loaded from TMDB."
+      actionLabel="Back to library"
+      actionTo="/"
+    />
   );
 
   const isMovie = mediaType === 'movie';
@@ -318,134 +326,149 @@ export default function TitleDetail() {
 
   return (
     <div>
-      <button onClick={() => navigate(-1)} className="vault-btn-ghost mb-4 md:mb-6 -ml-3 min-h-[44px]">
-        <ArrowLeft className="w-4 h-4" />
-        Back
-      </button>
+      <div className="relative -mx-4 md:-mx-8 rounded-b-none md:rounded-b-2xl overflow-hidden vault-card-cinematic">
+        <div className="relative h-52 sm:h-64 md:h-[26rem] overflow-hidden">
+          <div className="absolute inset-0 animate-vault-backdrop-drift">
+            <TMDBImage
+              path={backdrop}
+              alt={title}
+              type="backdrop"
+              backdropSize="w1280"
+              className="w-full h-full object-cover"
+              fallbackClassName="w-full h-full bg-vault-surface"
+              lazy={false}
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-vault-bg via-vault-bg/30 to-vault-bg/10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-vault-bg/70 via-vault-bg/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent" />
 
-      <div className="relative rounded-2xl overflow-hidden mb-5 md:mb-6 ring-1 ring-vault-border/30">
-        <TMDBImage
-          path={backdrop}
-          alt={title}
-          type="backdrop"
-          backdropSize="w1280"
-          className="w-full h-36 sm:h-48 md:h-72 object-cover"
-          fallbackClassName="w-full h-36 sm:h-48 md:h-72 bg-vault-card"
-          lazy={false}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-vault-bg via-vault-bg/55 to-vault-bg/5" />
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-vault-bg via-vault-bg/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-vault-bg/40 via-transparent to-transparent" />
-      </div>
-
-      <div className="flex gap-3 sm:gap-4 md:gap-6 -mt-10 sm:-mt-16 md:-mt-20 relative z-10 mb-5 md:mb-6">
-        <div className="w-[72px] sm:w-24 md:w-36 flex-shrink-0">
-          <TMDBImage
-            path={isMovie ? movie!.poster_path : tv!.poster_path}
-            alt={title}
-            size="w342"
-            className="w-full rounded-xl ring-1 ring-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.9)]"
-            fallbackClassName="vault-card w-full aspect-[2/3]"
-            fallbackText="N/A"
-            lazy={false}
-          />
+          <button
+            onClick={() => navigate(-1)}
+            className="absolute top-4 left-4 md:top-6 md:left-6 inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white text-xs md:text-sm font-medium hover:bg-black/60 transition-all duration-200 min-h-[44px] shadow-lg"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back
+          </button>
         </div>
-        <div className="flex-1 pt-3 sm:pt-6 md:pt-12 min-w-0">
-          <h1 className="text-[15px] sm:text-lg md:text-2xl font-display font-bold text-white leading-tight tracking-tight">
-            {title}
-          </h1>
-          <div className="flex flex-wrap items-center gap-1 sm:gap-2 mt-1 sm:mt-2 text-[11px] sm:text-sm text-vault-muted">
-            <span>{year}</span>
-            <span>·</span>
-            <span className={`font-medium ${isMovie ? 'text-vault-accent' : 'text-vault-info'}`}>
-              {isMovie ? 'Movie' : 'TV Series'}
-            </span>
-            {movie?.runtime && (
-              <>
-                <span>·</span>
-                <span className="flex items-center gap-1">
+
+        <div className="relative z-10 px-4 md:px-8 -mt-24 sm:-mt-28 md:-mt-36 flex gap-4 sm:gap-6 md:gap-8">
+          <div className="w-24 sm:w-32 md:w-44 flex-shrink-0 [perspective:1000px]">
+            <div className="relative animate-vault-poster-settle">
+              <TMDBImage
+                path={isMovie ? movie!.poster_path : tv!.poster_path}
+                alt={title}
+                size="w342"
+                className="w-full rounded-xl md:rounded-2xl ring-1 ring-white/10 shadow-vault-poster"
+                fallbackClassName="vault-card w-full aspect-[2/3]"
+                fallbackText="N/A"
+                lazy={false}
+              />
+              <div className="absolute inset-0 rounded-xl md:rounded-2xl ring-1 ring-inset ring-white/5 pointer-events-none" />
+            </div>
+          </div>
+
+          <div className="flex-1 pt-16 sm:pt-20 md:pt-24 min-w-0">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2">
+              <span className={`px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wide ${
+                isMovie ? 'bg-vault-accent/15 text-vault-accent border border-vault-accent/25' : 'bg-vault-info/15 text-vault-info border border-vault-info/25'
+              }`}>
+                {isMovie ? 'Movie' : 'TV Series'}
+              </span>
+              <span className="text-xs sm:text-sm text-white/80">{year}</span>
+              {movie?.runtime && (
+                <span className="flex items-center gap-1 text-[11px] sm:text-sm text-white/60">
                   <Clock className="w-3 h-3" />
                   {formatMinutes(movie.runtime)}
                 </span>
-              </>
-            )}
+              )}
+            </div>
+            <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight tracking-tight text-balance">
+              {title}
+            </h1>
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mt-3 md:mt-4">
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black/35 backdrop-blur-sm border border-white/10">
+                <Star className="w-4 h-4 text-vault-gold fill-vault-gold" />
+                <span className="text-sm md:text-base font-bold text-white tabular-nums">
+                  {(isMovie ? movie!.vote_average : tv!.vote_average).toFixed(1)}
+                </span>
+                <span className="text-[10px] text-white/50">/10 TMDB</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-5 md:mb-6">
-        {(isMovie ? movie!.genres : tv!.genres).map((g) => (
-          <span
-            key={g.id}
-            className="vault-badge px-2.5 py-1 bg-vault-surface-elevated text-vault-text/80 border border-vault-border/50 text-[10px] sm:text-xs"
-          >
-            {g.name}
-          </span>
-        ))}
-      </div>
+      <div className="mt-6 md:mt-8">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-5 md:mb-6">
+          {(isMovie ? movie!.genres : tv!.genres).map((g) => (
+            <span
+              key={g.id}
+              className="vault-badge px-2.5 py-1 bg-vault-surface-elevated text-vault-text/80 border border-vault-border/50 text-[10px] sm:text-xs hover:border-vault-border/70 transition-colors duration-200"
+            >
+              {g.name}
+            </span>
+          ))}
+        </div>
 
-      <div className="flex flex-wrap gap-2 sm:gap-3 mb-5 md:mb-6">
-        <div className="vault-card px-2.5 sm:px-4 py-2 sm:py-3 text-center min-w-[80px] sm:min-w-[110px]">
-          <p className="text-[9px] sm:text-xs text-vault-muted mb-0.5 sm:mb-1">TMDB Rating</p>
-          <p className="text-xs sm:text-base md:text-lg font-display font-bold text-vault-gold flex items-center justify-center gap-1 sm:gap-1.5">
-            <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-vault-gold" />
-            {(isMovie ? movie!.vote_average : tv!.vote_average).toFixed(1)}
-          </p>
-        </div>
-        <div className="vault-card px-2.5 sm:px-4 py-2 sm:py-3 text-center">
-          <p className="text-[9px] sm:text-xs text-vault-muted mb-0.5 sm:mb-1">My Rating</p>
-          <div className="flex items-center justify-center gap-px sm:gap-0.5">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
-              <button
-                key={n}
-                onClick={() => handleRate(rating === n ? 0 : n)}
-                onMouseEnter={() => setRatingHover(n)}
-                onMouseLeave={() => setRatingHover(0)}
-                className="transition-transform duration-vault-fast hover:scale-110 p-0.5 min-w-[24px] min-h-[24px] flex items-center justify-center"
-              >
-                <Star
-                  className={`w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 ${
-                    n <= (ratingHover || rating)
-                      ? 'text-vault-gold fill-vault-gold'
-                      : 'text-vault-border'
-                  }`}
-                />
-              </button>
-            ))}
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-5 md:mb-6">
+          <div className="vault-card px-3 sm:px-4 py-2 sm:py-3">
+            <p className="text-[9px] sm:text-xs text-vault-muted mb-0.5 sm:mb-1">My Rating</p>
+            <div className="flex items-center justify-center gap-px sm:gap-0.5">
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
+                <button
+                  key={n}
+                  onClick={() => handleRate(rating === n ? 0 : n)}
+                  onMouseEnter={() => setRatingHover(n)}
+                  onMouseLeave={() => setRatingHover(0)}
+                  className="transition-transform duration-vault-fast hover:scale-110 p-0.5 min-w-[28px] min-h-[28px] sm:min-w-[26px] sm:min-h-[26px] flex items-center justify-center cursor-pointer"
+                >
+                  <Star
+                    className={`w-3 h-3 sm:w-3.5 sm:h-3.5 transition-all duration-vault-fast ${
+                      n <= (ratingHover || rating)
+                        ? 'text-vault-gold fill-vault-gold scale-110 drop-shadow-[0_0_6px_rgba(234,179,8,0.4)]'
+                        : 'text-vault-border hover:text-vault-muted'
+                    }`}
+                  />
+                </button>
+              ))}
+            </div>
+            <p className="text-[9px] sm:text-xs text-vault-gold mt-0.5 sm:mt-1 text-center h-3.5">
+              {rating > 0 ? `${rating}/10` : ''}
+            </p>
           </div>
-          {rating > 0 && (
-            <p className="text-[9px] sm:text-xs text-vault-gold mt-0.5 sm:mt-1">{rating}/10</p>
-          )}
-        </div>
-        <button
-          onClick={handleToggleFavorite}
-          aria-label="Toggle favorite"
-          className={`vault-card px-3 sm:px-4 py-2.5 sm:py-3 min-w-[44px] min-h-[44px] flex items-center justify-center transition-all duration-vault-normal ${
-            tracked?.favorite
-              ? '!border-vault-accent/50 shadow-[0_0_20px_-8px_rgba(220,38,38,0.5)]'
-              : 'hover:border-vault-border'
-          }`}
-        >
-          <Heart
-            className={`w-4 h-4 sm:w-5 sm:h-5 ${
+          <button
+            onClick={handleToggleFavorite}
+            aria-label="Toggle favorite"
+            aria-pressed={tracked?.favorite}
+            className={`vault-card px-3.5 sm:px-4 py-2.5 sm:py-3.5 min-w-[52px] min-h-[48px] flex items-center justify-center transition-all duration-vault-normal active:scale-95 ${
               tracked?.favorite
-                ? 'text-vault-accent fill-vault-accent'
-                : 'text-vault-muted'
+                ? '!border-vault-accent/50 shadow-vault-glow-accent'
+                : 'hover:border-vault-border hover:-translate-y-0.5'
             }`}
-          />
-        </button>
-      </div>
+          >
+            <Heart
+              key={tracked?.favorite ? 'fav-on' : 'fav-off'}
+              className={`w-5 h-5 sm:w-[22px] sm:h-[22px] ${
+                tracked?.favorite
+                  ? 'text-vault-accent fill-vault-accent animate-vault-pop'
+                  : 'text-vault-muted'
+              }`}
+            />
+          </button>
+        </div>
 
-      <p className="text-[11px] sm:text-sm md:text-base text-vault-text/90 leading-relaxed max-w-3xl mb-5 md:mb-6">
-        {isMovie ? movie!.overview : tv!.overview}
-      </p>
+        <p className="text-[11px] sm:text-sm md:text-base text-vault-text/90 leading-relaxed max-w-3xl mb-5 md:mb-6 text-pretty">
+          {isMovie ? movie!.overview : tv!.overview}
+        </p>
+      </div>
 
       <div className="mb-6 md:mb-8">
         {!tracked ? (
           <button
             onClick={handleAdd}
             disabled={adding}
-            className="vault-btn-primary disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto min-h-[44px]"
+            className="vault-btn-primary disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto min-h-[48px] !px-7 !py-3 !text-sm"
           >
             <Plus className="w-5 h-5" />
             {adding ? 'Adding...' : 'Add to Watchlist'}
@@ -505,7 +528,7 @@ export default function TitleDetail() {
 
       {tracked && tracked.type === 'tv' && (tracked as TrackerSeries).seasonProgress.length > 0 && (
         <section className="mb-6 md:mb-8">
-          <h3 className="text-base md:text-lg font-display font-semibold text-white mb-3 md:mb-4">Seasons &amp; Episodes</h3>
+          <h2 className="text-base md:text-lg font-display font-semibold text-white mb-3 md:mb-4">Seasons &amp; Episodes</h2>
           <div className="space-y-2.5 md:space-y-3">
             {(tracked as TrackerSeries).seasonProgress.map((season) => {
               const watched = season.episodes.filter((e) => e.watched).length;
@@ -534,12 +557,11 @@ export default function TitleDetail() {
                         <span className="text-[10px] md:text-xs text-vault-muted tabular-nums">
                           {watched}/{total}
                         </span>
-                        <div className="vault-progress flex-1 max-w-[100px] md:max-w-[140px]">
-                          <div
-                            className={allWatched ? 'vault-progress-success' : 'vault-progress-accent'}
-                            style={{ width: `${pct}%` }}
-                          />
-                        </div>
+                        <AnimatedProgress
+                          value={pct}
+                          className="flex-1 max-w-[100px] md:max-w-[140px]"
+                          barClassName={allWatched ? 'vault-progress-success' : 'vault-progress-accent'}
+                        />
                         <span className="text-xs text-vault-muted tabular-nums">{pct}%</span>
                       </div>
                     </div>
@@ -627,7 +649,7 @@ export default function TitleDetail() {
 
       {tv && tv.seasons && tv.seasons.length > 0 && !tracked && (
         <section className="mb-6 md:mb-8">
-          <h3 className="text-base md:text-lg font-display font-semibold text-white mb-2">Series Info</h3>
+          <h2 className="text-base md:text-lg font-display font-semibold text-white mb-2">Series Info</h2>
           <div className="flex gap-3 sm:gap-4 text-xs md:text-sm text-vault-muted">
             <span>{tv.number_of_seasons} seasons</span>
             <span>{tv.number_of_episodes} episodes</span>
