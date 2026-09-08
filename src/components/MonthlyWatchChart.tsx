@@ -106,14 +106,31 @@ export default function MonthlyWatchChart({ data }: Props) {
   const activePoint = active !== null ? points[active] : null;
   const activeCoord = active !== null ? coords[active] : null;
 
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (points.length === 0) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      setActive((cur) => {
+        const next = cur == null ? 0 : e.key === 'ArrowRight' ? Math.min(points.length - 1, cur + 1) : Math.max(0, cur - 1);
+        return next;
+      });
+    } else if (e.key === 'Escape') setActive(null);
+    else if (e.key === 'Home') setActive(0);
+    else if (e.key === 'End') setActive(points.length - 1);
+  };
+
   return (
     <div
       ref={wrapRef}
-      className="vault-card p-4 md:p-6 overflow-hidden"
+      className="vault-card p-4 md:p-6 overflow-hidden focus-within:border-vault-border"
       onMouseMove={handleMove}
       onMouseLeave={() => setActive(null)}
+      onFocus={() => setActive((c) => c ?? 0)}
+      onBlur={() => setActive(null)}
+      onKeyDown={onKeyDown}
+      tabIndex={0}
       role="img"
-      aria-label="Monthly watch time trend over the last 12 months"
+      aria-label="Monthly watch time trend over the last 12 months. Use arrow keys to explore points."
     >
       <div className="relative select-none" style={{ height: H }}>
         <svg

@@ -39,6 +39,8 @@ import MonthlyWatchChart from '../components/MonthlyWatchChart';
 import CinemaUniverse from '../components/CinemaUniverse';
 import AnimatedProgress from '../components/ProgressBar';
 import TMDBImage from '../components/TMDBImage';
+import { useCountUp } from '../hooks/useCountUp';
+import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 
 export default function Statistics() {
   const navigate = useNavigate();
@@ -52,6 +54,12 @@ export default function Statistics() {
   const longestSeries = useMemo(() => getLongestSeries(items), [items]);
   const streak = useMemo(() => getWatchStreak(), [items]);
   const history = useMemo(() => getHistory(), [items]);
+  const reducedMotion = usePrefersReducedMotion();
+  // count-up for overview — subtle, respects reduced motion via hook internally
+  const countMovies = Math.round(useCountUp(stats.totalMovies, 700));
+  const countSeries = Math.round(useCountUp(stats.totalSeries, 700));
+  const countCompletion = Math.round(useCountUp(stats.completionPercentage, 800) * 10) / 10;
+  const countStreak = Math.round(useCountUp(streak.current, 600));
 
   const completedMovies = items.filter((i): i is TrackerMovie => i.type === 'movie' && i.status === 'completed');
   const completedSeries = items.filter((i): i is TrackerSeries => i.type === 'tv' && i.status === 'completed');
@@ -104,13 +112,13 @@ export default function Statistics() {
               <div className="flex items-start justify-between gap-2">
                 <div className="min-w-0">
                   <p className="text-[10px] md:text-[11px] text-vault-muted font-medium uppercase tracking-wider">Total Movies</p>
-                  <p className="text-xl md:text-2xl font-display font-bold text-vault-text tabular-nums mt-1">{stats.totalMovies}</p>
+                  <p className="text-xl md:text-2xl font-display font-bold text-vault-text tabular-nums mt-1">{reducedMotion ? stats.totalMovies : countMovies}</p>
                   <p className="text-[11px] text-vault-muted mt-1">{stats.moviesCompleted} completed</p>
                   <div className="mt-2 h-1 vault-progress">
                     <div className="vault-progress-accent" style={{ width: `${stats.totalMovies ? (stats.moviesCompleted / stats.totalMovies) * 100 : 0}%` }} />
                   </div>
                 </div>
-                <div className="w-9 h-9 rounded-xl bg-vault-accent/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <div className="w-9 h-9 rounded-xl bg-vault-accent/10 flex items-center justify-center group-hover:scale-105 group-hover:rotate-3 transition-transform duration-300">
                   <Film className="w-5 h-5 text-vault-accent" />
                 </div>
               </div>
@@ -119,13 +127,13 @@ export default function Statistics() {
               <div className="flex items-start justify-between gap-2">
                 <div className="min-w-0">
                   <p className="text-[10px] md:text-[11px] text-vault-muted font-medium uppercase tracking-wider">Total Series</p>
-                  <p className="text-xl md:text-2xl font-display font-bold text-vault-text tabular-nums mt-1">{stats.totalSeries}</p>
+                  <p className="text-xl md:text-2xl font-display font-bold text-vault-text tabular-nums mt-1">{reducedMotion ? stats.totalSeries : countSeries}</p>
                   <p className="text-[11px] text-vault-muted mt-1">{stats.seriesCompleted} completed · {stats.seriesWatching} watching</p>
                   <div className="mt-2 h-1 vault-progress">
                     <div className="vault-progress-info" style={{ width: `${stats.totalSeries ? (stats.seriesCompleted / stats.totalSeries) * 100 : 0}%` }} />
                   </div>
                 </div>
-                <div className="w-9 h-9 rounded-xl bg-vault-info/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <div className="w-9 h-9 rounded-xl bg-vault-info/10 flex items-center justify-center group-hover:scale-105 group-hover:rotate-3 transition-transform duration-300">
                   <Tv className="w-5 h-5 text-vault-info" />
                 </div>
               </div>
@@ -134,11 +142,11 @@ export default function Statistics() {
               <div className="flex items-start justify-between gap-2">
                 <div className="min-w-0">
                   <p className="text-[10px] md:text-[11px] text-vault-muted font-medium uppercase tracking-wider">Completion</p>
-                  <p className="text-xl md:text-2xl font-display font-bold text-vault-success tabular-nums mt-1">{stats.completionPercentage}%</p>
+                  <p className="text-xl md:text-2xl font-display font-bold text-vault-success tabular-nums mt-1">{reducedMotion ? `${stats.completionPercentage}%` : `${countCompletion}%`}</p>
                   <p className="text-[11px] text-vault-muted mt-1">{stats.totalCompleted} / {items.length}</p>
                   <div className="mt-2"><AnimatedProgress value={stats.completionPercentage} barClassName="vault-progress-success" /></div>
                 </div>
-                <div className="w-9 h-9 rounded-xl bg-vault-success/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <div className="w-9 h-9 rounded-xl bg-vault-success/10 flex items-center justify-center group-hover:scale-105 group-hover:rotate-3 transition-transform duration-300">
                   <TrendingUp className="w-5 h-5 text-vault-success" />
                 </div>
               </div>
@@ -147,7 +155,7 @@ export default function Statistics() {
               <div className="flex items-start justify-between gap-2">
                 <div className="min-w-0">
                   <p className="text-[10px] md:text-[11px] text-vault-muted font-medium uppercase tracking-wider">Watch Streak</p>
-                  <p className="text-xl md:text-2xl font-display font-bold text-vault-warning tabular-nums mt-1">{streak.current}d</p>
+                  <p className="text-xl md:text-2xl font-display font-bold text-vault-warning tabular-nums mt-1">{reducedMotion ? `${streak.current}d` : `${countStreak}d`}</p>
                   <p className="text-[11px] text-vault-muted mt-1">Best: {streak.longest}d</p>
                   <div className="mt-2 flex gap-0.5">
                     {streak.days.map((d) => (
@@ -155,7 +163,7 @@ export default function Statistics() {
                     ))}
                   </div>
                 </div>
-                <div className="w-9 h-9 rounded-xl bg-vault-warning/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <div className="w-9 h-9 rounded-xl bg-vault-warning/10 flex items-center justify-center group-hover:scale-105 group-hover:rotate-3 transition-transform duration-300">
                   <Flame className="w-5 h-5 text-vault-warning" />
                 </div>
               </div>

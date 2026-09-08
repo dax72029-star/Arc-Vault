@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Clock, Sparkles } from 'lucide-react';
 import { useCountUp } from '../hooks/useCountUp';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
@@ -11,7 +11,17 @@ interface Props {
 export default function WatchTimeHero({ totalMinutes, formatted }: Props) {
   const reduced = usePrefersReducedMotion();
   const [hover, setHover] = useState(false);
-  const count = useCountUp(totalMinutes, 1100, 0);
+  const [inView, setInView] = useState(false);
+  const ref = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (reduced) { setInView(true); return; }
+    const io = new IntersectionObserver((entries) => { if (entries[0]?.isIntersecting) { setInView(true); io.disconnect(); } }, { threshold: 0.2 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [reduced]);
+  const count = useCountUp(inView ? totalMinutes : 0, 1100, 0);
   const hours = Math.floor(totalMinutes / 60);
   const mins = Math.round(totalMinutes % 60);
   const countFormatted = useMemo(() => {
@@ -26,6 +36,7 @@ export default function WatchTimeHero({ totalMinutes, formatted }: Props) {
 
   return (
     <div
+      ref={ref}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       className="vault-card relative overflow-hidden p-5 md:p-8 isolate"
