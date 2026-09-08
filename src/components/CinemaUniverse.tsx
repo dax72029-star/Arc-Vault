@@ -170,11 +170,11 @@ export default function CinemaUniverse({ items, title = 'Your Cinema Universe', 
           </div>
           <span className="hidden md:inline-flex items-center gap-1.5 text-xs text-vault-muted bg-vault-surface-elevated border border-vault-border/30 rounded-full px-3 py-1.5"><Eye className="w-3.5 h-3.5" /> {completed.length} titles</span>
         </div>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2.5">
-          {completed.slice(0, 48).map((it) => (
+        <div className="grid perf-grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2.5">
+          {completed.map((it) => (
             <button key={it.id} onClick={() => navigate(`/title/${it.type}/${it.tmdbId}`)} className="group rounded-lg overflow-hidden bg-vault-card border border-vault-border/40 hover:border-vault-border transition-colors text-left">
               <div className="aspect-[2/3] overflow-hidden bg-vault-surface"><TMDBImage path={it.poster} alt={it.title} size="w185" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" fallbackClassName="w-full h-full" /></div>
-              <div className="p-1.5"><p className="text-[10px] font-medium text-vault-text truncate">{it.title}</p></div>
+              <div className="p-1.5"><p className="text-[10px] font-medium text-vault-text truncate">{it.title}</p><p className="text-[9px] text-vault-muted">{it.releaseYear} · {it.type === 'tv' ? 'Series' : 'Movie'}</p></div>
             </button>
           ))}
         </div>
