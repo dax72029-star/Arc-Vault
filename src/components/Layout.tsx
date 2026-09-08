@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import CursorAura from './CursorAura';
 import {
   Home,
   Film,
@@ -50,10 +51,10 @@ function BrandMark() {
 }
 
 export default function Layout({ children }: { children: ReactNode }) {
-  const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-vault-bg flex">
+    <div className="min-h-screen bg-vault-bg flex relative">
+      <CursorAura />
       <aside className="hidden lg:flex flex-col w-60 bg-vault-surface/60 backdrop-blur-vault-xl border-r border-vault-border/40 fixed h-full z-30">
         <div className="p-5 border-b border-vault-border/30 group">
           <BrandMark />

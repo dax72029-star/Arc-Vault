@@ -1,6 +1,7 @@
 import type { TrackerItem, TrackerSeries } from '../types';
 import { useNavigate } from 'react-router-dom';
 import { Heart, Star, Play, CheckCircle2, Clock, ChevronRight } from 'lucide-react';
+import { useRef, useState, useCallback } from 'react';
 import TMDBImage from './TMDBImage';
 import AnimatedProgress from './ProgressBar';
 
@@ -12,9 +13,25 @@ interface Props {
 
 export default function TitleCard({ item, showStatus = true, index = 0 }: Props) {
   const navigate = useNavigate();
+  const cardRef = useRef<HTMLButtonElement | null>(null);
+  const [tilt, setTilt] = useState({ rx: 0, ry: 0, x: 50, y: 50, active: false });
   const title = item.title;
   const year = item.releaseYear;
   const type = item.type === 'tv' ? 'TV' : 'Movie';
+
+  const onMove = useCallback((e: React.MouseEvent) => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+    const el = cardRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width;
+    const py = (e.clientY - rect.top) / rect.height;
+    const rx = (px - 0.5) * 2;
+    const ry = (py - 0.5) * 2;
+    setTilt({ rx, ry, x: px * 100, y: py * 100, active: true });
+  }, []);
+  const onLeave = useCallback(() => setTilt((t) => ({ ...t, rx: 0, ry: 0, active: false })), []);
 
   const statusMeta =
     item.status === 'completed'
@@ -27,12 +44,24 @@ export default function TitleCard({ item, showStatus = true, index = 0 }: Props)
 
   return (
     <button
+      ref={cardRef}
       onClick={() => navigate(`/title/${item.type}/${item.tmdbId}`)}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
       aria-label={`${title} (${year}, ${type}) — ${statusMeta.label}`}
       className="group relative rounded-xl overflow-hidden bg-vault-card border border-vault-border/40 hover:border-vault-border transition-all duration-300 text-left w-full shadow-vault-sm hover:shadow-vault-card-hover hover:-translate-y-1 vault-card-cinematic"
+      style={tilt.active ? { transform: `perspective(900px) rotateX(${-tilt.ry * 6}deg) rotateY(${tilt.rx * 8}deg) translateZ(0)` } : undefined}
     >
       <div className="aspect-[2/3] relative overflow-hidden bg-vault-surface [perspective:900px]">
-        <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.06] group-hover:[transform:rotateX(2deg)_scale(1.06)] will-change-transform">
+        <div
+          className="absolute inset-0 will-change-transform"
+          style={{
+            transform: tilt.active
+              ? `scale(1.06) rotateX(${-tilt.ry * 2}deg) rotateY(${tilt.rx * 2.2}deg)`
+              : undefined,
+            transition: tilt.active ? 'transform 120ms ease-out' : 'transform 500ms cubic-bezier(0,0,0.2,1)',
+          }}
+        >
           <TMDBImage
             path={item.poster}
             alt={title}
@@ -44,7 +73,17 @@ export default function TitleCard({ item, showStatus = true, index = 0 }: Props)
         </div>
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/20 opacity-80 group-hover:opacity-95 transition-opacity duration-300" />
-        <div className="absolute inset-0 bg-vault-gloss opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+          style={
+            tilt.active
+              ? {
+                  background: `radial-gradient(420px circle at ${tilt.x}% ${tilt.y}%, rgba(255,255,255,0.09), transparent 55%)`,
+                }
+              : undefined
+          }
+        />
+        <div className="absolute inset-0 bg-vault-gloss opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
         {item.favorite && (
           <div className="absolute top-2 right-2">

@@ -8,6 +8,7 @@ import FilterBar, { sortItems, type SortOption } from '../components/FilterBar';
 import EmptyState from '../components/EmptyState';
 import Reveal from '../components/Reveal';
 import PageFooter from '../components/PageFooter';
+import CinemaUniverse from '../components/CinemaUniverse';
 
 type FilterType = 'All' | 'Movies' | 'Series' | 'Favorites';
 
@@ -110,6 +111,12 @@ export default function Completed() {
           </div>
         </Reveal>
       )}
+
+      <div className="mt-10 md:mt-14 pt-8 md:pt-10 border-t border-vault-border/20">
+        <Reveal>
+          <CinemaUniverse items={items} />
+        </Reveal>
+      </div>
 
       <PageFooter />
     </div>
