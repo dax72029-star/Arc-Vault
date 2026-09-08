@@ -13,22 +13,38 @@ export default function CursorAura() {
     if (window.matchMedia('(pointer: coarse)').matches) return;
     if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
 
+    let running = true;
     const onMove = (e: MouseEvent) => {
       target.current.x = e.clientX;
       target.current.y = e.clientY;
     };
+    const onVisibility = () => {
+      if (document.hidden) {
+        if (raf.current) cancelAnimationFrame(raf.current);
+        raf.current = null;
+      } else if (!raf.current && running) {
+        raf.current = requestAnimationFrame(tick);
+      }
+    };
     const tick = () => {
+      if (document.hidden) {
+        raf.current = null;
+        return;
+      }
       pos.current.x += (target.current.x - pos.current.x) * 0.075;
       pos.current.y += (target.current.y - pos.current.y) * 0.075;
       if (ref.current) {
         ref.current.style.transform = `translate3d(${pos.current.x}px, ${pos.current.y}px, 0) translate(-50%, -50%)`;
       }
-      raf.current = requestAnimationFrame(tick);
+      if (running) raf.current = requestAnimationFrame(tick);
     };
     window.addEventListener('mousemove', onMove, { passive: true });
+    document.addEventListener('visibilitychange', onVisibility);
     raf.current = requestAnimationFrame(tick);
     return () => {
+      running = false;
       window.removeEventListener('mousemove', onMove);
+      document.removeEventListener('visibilitychange', onVisibility);
       if (raf.current) cancelAnimationFrame(raf.current);
     };
   }, [reduced]);

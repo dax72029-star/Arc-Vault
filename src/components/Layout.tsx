@@ -55,7 +55,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen bg-vault-bg flex relative">
       <CursorAura />
-      <aside className="hidden lg:flex flex-col w-60 bg-vault-surface/60 backdrop-blur-vault-xl border-r border-vault-border/40 fixed h-full z-30">
+      <aside className="hidden lg:flex flex-col w-60 bg-vault-surface/80 backdrop-blur-vault-md border-r border-vault-border/40 fixed h-full z-30">
         <div className="p-5 border-b border-vault-border/30 group">
           <BrandMark />
         </div>
@@ -103,7 +103,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       </aside>
 
       <main className="flex-1 lg:ml-60 pb-[76px] lg:pb-6">
-        <header className="lg:hidden sticky top-0 z-20 bg-vault-bg/85 backdrop-blur-vault-xl border-b border-vault-border/30 safe-top">
+        <header className="lg:hidden sticky top-0 z-20 bg-vault-bg/90 backdrop-blur-vault-md border-b border-vault-border/30 safe-top">
           <div className="flex items-center gap-2.5 px-4 py-3">
             <img src="/arc-vault-logo.png" alt="ArcVault" className="w-8 h-8 rounded-lg object-cover ring-1 ring-white/10" />
             <p className="text-[15px] font-display font-bold text-vault-text tracking-tight">ArcVault</p>
@@ -114,7 +114,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         </div>
       </main>
 
-      <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-vault-surface/95 backdrop-blur-vault-xl border-t border-vault-border/30 safe-bottom">
+      <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-vault-surface/95 backdrop-blur-vault-md border-t border-vault-border/30 safe-bottom">
         <div className="flex justify-around items-stretch h-[68px] px-1">
           {mobileNavItems.map((item) => (
             <NavLink

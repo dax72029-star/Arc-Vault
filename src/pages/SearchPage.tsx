@@ -257,7 +257,7 @@ export default function SearchPage() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2.5 sm:gap-3 md:gap-4">
+            <div className="grid perf-grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2.5 sm:gap-3 md:gap-4">
               {discoverItems.map((item, idx) => {
                 const title = item.title || item.name || 'Unknown';
                 const year = (item.release_date || item.first_air_date || '').split('-')[0];
@@ -273,7 +273,7 @@ export default function SearchPage() {
                         <TMDBImage
                           path={item.poster_path}
                           alt={title}
-                          size="w342"
+                          size="w185"
                           className="w-full h-full object-cover"
                           fallbackClassName="w-full h-full"
                           fallbackText="No Poster"

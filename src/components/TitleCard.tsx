@@ -1,7 +1,7 @@
 import type { TrackerItem, TrackerSeries } from '../types';
 import { useNavigate } from 'react-router-dom';
 import { Heart, Star, Play, CheckCircle2, Clock, ChevronRight } from 'lucide-react';
-import { useRef, useState, useCallback } from 'react';
+import { memo, useRef, useCallback } from 'react';
 import TMDBImage from './TMDBImage';
 import AnimatedProgress from './ProgressBar';
 
@@ -11,10 +11,11 @@ interface Props {
   index?: number;
 }
 
-export default function TitleCard({ item, showStatus = true, index = 0 }: Props) {
+function TitleCardInner({ item, showStatus = true }: Props) {
   const navigate = useNavigate();
   const cardRef = useRef<HTMLButtonElement | null>(null);
-  const [tilt, setTilt] = useState({ rx: 0, ry: 0, x: 50, y: 50, active: false });
+  const posterRef = useRef<HTMLDivElement | null>(null);
+  const glareRef = useRef<HTMLDivElement | null>(null);
   const title = item.title;
   const year = item.releaseYear;
   const type = item.type === 'tv' ? 'TV' : 'Movie';
@@ -23,15 +24,38 @@ export default function TitleCard({ item, showStatus = true, index = 0 }: Props)
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (window.matchMedia('(pointer: coarse)').matches) return;
     const el = cardRef.current;
-    if (!el) return;
+    const inner = posterRef.current;
+    const glare = glareRef.current;
+    if (!el || !inner) return;
     const rect = el.getBoundingClientRect();
     const px = (e.clientX - rect.left) / rect.width;
     const py = (e.clientY - rect.top) / rect.height;
     const rx = (px - 0.5) * 2;
     const ry = (py - 0.5) * 2;
-    setTilt({ rx, ry, x: px * 100, y: py * 100, active: true });
+    // P0: direct DOM write, no React state -> zero re-renders on mousemove
+    el.style.transform = `perspective(900px) rotateX(${-ry * 6}deg) rotateY(${rx * 8}deg) translateZ(0)`;
+    inner.style.transform = `scale(1.06) rotateX(${-ry * 2}deg) rotateY(${rx * 2.2}deg)`;
+    inner.style.transition = 'transform 120ms ease-out';
+    if (glare) {
+      glare.style.opacity = '1';
+      glare.style.background = `radial-gradient(420px circle at ${px * 100}% ${py * 100}%, rgba(255,255,255,0.09), transparent 55%)`;
+    }
   }, []);
-  const onLeave = useCallback(() => setTilt((t) => ({ ...t, rx: 0, ry: 0, active: false })), []);
+
+  const onLeave = useCallback(() => {
+    const el = cardRef.current;
+    const inner = posterRef.current;
+    const glare = glareRef.current;
+    if (el) el.style.transform = '';
+    if (inner) {
+      inner.style.transform = '';
+      inner.style.transition = 'transform 500ms cubic-bezier(0,0,0.2,1)';
+    }
+    if (glare) {
+      glare.style.opacity = '0';
+      glare.style.background = '';
+    }
+  }, []);
 
   const statusMeta =
     item.status === 'completed'
@@ -50,22 +74,13 @@ export default function TitleCard({ item, showStatus = true, index = 0 }: Props)
       onMouseLeave={onLeave}
       aria-label={`${title} (${year}, ${type}) — ${statusMeta.label}`}
       className="group relative rounded-xl overflow-hidden bg-vault-card border border-vault-border/40 hover:border-vault-border transition-all duration-300 text-left w-full shadow-vault-sm hover:shadow-vault-card-hover hover:-translate-y-1 vault-card-cinematic"
-      style={tilt.active ? { transform: `perspective(900px) rotateX(${-tilt.ry * 6}deg) rotateY(${tilt.rx * 8}deg) translateZ(0)` } : undefined}
     >
       <div className="aspect-[2/3] relative overflow-hidden bg-vault-surface [perspective:900px]">
-        <div
-          className="absolute inset-0 will-change-transform"
-          style={{
-            transform: tilt.active
-              ? `scale(1.06) rotateX(${-tilt.ry * 2}deg) rotateY(${tilt.rx * 2.2}deg)`
-              : undefined,
-            transition: tilt.active ? 'transform 120ms ease-out' : 'transform 500ms cubic-bezier(0,0,0.2,1)',
-          }}
-        >
+        <div ref={posterRef} className="absolute inset-0 will-change-transform" style={{ transition: 'transform 500ms cubic-bezier(0,0,0.2,1)' }}>
           <TMDBImage
             path={item.poster}
             alt={title}
-            size="w342"
+            size="w185"
             className="w-full h-full object-cover"
             fallbackClassName="w-full h-full"
             fallbackText="No Poster"
@@ -73,16 +88,7 @@ export default function TitleCard({ item, showStatus = true, index = 0 }: Props)
         </div>
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/20 opacity-80 group-hover:opacity-95 transition-opacity duration-300" />
-        <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-          style={
-            tilt.active
-              ? {
-                  background: `radial-gradient(420px circle at ${tilt.x}% ${tilt.y}%, rgba(255,255,255,0.09), transparent 55%)`,
-                }
-              : undefined
-          }
-        />
+        <div ref={glareRef} className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
         <div className="absolute inset-0 bg-vault-gloss opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
         {item.favorite && (
@@ -102,9 +108,7 @@ export default function TitleCard({ item, showStatus = true, index = 0 }: Props)
           <div className="flex items-center justify-between gap-1.5 mt-1">
             <div className="flex items-center gap-1.5 min-w-0">
               <span className="text-[10px] text-white/60">{year}</span>
-              <span className={`text-[9px] px-1.5 py-0.5 rounded-full font-medium ${
-                type === 'TV' ? 'bg-vault-info/20 text-vault-info' : 'bg-vault-accent/20 text-vault-accent'
-              }`}>
+              <span className={`text-[9px] px-1.5 py-0.5 rounded-full font-medium ${type === 'TV' ? 'bg-vault-info/20 text-vault-info' : 'bg-vault-accent/20 text-vault-accent'}`}>
                 {type}
               </span>
             </div>
@@ -140,10 +144,7 @@ export default function TitleCard({ item, showStatus = true, index = 0 }: Props)
                 <span>{progress.watched}/{progress.total} episodes</span>
                 <span>{progress.percentage}%</span>
               </div>
-              <AnimatedProgress
-                value={progress.percentage}
-                barClassName={progress.percentage >= 100 ? 'vault-progress-success' : 'vault-progress-accent'}
-              />
+              <AnimatedProgress value={progress.percentage} barClassName={progress.percentage >= 100 ? 'vault-progress-success' : 'vault-progress-accent'} />
             </div>
           )}
         </div>
@@ -154,13 +155,8 @@ export default function TitleCard({ item, showStatus = true, index = 0 }: Props)
 
 function getSeriesProgress(series: TrackerSeries): { watched: number; total: number; percentage: number } {
   const total = series.seasonProgress.reduce((sum, s) => sum + s.episodes.length, 0);
-  const watched = series.seasonProgress.reduce(
-    (sum, s) => sum + s.episodes.filter((e) => e.watched).length,
-    0
-  );
-  return {
-    watched,
-    total,
-    percentage: total > 0 ? Math.round((watched / total) * 100) : 0,
-  };
+  const watched = series.seasonProgress.reduce((sum, s) => sum + s.episodes.filter((e) => e.watched).length, 0);
+  return { watched, total, percentage: total > 0 ? Math.round((watched / total) * 100) : 0 };
 }
+
+export default memo(TitleCardInner);

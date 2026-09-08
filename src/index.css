@@ -355,14 +355,14 @@
     background: linear-gradient(0deg, var(--vault-bg) 0%, transparent 100%);
   }
 
-  /* Refined interactive card entrance */
+  /* P0: avoid promoting every card to a composited layer — was black-screen cause. Only promote on hover. */
   .vault-card-cinematic {
-    will-change: transform;
     transform: translateZ(0);
   }
 
   @media (hover: hover) and (pointer: fine) {
     .vault-card-cinematic:hover {
+      will-change: transform;
       box-shadow: var(--vault-shadow-lg), 0 0 30px -12px rgba(220, 38, 38, 0.35);
       border-color: rgba(35, 40, 64, 1);
       transform: translateY(-3px);
@@ -414,6 +414,12 @@
     .skeleton::after {
       animation: none;
     }
+  }
+
+  /* P0: large grids paint optimization — skip offscreen work */
+  .perf-grid {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 1000px;
   }
 
   @media (prefers-reduced-motion: reduce) {

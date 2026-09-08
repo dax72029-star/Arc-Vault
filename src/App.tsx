@@ -70,33 +70,40 @@ function NotFound() {
   );
 }
 
+function AppShell() {
+  const location = useLocation();
+  return (
+    <ErrorBoundary resetKey={location.pathname}>
+      <Layout>
+        <ScrollToTop />
+        <PageTransition>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/movies" element={<Movies />} />
+              <Route path="/series" element={<Series />} />
+              <Route path="/watching" element={<Watching />} />
+              <Route path="/watchlist" element={<Watchlist />} />
+              <Route path="/completed" element={<Completed />} />
+              <Route path="/statistics" element={<Statistics />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/search" element={<SearchPage />} />
+              <Route path="/search/:query" element={<SearchPage />} />
+              <Route path="/title/:type/:tmdbId" element={<TitleDetail />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </PageTransition>
+      </Layout>
+    </ErrorBoundary>
+  );
+}
+
 export default function App() {
   return (
     <BrowserRouter>
       <TrackerProvider>
-        <ErrorBoundary>
-          <Layout>
-            <ScrollToTop />
-            <PageTransition>
-              <Suspense fallback={<PageLoader />}>
-                <Routes>
-                  <Route path="/" element={<Dashboard />} />
-                  <Route path="/movies" element={<Movies />} />
-                  <Route path="/series" element={<Series />} />
-                  <Route path="/watching" element={<Watching />} />
-                  <Route path="/watchlist" element={<Watchlist />} />
-                  <Route path="/completed" element={<Completed />} />
-                  <Route path="/statistics" element={<Statistics />} />
-                  <Route path="/settings" element={<Settings />} />
-                  <Route path="/search" element={<SearchPage />} />
-                  <Route path="/search/:query" element={<SearchPage />} />
-                  <Route path="/title/:type/:tmdbId" element={<TitleDetail />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
-            </PageTransition>
-          </Layout>
-        </ErrorBoundary>
+        <AppShell />
       </TrackerProvider>
     </BrowserRouter>
   );

@@ -47,7 +47,10 @@ export default function TMDBImage({
       src={src}
       alt={alt}
       className={className}
-      loading={lazy ? 'lazy' : undefined}
+      loading={lazy ? 'lazy' : 'eager'}
+      decoding="async"
+      // @ts-ignore - fetchPriority is valid but not in TS DOM yet
+      fetchPriority={lazy ? 'low' : 'high'}
       onError={handleError}
     />
   );

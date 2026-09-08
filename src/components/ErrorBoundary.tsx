@@ -3,20 +3,32 @@ import { AlertTriangle } from 'lucide-react';
 
 interface Props {
   children: ReactNode;
+  resetKey?: string;
 }
 
 interface State {
   hasError: boolean;
+  prevResetKey?: string;
 }
 
 export default class ErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { hasError: false };
+    this.state = { hasError: false, prevResetKey: props.resetKey };
   }
 
   static getDerivedStateFromError(): State {
     return { hasError: true };
+  }
+
+  static getDerivedStateFromProps(props: Props, state: State): Partial<State> | null {
+    if (props.resetKey !== state.prevResetKey && state.hasError) {
+      return { hasError: false, prevResetKey: props.resetKey };
+    }
+    if (props.resetKey !== state.prevResetKey) {
+      return { prevResetKey: props.resetKey };
+    }
+    return null;
   }
 
   render() {
