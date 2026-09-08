@@ -58,7 +58,7 @@ export default function FilterBar({
             key={filter}
             onClick={() => onFilterChange(filter)}
             aria-pressed={activeFilter === filter}
-            className={`px-3.5 py-1.5 rounded-lg text-[12px] font-medium transition-all duration-200 whitespace-nowrap flex-shrink-0 vault-card-cinematic ${
+            className={`px-3.5 py-1.5 rounded-lg text-[12px] font-medium transition-all duration-200 whitespace-nowrap flex-shrink-0 vault-card-cinematic active:scale-[0.98] ${
               activeFilter === filter
                 ? 'bg-vault-accent text-white shadow-sm shadow-vault-accent/20'
                 : 'bg-vault-surface-elevated text-vault-muted hover:text-vault-text hover:bg-vault-surface-hover border border-vault-border/30'

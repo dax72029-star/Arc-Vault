@@ -25,6 +25,7 @@ export default function TMDBImage({
   lazy = true,
 }: TMDBImageProps) {
   const [imgError, setImgError] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   const handleError = useCallback(() => {
     if (!imgError) setImgError(true);
@@ -46,11 +47,12 @@ export default function TMDBImage({
     <img
       src={src}
       alt={alt}
-      className={className}
+      className={`${className} ${loaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
       loading={lazy ? 'lazy' : 'eager'}
       decoding="async"
       // @ts-ignore - fetchPriority is valid but not in TS DOM yet
       fetchPriority={lazy ? 'low' : 'high'}
+      onLoad={() => setLoaded(true)}
       onError={handleError}
     />
   );

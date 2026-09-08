@@ -161,7 +161,7 @@
   }
 
   .vault-btn-primary:active {
-    transform: translateY(0);
+    transform: translateY(0) scale(0.99);
     box-shadow: var(--vault-shadow-sm);
   }
 
@@ -172,6 +172,10 @@
   .vault-btn-secondary:hover {
     @apply border-vault-border;
     box-shadow: var(--vault-shadow-sm);
+  }
+
+  .vault-btn-secondary:active {
+    transform: scale(0.99);
   }
 
   .vault-btn-ghost {
@@ -304,13 +308,13 @@
     padding-top: env(safe-area-inset-top, 0px);
   }
 
-  /* Scroll reveal system */
+  /* Scroll reveal system — tuned for snappy, not blocking */
   .reveal {
     opacity: 0;
     transform: translateY(14px);
     transition:
-      opacity 0.55s cubic-bezier(0, 0, 0.2, 1),
-      transform 0.55s cubic-bezier(0, 0, 0.2, 1);
+      opacity 0.45s cubic-bezier(0, 0, 0.2, 1),
+      transform 0.45s cubic-bezier(0, 0, 0.2, 1);
     will-change: opacity, transform;
   }
 
@@ -366,6 +370,10 @@
       box-shadow: var(--vault-shadow-lg), 0 0 30px -12px rgba(220, 38, 38, 0.35);
       border-color: rgba(35, 40, 64, 1);
       transform: translateY(-3px);
+    }
+    .vault-card-cinematic:active {
+      transform: translateY(-1px) scale(0.99);
+      transition-duration: 100ms;
     }
   }
 
